@@ -1,0 +1,744 @@
+:root {
+      --white-color: #fff;
+      --black-color: #000;
+      --text-color: #333;
+      --text-lightgray: rgba(0, 0, 0, 0.26);
+      --text-hover: #fafafa;
+}
+
+* {
+      box-sizing: inherit;
+      /* border: 1px dotted var(--black-color); */
+}
+
+ul {
+      display: block;
+      list-style-type: disc;
+      margin-block-start: 0;
+      margin-block-end: 0;
+      margin-inline-start: 0;
+      margin-inline-end: 0;
+      padding-inline-start: 0;
+}
+
+.btn {
+      overflow: hidden;
+      display: -webkit-box;
+      text-overflow: ellipsis;
+      -webkit-line-clamp: 1;
+      flex-direction: column;
+      font-size: 14px;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .09);
+      border-radius: 2px;
+      border: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-transform: capitalize;
+      outline: 0;
+      cursor: pointer;
+}
+
+.btn--inline {
+      display: inline-flex;
+}
+
+.btn--m {
+      height: 40px;
+      padding: 0 20px;
+      min-width: 70px;
+      max-width: 220px;
+}
+
+.btn-light {
+      background: #fff;
+      color: #555;
+      border: 1px solid rgba(0, 0, 0, .09);
+      box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .03);
+}
+
+.btn-light--link {
+      color: #555;
+}
+
+/*  Textbox có nút đóng  */
+.clearable {
+      background: #fff url(data:image/gif;base64,R0lGODlhBwAHAIAAAP///5KSkiH5BAAAAAAALAAAAAAHAAcAAAIMTICmsGrIXnLxuDMLADs=) no-repeat right -10px center;
+      border: 1px solid #999;
+      padding: 3px 18px 3px 4px;
+      border-radius: 3px;
+      transition: background 0.4s;
+}
+
+.clearable.x {
+      background-position: right 5px center;
+}
+
+.clearable.onX {
+      cursor: pointer;
+}
+
+.clearable::-ms-clear {
+      display: none;
+      width: 0;
+      height: 0;
+}
+
+html {
+      font-size: 62.5%;
+      line-height: 1.6rem;
+      font-family: "Roboto", sans-serif;
+      box-sizing: border-box;
+}
+
+/* React JS */
+.reactJS-25r8I {
+      position: relative;
+}
+
+.reactJS_2GchKS {
+      opacity: 1;
+      transition: opacity 0.2s ease;
+}
+
+.reactJS_2xY8te {
+      background-color: #BE1E2D;
+}
+
+.reactJS_36vTKx {
+      width: 36px;
+      height: 32px;
+}
+
+.reactJS_3iRehQ {
+      display: inline-block;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      position: relative;
+      padding: 4px 2px 3px;
+      font-weight: 700;
+}
+
+.reactJS_2xY8te:after {
+      content: "";
+      width: 0;
+      height: 0;
+      left: 0;
+      bottom: -3px;
+      position: absolute;
+      border-color: transparent #BE1E2D;
+      border-style: solid;
+      border-width: 0 18px 4px;
+}
+
+.reactJS_2TDZGE {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      position: relative;
+      font-weight: 400;
+      line-height: 1.3rem;
+      color: white;
+      text-transform: uppercase;
+      font-size: 8px;
+}
+
+.reactJS_17XqBU {
+      color: #fff;
+}
+
+.reactJS_2V1Vu {
+      display: flex;
+}
+
+.homepage-mall-section .reactJS_2jXJnV {
+      display: block;
+      text-decoration: none;
+      color: #d0011b;
+      text-transform: uppercase;
+      font-weight: 500;
+      font-size: 1.7rem;
+      line-height: 1.7rem;
+      align-self: center;
+}
+
+.homepage-mall-section .reactJS_2QwDm3 {
+      cursor: pointer;
+}
+
+.reactJS_2Kl5gH {
+      flex: 1;
+      font-weight: 400;
+      text-transform: capitalize;
+      margin-left: 15px;
+      padding-left: 15px;
+      border-left: 1px solid #d8d8d8;
+      display: flex;
+      align-items: center;
+}
+
+.reactJS_2Kl5gH .reactJS_sQprQi {
+      display: flex;
+      align-items: center;
+      margin-right: 15px;
+      color: #333;
+      white-space: nowrap;
+      height: 2rem;
+}
+
+.reactJS_2Kl5gH .reactJS_2SCKPT {
+      height: 1.7rem;
+      width: 1.7rem;
+      margin-right: 6px;
+}
+
+.reactJS_19fjwV {
+      display: flex;
+      align-items: baseline;
+      cursor: pointer;
+}
+
+.reactJS_3WSAH5 {
+      display: flex;
+      color: #d0011b;
+      height: 2rem;
+}
+
+.reactJS_2TyZyx {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 1.8rem;
+      height: 1.8rem;
+      background-color: #d0011b;
+      margin-left: 0.8rem;
+      border-radius: 50%;
+}
+
+.reactJS_2TyZyx>.icon-arrow-right {
+      stroke: #fff;
+      width: 0.75rem;
+      height: 1rem;
+}
+
+.homepage-mall-section .reactJS_1gcn8R {
+      width: 325px;
+      height: 490px;
+      display: inline-block;
+      padding: 10px 0 10px 10px;
+      background-color: #fff;
+      vertical-align: top;
+}
+
+.reactJS_1QAEyW {
+      overflow: unset;
+      width: 80rem;
+      display: inline-block;
+}
+
+.reactJS_1QAEyW, .QKY3Jf {
+      background-color: #fff;
+}
+
+.reactJS_pGTvY {
+      display: flex;
+      text-decoration: none;
+      overflow: hidden;
+}
+
+.reactJS_3I4gP6 {
+      flex: 0 1 auto;
+      width: 20%;
+      border-right: 1px solid rgba(0, 0, 0, .05);
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      padding-right: 10px;
+}
+
+.reactJS_2qZOjQ {
+      flex: 13 0;
+      min-width: 0;
+}
+
+.reactJS_29Ffc {
+      padding: 2rem 1rem 2rem 1rem;
+}
+
+.reactJS_3KoGe {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      color: #222;
+      font-weight: 500;
+      text-transform: capitalize;
+      font-size: 14px;
+}
+
+.reactJS_2OKBb0 {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      margin-top: 0.5rem;
+      color: #757575;
+      font-size: 1.3rem;
+}
+
+.reactJS_V53Muj {
+      flex: 10 0;
+}
+
+.reactJS_3FmA9R {
+      width: 100%;
+      padding-top: 100%;
+}
+
+.reactJS_3b6QpT {}
+
+.reactJS_3b6QpT .reactJS_1LyPB {
+      color: #BE1E2D;
+}
+
+.reactJS_3b6QpT .shopee-header-section__content {
+      display: flex;
+      background-color: #fff;
+}
+
+.reactJS_3cAq1q {
+      display: flex;
+      width: 100%;
+}
+
+.reactJS_2xaiMR {
+      flex: 1 0;
+      max-width: 16.66667% !important;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+}
+
+.reactJS_30vIDo, .reactJS_qJTSM5 {
+      position: relative;
+}
+
+.reactJS_qJTSM5 {
+      display: flex;
+}
+
+.reactJS_2j61U1 {
+      padding: 2rem 1rem;
+}
+
+/* .reactJS_2Uy3h {
+      background-image: url(https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/assets/06720e49514cbd94b7552496b4de454a.png);
+} */
+.reactJS_2Uy3h, .reactJS_3c4s9s, .reactJS_28NYkl, .reactJS_vaO6OQ {
+      background-repeat: no-repeat;
+      background-size: 2.4rem 3rem;
+}
+
+.reactJS_1qoDIm {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      width: 3.2rem;
+      height: 4rem;
+      background-size: 3.2rem 4rem;
+}
+
+.reactJS_b5h6nF, .reactJS_GqgJnR {
+      position: absolute;
+      width: 100%;
+}
+
+.reactJS_b5h6nF {
+      bottom: 0;
+      left: 0;
+      height: 2.5rem;
+      background-color: rgba(0, 0, 0, .26);
+      color: #fff;
+      text-align: center;
+}
+
+.reactJS_2wthtC, .reactJS_b5h6nF {
+      line-height: 2.5rem;
+      font-weight: 500;
+      font-size: 14px;
+}
+
+.reactJS_30vIDo, .reactJS_qJTSM5 {
+      position: relative;
+}
+
+.reactJS_30vIDo {
+      width: 100%;
+      padding-top: 100%;
+}
+
+.reactJS_25r8I.reactJS_30vIDo:hover {
+      transform: translateY(-4px);
+      transition: all .5s;
+}
+
+.reactJS_3FmA9R.reactJS_2GchKS:hover {
+      transform: scale(1.05);
+      transition: all .5s;
+}
+
+.reactJS_2wthtC {
+      overflow: hidden;
+      display: -webkit-box;
+      text-overflow: ellipsis;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      margin-top: 2rem;
+      color: #555;
+      font-size: 1.8rem;
+      text-align: left;
+      text-transform: capitalize;
+      word-break: break-word;
+}
+
+.reactJS_GqgJnR {
+      top: 50%;
+      left: 50%;
+      max-width: 100%;
+      max-height: 100%;
+      -webkit-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+}
+
+.reactJS_3cAq1q a {
+      text-decoration: none;
+}
+
+.reactJS_lpQk8i {
+      opacity: 0;
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: .4rem;
+      background-color: #ee4d2d;
+      transition: opacity .3s;
+}
+
+.reactJS_8eDJwS .stardust-tabs-header__tab--active .reactJS_KYaVhX {
+      opacity: 1;
+}
+
+.reactJS_85W0IA {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      display: flex;
+      position: relative;
+      max-width: 100%;
+      color: #ee4d2d;
+      text-transform: uppercase;
+      align-items: center;
+}
+
+.reactJS_8eDJwS .stardust-tabs-panels__panel {
+      min-height: 6rem;
+}
+
+.reactJS_1syN0y {
+      display: flex;
+      flex-wrap: wrap;
+      align-content: flex-start;
+      padding-top: .5rem;
+}
+
+.reactJS_1YAByT {
+      width: 16.66667%;
+      padding: 0.5rem;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+}
+
+.reactJS_3QUP7l, .reactJS_3QUP7l .reactJS_9qe9lA {
+      height: 100%;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+}
+
+.reactJS_3QUP7l .reactJS_9qe9lA {
+      text-decoration: none;
+      color: rgba(0, 0, 0, .87);
+      display: block;
+      box-shadow: 0 .1rem .2rem 0 rgba(0, 0, 0, .1);
+      border-radius: .2rem;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      background: #fff;
+      position: relative;
+      overflow: visible;
+      cursor: pointer;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      padding: 0;
+      transition: box-shadow .1s cubic-bezier(.4, 0, .6, 1), -webkit-transform .1s cubic-bezier(.4, 0, .6, 1);
+      transition: transform .1s cubic-bezier(.4, 0, .6, 1), box-shadow .1s cubic-bezier(.4, 0, .6, 1);
+      transition: transform .1s cubic-bezier(.4, 0, .6, 1), box-shadow .1s cubic-bezier(.4, 0, .6, 1), -webkit-transform .1s cubic-bezier(.4, 0, .6, 1);
+}
+
+.reactJS_3QUP7l .reactJS_2q9Gjc {
+      overflow: visible;
+      border: 1px solid transparent;
+}
+
+.reactJS_ggJllv {
+      width: 100%;
+}
+
+.reactJS_3zWriB {
+      padding: 1rem;
+      overflow: hidden;
+}
+
+.reactJS_2pfw2D, .reactJS_3zWriB {
+      flex: 1 0 auto;
+      display: flex;
+      flex-direction: column;
+}
+
+.reactJS_3NVVi {
+      position: absolute;
+      right: 0;
+      top: 0;
+}
+
+.reactJS_3yCxz {
+      display: inline-block;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      position: relative;
+      padding: 4px 2px 3px;
+      font-weight: 700;
+      background-color: #BE1E2D;
+}
+
+.reactJS_3aFlEb {
+      width: 36px;
+      height: 32px;
+}
+
+.reactJS_3Kq1f {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      position: relative;
+      font-weight: 400;
+      line-height: 1.3rem;
+      color: white;
+      text-transform: uppercase;
+      font-size: 1.2rem;
+}
+
+.reactJS_WL8HRl {
+      color: #fff;
+}
+
+.reactJS_1N6I4W {
+      flex-grow: 1;
+      min-height: 2.8rem;
+}
+
+.reactJS_10Wbs {
+      display: inline;
+      line-height: 14px;
+      font-size: 1.2rem;
+}
+
+.reactJS_UjjMrh.reactJS_UjjMrh {
+      display: inline-block;
+      word-wrap: break-word;
+      overflow: hidden;
+      display: -webkit-box;
+      text-overflow: ellipsis;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+}
+
+.reactJS_1zR5G3 {
+      padding: .5rem 0 0;
+      display: flex;
+      height: 2.4rem;
+      align-items: center;
+      overflow: hidden;
+}
+
+.reactJS_2Jvcf {
+      align-items: baseline;
+      max-width: 100%;
+}
+
+.reactJS_2VIlt8 {
+      color: rgba(0, 0, 0, .87);
+      margin-left: .5rem;
+      font-size: 1.2rem;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+}
+
+.reactJS_2lMdJA.reactJS_2lMdJA, .reactJS_3Oai0w {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+}
+
+.reactJS_zp9xm9 {
+      display: inline;
+}
+
+.reactJS_3Oai0w {
+      flex-grow: 1;
+      color: #ee4d2d;
+}
+
+.reactJS_1qp1Qy {
+      font-size: 1.2rem;
+      color: #ee4d2d;
+}
+
+.reactJS_18rPUd {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      font-size: 1.6rem;
+      color: #BE1E2D;
+}
+
+.reactJS_3N5L6 {
+      width: 188px;
+      height: 188px;
+}
+
+.reactJS_1YAByT a {
+      text-decoration: none;
+}
+
+.reactJS_3BrES5 {
+      width: 100%;
+      margin-top: 3rem;
+      text-align: center;
+}
+
+.reactJS_3PNTgJ {
+      min-width: 39rem;
+      height: 4rem;
+      text-decoration: none;
+}
+
+.btn-light:active, .btn-light:hover {
+      background: rgba(0, 0, 0, .02);
+}
+
+/* End */
+.grid {
+      width: 1200px;
+      max-width: 100%;
+      margin: 0 auto;
+}
+
+.grid__full-width {
+      width: 100%;
+}
+
+.grid__row {
+      display: flex;
+      flex-wrap: wrap;
+}
+
+.text-bold {
+      font-weight: 400;
+}
+
+.seperate::after {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 1px;
+      height: 14px;
+      background-color: #fb9086;
+      right: -10px;
+      top: 1px;
+}
+
+.mg-r-4 {
+      margin-right: 0.4rem;
+}
+
+.mg-l-8 {
+      margin-left: 0.8rem;
+}
+
+.mg-t-30 {
+      margin-top: 30px;
+}
+
+.mg-b-30 {
+      margin-bottom: 30px;
+}
+
+.mg-middle-1 {
+      margin-left: 1px;
+      margin-right: 1px;
+}
+
+.pd-top-0 {
+      padding-top: 0 !important;
+}
+
+.shopee-header-section--simple {
+      padding-top: 2rem;
+}
+
+.shopee-header-section--simple .shopee-header-section__header__title {
+      font-size: 1.6rem;
+      color: rgba(0, 0, 0, 0.54);
+      font-weight: 500;
+}
+
+.shopee-header-section__header__title {
+      font-size: 2rem;
+      text-transform: uppercase;
+      -webkit-flex: 1;
+      -moz-box-flex: 1;
+      -ms-flex: 1;
+      flex: 1;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      margin-right: 20px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+      from {
+            transform: scale(0);
+            opacity: 0;
+      }
+
+      to {
+            transform: scale(1);
+            opacity: 1;
+      }
+}
+
+@keyframes fade {
+      from {
+            opacity: 0;
+      }
+
+      to {
+            opacity: 1;
+      }
+}
