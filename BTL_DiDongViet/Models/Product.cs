@@ -9,6 +9,7 @@ namespace BTL_DiDongViet.Models
     public partial class Product
     {
         [StringLength(10)]
+        [Key]
         public string ID { get; set; }
 
         [StringLength(250)]

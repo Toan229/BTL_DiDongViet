@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
+
+//Hiển thị thông tin liên hệ, chính sách khách hàng
 namespace BTL_DiDongViet.Controllers
 {
     public class InformationController : Controller

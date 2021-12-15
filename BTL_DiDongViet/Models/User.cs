@@ -1,4 +1,4 @@
-namespace BTL_DiDongViet.Models
+﻿namespace BTL_DiDongViet.Models
 {
     using System;
     using System.Collections.Generic;
@@ -10,15 +10,19 @@ namespace BTL_DiDongViet.Models
     public partial class User
     {
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [Key]
         public long ID { get; set; }
 
         [StringLength(50)]
+        [Required(ErrorMessage = "Không được bỏ trống userame")]
         public string Username { get; set; }
 
         [StringLength(32)]
+        [Required(ErrorMessage = "Không được bỏ trống password")]
         public string Password { get; set; }
 
         [StringLength(50)]
+        [Required(ErrorMessage = "Không được bỏ trống tên")]
         public string Name { get; set; }
 
         [StringLength(250)]
