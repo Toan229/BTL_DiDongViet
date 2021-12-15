@@ -9,7 +9,8 @@
     [Table("User")]
     public partial class User
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        //DatabaseGeneratedOption.Identity - Tự động sinh ra khi thêm mới
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]
         public long ID { get; set; }
 
