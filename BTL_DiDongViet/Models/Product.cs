@@ -8,26 +8,36 @@ namespace BTL_DiDongViet.Models
 
     public partial class Product
     {
-        [StringLength(10)]
-        [Key]
-        public string ID { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Product()
+        {
+            Feedbacks = new HashSet<Feedback>();
+            OrderDetails = new HashSet<OrderDetail>();
+        }
 
+        public long ID { get; set; }
+
+        [Required]
         [StringLength(250)]
         public string ProductName { get; set; }
+
+        public long? CategoryID { get; set; }
 
         [StringLength(50)]
         public string Storage { get; set; }
 
         [Column(TypeName = "money")]
-        public decimal? Price { get; set; }
+        public decimal Price { get; set; }
 
+        [Required]
         [StringLength(50)]
         public string Color { get; set; }
 
         public decimal? Sale { get; set; }
 
-        public long? Quantity { get; set; }
+        public long Quantity { get; set; }
 
+        [Required]
         [StringLength(50)]
         public string Image { get; set; }
 
@@ -39,5 +49,15 @@ namespace BTL_DiDongViet.Models
 
         [StringLength(250)]
         public string Insurance { get; set; }
+
+        public long? NumberOfPurchases { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Feedback> Feedbacks { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<OrderDetail> OrderDetails { get; set; }
+
+        public virtual ProductCategory ProductCategory { get; set; }
     }
 }

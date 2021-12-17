@@ -1,4 +1,4 @@
-﻿namespace BTL_DiDongViet.Models
+namespace BTL_DiDongViet.Models
 {
     using System;
     using System.Collections.Generic;
@@ -9,21 +9,22 @@
     [Table("User")]
     public partial class User
     {
-        //DatabaseGeneratedOption.Identity - Tự động sinh ra khi thêm mới
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        [Key]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public User()
+        {
+            Feedbacks = new HashSet<Feedback>();
+            Orders = new HashSet<Order>();
+        }
+
         public long ID { get; set; }
 
         [StringLength(50)]
-        [Required(ErrorMessage = "Không được bỏ trống userame")]
         public string Username { get; set; }
 
         [StringLength(32)]
-        [Required(ErrorMessage = "Không được bỏ trống password")]
         public string Password { get; set; }
 
         [StringLength(50)]
-        [Required(ErrorMessage = "Không được bỏ trống tên")]
         public string Name { get; set; }
 
         [StringLength(250)]
@@ -46,5 +47,11 @@
 
         [StringLength(250)]
         public string ModifiedBy { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Feedback> Feedbacks { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Order> Orders { get; set; }
     }
 }

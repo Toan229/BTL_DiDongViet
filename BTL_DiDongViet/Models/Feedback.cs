@@ -9,18 +9,19 @@ namespace BTL_DiDongViet.Models
     [Table("Feedback")]
     public partial class Feedback
     {
-        [StringLength(10)]
-        public string ID { get; set; }
+        public long ID { get; set; }
 
-        [StringLength(10)]
-        public string ProductID { get; set; }
+        public long? ProductID { get; set; }
 
-        [StringLength(10)]
-        public string UserID { get; set; }
+        public long? UserID { get; set; }
 
         [StringLength(500)]
         public string FBContent { get; set; }
 
         public DateTime? CreatedDate { get; set; }
+
+        public virtual Product Product { get; set; }
+
+        public virtual User User { get; set; }
     }
 }

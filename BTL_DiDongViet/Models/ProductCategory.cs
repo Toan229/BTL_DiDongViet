@@ -13,11 +13,12 @@ namespace BTL_DiDongViet.Models
         public ProductCategory()
         {
             ProductCategory1 = new HashSet<ProductCategory>();
+            Products = new HashSet<Product>();
         }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public long ID { get; set; }
 
+        [Required]
         [StringLength(250)]
         public string Name { get; set; }
 
@@ -40,5 +41,8 @@ namespace BTL_DiDongViet.Models
         public virtual ICollection<ProductCategory> ProductCategory1 { get; set; }
 
         public virtual ProductCategory ProductCategory2 { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Product> Products { get; set; }
     }
 }

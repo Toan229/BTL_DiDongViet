@@ -14,8 +14,149 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
 </head>
 <body>
-    <div class="container body-content">
+    <header class="header">
+        <div class="grid">
+            <nav class="header-navbar">
+                <ul class="navbar-list">
+                    <!-- <li class="navbar-list__item"> <a href="" class="navbar-list__link">Giới thiệu</a> </li> <li class="navbar-list__item"> <a href="" class="navbar-list__link">Tin tức</a> </li> -->
+                </ul>
+                <ul class="navbar-list">
+                    <li class="navbar-list__item">
+                        <a href="#" class="navbar-list__link">
+                            <i class="fas fa-bookmark" style="margin-right: 6px;"></i>
+                            Giới thiệu
+                        </a>
+                    </li>
+                    <li class="navbar-list__item">
+                        <a href="#" class="navbar-list__link">
+                            <div class="navbar__help-center-icon">
+                                <svg height="16" viewBox="0 0 16 16" width="16" class="shopee-svg-icon icon-help-center">
+                                    <g fill="none" fill-rule="evenodd" transform="translate(1)">
+                                        <circle cx="7" cy="8" r="7" stroke="currentColor"></circle>
+                                        <path fill="currentColor" d="m6.871 3.992c-.814 0-1.452.231-1.914.704-.462.462-.693 1.089-.693 1.892h1.155c0-.484.099-.858.297-1.122.22-.319.583-.473 1.078-.473.396 0 .715.11.935.33.209.22.319.517.319.902 0 .286-.11.55-.308.803l-.187.209c-.682.605-1.1 1.056-1.243 1.364-.154.286-.22.638-.22 1.045v.187h1.177v-.187c0-.264.055-.506.176-.726.099-.198.253-.396.462-.572.517-.451.825-.737.924-.858.275-.352.418-.803.418-1.342 0-.66-.22-1.188-.66-1.573-.44-.396-1.012-.583-1.716-.583zm-.198 6.435c-.22 0-.418.066-.572.22-.154.143-.231.33-.231.561 0 .22.077.407.231.561s.352.231.572.231.418-.077.572-.22c.154-.154.242-.341.242-.572s-.077-.418-.231-.561c-.154-.154-.352-.22-.583-.22z"></path>
+                                    </g>
+                                </svg>
+                            </div>
+                            Liên Hệ
+                        </a>
+                    </li>
+                    <li class="navbar-list__item">
+                        <i class="fas fa-user"></i>
+                        <a href="/sign_up.html" class="navbar-list__link">Username</a>
+                    </li>
+                    <!-- <li class="navbar-list__item"> <a href="/log_in.html" class="navbar-list__link">Đăng nhập</a> </li> -->
+                </ul>
+            </nav>
+        </div>
+        <div class="grid">
+            <div class="header-with-search">
+                <!-- Header Search Begin -->
+                <a class="header-with-search__logo-section" href="/">
+                    <img src="https://didongviet.vn/pub/media/logo/stores/1/logo-ddv.png" style="margin-right: 10px;">
+                </a>
+                <!-- Search Bar Begin -->
+                <div class="search-bar">
+                    <!-- Search Input Begin -->
+                    <div class="search-input-wrapper">
+                        <input class="clearable search-input" type="text" name="" value="" placeholder="Nhấn để tìm kiếm sản phẩm">
+                        <!-- Search History Begin -->
+                        <div class="search-history">
+                            <div class="search-history__header">
+                                10.10 Official Sale
+                                <img src="https://cf.shopee.vn/file/f13b16e7b84f6f0f3bbb73fcb3739b6b" height="24">
+                            </div>
+                            <ul class="search-history__list">
+                                <li class="list__item">
+                                    <a href="">Kem duong da</a>
+                                </li>
+                                <li class="list__item">
+                                    <a href="">Kem duong da</a>
+                                </li>
+                                <li class="list__item">
+                                    <a href="">Kem tri mun</a>
+                                </li>
+                                <li class="list__item">
+                                    <a href="">Kem duong da</a>
+                                </li>
+                                <li class="list__item">
+                                    <a href="">Kem duong da</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- Search History End -->
+                    </div>
+                    <!-- Search Input End -->
+                    <!-- Search Btn Begin -->
+                    <button type="button" name="button" class="search-btn">
+                        <div class="search-wrapper">
+                            <i class="fas fa-search"></i>
+                        </div>
+                    </button>
+                    <!-- Search Btn End -->
+                </div>
+                <!-- Search Bar End -->
+                <!-- Cart Begin -->
+                <div class="cart-wrapper">
+                    <div class="cart">
+                        <a href="cart.html" style="text-decoration: none">
+                            <i class="fas fa-shopping-cart" style="font-size: 24px; color: white;"></i>
+                            <div class="shopee-cart-number-badge">1</div>
+                        </a>
+                    </div>
+                </div>
+                <!-- Cart End -->
+            </div>
+            <!-- Header Search End -->
+        </div>
+    </header>
+    <div class="home-page-wrapper">
         <div class="home-page">
+            <div class="product-category">
+                <div class="container">
+                    <div class="left">
+                        <ul>
+                            <li>
+                                <i class="fas fa-mobile"></i>
+                                <span>Điện thoại</span>
+                            </li>
+                            <li>
+                                <i class="fab fa-apple"></i>
+                                <span>Apple Iphone</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-tablet-alt"></i>
+                                <span>Tablet</span>
+                            </li>
+                            <li>
+                                <i class="far fa-clock"></i>
+                                <span>Đồng hồ</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-keyboard"></i>
+                                <span>Phụ kiện</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-sync-alt"></i>
+                                <span>Máy cũ giá rẻ</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="right">
+                        <div class="wrapper">
+                            <i></i>
+                            <span>
+                                Tin tức
+                            </span>
+                        </div>
+                        <div class="wrapper">
+                            <i></i>
+                            <span>
+                                Chính sách
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
             @RenderBody()
         </div>
         <hr />
@@ -35,7 +176,7 @@
                                     @Html.ActionLink("Liên hệ", "Contact", "Information")
                                 </li>
                                 <li>
-                                    @Html.ActionLink("Tin tức", "Index", "News")
+                                    @Html.ActionLink("Tin tức", "News", "News")
                                 </li>
                                 <li>
                                     @Html.ActionLink("Chính sách bán hàng", "Contact", "Information")
