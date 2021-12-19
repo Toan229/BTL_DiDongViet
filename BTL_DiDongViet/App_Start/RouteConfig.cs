@@ -18,6 +18,27 @@ namespace BTL_DiDongViet
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Information", action = "Contact", id = UrlParameter.Optional }
             );
+            // dang nhap
+            routes.MapRoute(
+                name: "DangNhap",
+                url: "Users/Login",
+                defaults: new { controller = "Users", action = "Login", id = UrlParameter.Optional },
+                namespaces: new[] { "BTL_DiDongViet.Controllers" }
+            );
+            // dang ky
+            routes.MapRoute(
+               name: "DangKy",
+               url: "Users/Register",
+               defaults: new { controller = "Users", action = "Register", id = UrlParameter.Optional },
+               namespaces: new[] { "FoodShopOnline.Controllers" }
+           );
+
+            routes.MapRoute(
+                name: "home",
+                url: "Users/Create",
+                defaults: new { controller = "Users", action = "Create", id = UrlParameter.Optional },
+                namespaces: new[] { "BTL_DiDongViet.Controllers" }
+            );
         }
     }
 }

@@ -1,4 +1,7 @@
-﻿using System;
+﻿using BTL_DiDongViet.Models;
+using BTL_DiDongViet.Models.Dao;
+using BTL_DiDongViet.Common;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -6,7 +9,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using BTL_DiDongViet.Models;
+
 
 namespace BTL_DiDongViet.Controllers
 {
@@ -20,11 +23,68 @@ namespace BTL_DiDongViet.Controllers
             return View();
         }
 
+        public ActionResult LoginIndex()
+        {
+            return View();
+        }
+
+        public ActionResult Login(LoginClientModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var dao = new UserDao();
+                // var result = dao.Login(model.Username, Encryptor.MD5Hash(model.Password));
+                var result = dao.Login(model.Username, model.Password);
+
+                if (result == 1)
+                {
+                    var user = dao.GetByID(model.Username);
+                    var userSession = new UserLogin();
+                    userSession.Username = user.Username;
+                    userSession.UserID = user.ID;
+                    userSession.Name = user.Name;
+                    userSession.Phone = user.Phone;
+                    userSession.Address = user.Address;
+                    userSession.Email = user.Email;
+                    Session.Add(CommonConstants.CLIENT_SESSION, userSession);
+                    return RedirectToRoute("home");
+                }
+                else 
+                if (result == 0)
+                {
+                    ModelState.AddModelError("", "Tài khoản này không tồn tại.");
+                }
+                else if (result == -1)
+                {
+                    ModelState.AddModelError("", "Tài khoản này đang bị khóa.");
+                }
+                else if (result == -2)
+                {
+                    ModelState.AddModelError("", "Sai mật khẩu");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Đăng nhập sai.");
+                }
+            }
+            
+
+            return View("LoginIndex");
+            
+        }
+
+        public ActionResult Register()
+        {
+            return View();
+        }
+
+
+
         // POST: Users/Create
         // Để bảo vệ khỏi overposting attacks, phải chỉ định các thuộc tính cụ thể 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Username,Password,Name,Address,Email,Phone")] User user)
+        public ActionResult Create2([Bind(Include = "Username,Password,Name,Address,Email,Phone")] User user)
         {
             if (ModelState.IsValid)
             {
