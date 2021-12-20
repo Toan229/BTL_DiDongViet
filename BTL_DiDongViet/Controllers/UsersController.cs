@@ -9,13 +9,14 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-
+using System.Diagnostics;
+using System.Numerics;
 
 namespace BTL_DiDongViet.Controllers
 {
     public class UsersController : Controller
     {
-        private DBDiDongViet db = new DBDiDongViet();
+        public DBDiDongViet db = new DBDiDongViet();
 
         // GET: Users/Create
         public ActionResult Create()
@@ -49,7 +50,7 @@ namespace BTL_DiDongViet.Controllers
                     Session.Add(CommonConstants.CLIENT_SESSION, userSession);
                     return RedirectToRoute("home");
                 }
-                else 
+                else
                 if (result == 0)
                 {
                     ModelState.AddModelError("", "Tài khoản này không tồn tại.");
@@ -67,16 +68,20 @@ namespace BTL_DiDongViet.Controllers
                     ModelState.AddModelError("", "Đăng nhập sai.");
                 }
             }
-            
+
 
             return View("LoginIndex");
-            
+
         }
 
-        public ActionResult Register()
+
+
+        public ActionResult RegisterIndex()
         {
             return View();
         }
+
+
 
 
 
@@ -84,11 +89,12 @@ namespace BTL_DiDongViet.Controllers
         // Để bảo vệ khỏi overposting attacks, phải chỉ định các thuộc tính cụ thể 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        /*
         public ActionResult Create2([Bind(Include = "Username,Password,Name,Address,Email,Phone")] User user)
         {
             if (ModelState.IsValid)
             {
-                user.Status =  false;
+                user.Status = false;
                 user.ModifiedDate = DateTime.Now;
                 user.ModifiedBy = user.ID.ToString();
                 db.Users.Add(user);
@@ -98,6 +104,66 @@ namespace BTL_DiDongViet.Controllers
 
             return View(user);
         }
+        */
+        public ActionResult Register([Bind(Include = "ID,Username,Password,Name,Address,Email,Phone,Status,CreatedDate,CreateBy,ModifliedDate,ModifliedBy")] RegisterModel model)
+        {
+           
+                
+            //  try {
+                var userName = db.Users.SingleOrDefault(x => x.Username == model.Username);
+                if (userName != null)
+                {
+                    throw new Exception("Tài khoản đã tồn tại");
+                    ModelState.AddModelError("", "Tài khoản đã tồn tại.");
+                }
+                else
+                {
+                    var user = new User();
+                    Random rnd = new Random();
+                    BigInteger num = rnd.Next(1000);
+                    user.ID = 2;
+                    user.Username = model.Username;
+
+                    user.Password = model.Password;
+
+                    user.Name = model.Name;
+
+                    user.Address = model.Address;
+
+                    user.Email = model.Email;
+
+                    user.Phone = model.Phone;
+
+                    user.CreatedDate = DateTime.Now;
+                    user.CreateBy = num.ToString();
+                    user.ModifiedDate = DateTime.Now;
+                    user.ModifiedBy = num.ToString();
+                    user.Status = true;
+                    db.Users.Add(user);
+                    db.SaveChanges();
+                    model = new RegisterModel();
+                    return RedirectToAction("LoginIndex");
+                }
+                /*
+              }
+
+              catch (Exception ex)
+              {
+                  ViewBag.Error = ex.Message;
+                  return View("RegisterIndex");
+                  Debug.WriteLine("<<< catch : " + ex.ToString());
+
+              }
+              */
+            }
+        public ActionResult Logout()
+        {
+            Session[CommonConstants.CLIENT_SESSION] = null;
+            return RedirectToRoute("TrangChu");
+        }
+
+
+
         /*
                 // GET: Users
                 public ActionResult Index()
@@ -185,5 +251,5 @@ namespace BTL_DiDongViet.Controllers
                     }
                     base.Dispose(disposing);
                 }*/
-            }
     }
+}

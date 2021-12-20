@@ -58,6 +58,7 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Numerics" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
@@ -138,6 +139,7 @@
     </Compile>
     <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\Dao\LoginClientModel.cs" />
+    <Compile Include="Models\Dao\RegisterModel.cs" />
     <Compile Include="Models\Dao\UserDao.cs" />
     <Compile Include="Models\DBDiDongViet.cs" />
     <Compile Include="Models\Feedback.cs" />
@@ -1907,7 +1909,7 @@
     <Content Include="Views\Users\Index.cshtml" />
     <Content Include="Views\Category\Category.cshtml" />
     <Content Include="Views\Users\LoginIndex.cshtml" />
-    <Content Include="Views\Users\Register.cshtml" />
+    <Content Include="Views\Users\RegisterIndex.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -34,6 +34,11 @@ namespace BTL_DiDongViet.Models.Dao
                 else  if (result.Password == passWord) return 1;
                    else return -2;
                 }
+
+        public bool CheckUserName (string userName)
+        {
+            return db.Users.Count(x => x.Username == userName) > 0;
+        }
             }
         }
     

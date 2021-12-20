@@ -1,4 +1,4 @@
-﻿@model BTL_DiDongViet.Models.User
+﻿@model BTL_DiDongViet.Models.Dao.RegisterModel
 
 @{
     Layout = null;
@@ -34,18 +34,30 @@
     </nav>
     <div class="content">
         <div class="content-container">
-            <form action="">
+            @using (Html.BeginForm("Register", "Users", FormMethod.Post))
+
+            {
+                @Html.AntiForgeryToken()
+
                 <div class="form-header">
                     <p>Đăng Kí</p>
+                    @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+
                 </div>
                 <div class="form-content">
-                    <input class="clearable" type="text" name="" value="" placeholder="Tên đăng nhập">
-                    <input class="clearable" type="text" name="" value="" placeholder="Mật khẩu" style="margin-top: 20px;">
-                    <input class="clearable" type="text" name="" value="" placeholder="Họ và Tên" style="margin-top: 20px;">
-                    <input class="clearable" type="text" name="" value="" placeholder="Địa chỉ" style="margin-top: 20px;">
-                    <input class="clearable" type="email" name="" value="" placeholder="Email" style="margin-top: 20px;">
-                    <input class="clearable" type="text" name="" value="" placeholder="Số điện thoại" style="margin-top: 20px;">
-                    <button class="mg-t-30" type="button" name="button">Xác nhận</button>
+                    @Html.TextBoxFor(model => model.Username, new { @class = "clearable", @placeholder = "Tên đăng nhập", @required = true })
+                    @Html.ValidationMessageFor(model => model.Username, "", new { @class = "danger" })
+                    @Html.PasswordFor(model => model.Password, new { @class = "clearable", @placeholder = "Mật Khẩu", @required = true, @style = "margin-top: 20px" })
+                    @Html.TextBoxFor(model => model.Name, new { @class = "clearable", @placeholder = "Họ và Tên", @required = true, @style = "margin-top: 20px" })
+                    @Html.TextBoxFor(model => model.Address, new { @class = "clearable", @placeholder = "Địa chỉ", @required = true, @style = "margin-top: 20px" })
+                    @Html.TextBoxFor(model => model.Email, new { @class = "clearable", @placeholder = "Email", @required = true, @style = "margin-top: 20px" })
+                    @Html.TextBoxFor(model => model.Phone, new { @class = "clearable", @placeholder = "Số điện thoại", @required = true, @style = "margin-top: 20px" })
+                    @if (ViewBag.Error != null)
+                    {
+                        <br />
+                        <div class="alert alert-danger " role="alert" style="color:red;">@ViewBag.Error</div>
+                    }
+                    <button class="mg-t-30" type="submit" name="button" value="Xác nhận">Xác nhận</button>
                     <div class="form-social">
                         <div class="form-social__line">
                             <div class="line"></div>
@@ -78,7 +90,6 @@
                             <a href="" target="_blank" rel="noopener noreferrer">Điều khoản dịch vụ</a>
                             &amp;
                             <a href="" target="_blank" rel="noopener noreferrer">Chính sách bảo mật</a>
-                            </>
                         </div>
                         <div class="form-footer">
                             <span class="form-footer__text">Bạn đã có tài khoản?</span>
@@ -86,10 +97,14 @@
                         </div>
                     </div>
                 </div>
-            </form>
+
+            }
+
+
         </div>
     </div>
     <script src="~/assets/js/base.js" defer="defer"></script>
 
 </body>
 </html>
+
