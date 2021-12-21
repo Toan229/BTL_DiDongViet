@@ -1,0 +1,111 @@
+﻿@model BTL_DiDongViet.Models.Dao.RegisterModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title>Trang đăng kí</title>
+    <link href="~/assets/css/base.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/css/sign_up.css" rel="stylesheet" type="text/css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin">
+    <link href="~/assets/fonts/fontawesome-free-5.15.4-web/css/all.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="header-navbar">
+        <div class="navbar">
+            <div class="navbar-right">
+                <a href="index.html">
+                    <img class="navbar-right__logo" src="https://didongviet.vn/pub/media/logo/stores/1/logo-ddv.png" alt="">
+                </a>
+                <div class="navbar-right__text"></div>
+            </div>
+            <div class="navbar-left">
+                <a href="/Users/LoginIndex" style="text-decoration:none;">Đăng Nhập</a>
+            </div>
+        </div>
+    </nav>
+    <div class="content">
+        <div class="content-container">
+            @using (Html.BeginForm("Register", "Users", FormMethod.Post))
+
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-header">
+                    <p>Đăng Kí</p>
+                    @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+
+                </div>
+                <div class="form-content">
+                    @Html.TextBoxFor(model => model.Username, new { @class = "clearable", @placeholder = "Tên đăng nhập", @required = true })
+                    @Html.ValidationMessageFor(model => model.Username, "", new { @class = "danger" })
+                    @Html.PasswordFor(model => model.Password, new { @class = "clearable", @placeholder = "Mật Khẩu", @required = true, @style = "margin-top: 20px" })
+                    @Html.TextBoxFor(model => model.Name, new { @class = "clearable", @placeholder = "Họ và Tên", @required = true, @style = "margin-top: 20px" })
+                    @Html.TextBoxFor(model => model.Address, new { @class = "clearable", @placeholder = "Địa chỉ", @required = true, @style = "margin-top: 20px" })
+                    @Html.TextBoxFor(model => model.Email, new { @class = "clearable", @placeholder = "Email", @required = true, @style = "margin-top: 20px" })
+                    @Html.TextBoxFor(model => model.Phone, new { @class = "clearable", @placeholder = "Số điện thoại", @required = true, @style = "margin-top: 20px" })
+                    @if (ViewBag.Error != null)
+                        
+                    {
+                        <br />
+                        <div class="alert alert-danger" role="alert" style="color:red; margin-top:8px;">@ViewBag.Error</div>
+                    }
+                    <button class="mg-t-30" type="submit" name="button" value="Xác nhận">Xác nhận</button>
+                    <div class="form-social">
+                        <div class="form-social__line">
+                            <div class="line"></div>
+                            <span style="font-weight: lighter; color: var(--text-lightgray);margin-top:-8px;font-size: 12px;">Hoặc</span>
+                            <div class="line"></div>
+                        </div>
+                        <div class="social-list">
+                            <button style="background: #1877F2;" class="social-list__item">
+                                <a href="https://www.facebook.com/">
+                                    <i class="fab fa-facebook"></i>
+                                    <span class="mg-l-8">Facebook</span>
+                                </a>
+                            </button>
+                            <button style="background: #4285F4;" class="social-list__item">
+                                <a href="https://www.google.com/">
+                                    <i class="fab fa-google-plus-square"></i>
+                                    <span class="mg-l-8">Google</span>
+                                </a>
+                            </button>
+                            <button style="background: #000000;" class="social-list__item">
+                                <a href="https://www.apple.com/">
+                                    <i class="fab fa-apple"></i>
+                                    <span class="mg-l-8">Apple</span>
+                                </a>
+                            </button>
+                        </div>
+                        <div class="form-social__policy">
+                            Nếu đăng kí, bạn đồng ý với
+                            <br>
+                            <a href="" target="_blank" rel="noopener noreferrer">Điều khoản dịch vụ</a>
+                            &amp;
+                            <a href="" target="_blank" rel="noopener noreferrer">Chính sách bảo mật</a>
+                        </div>
+                        <div class="form-footer">
+                            <span class="form-footer__text">Bạn đã có tài khoản?</span>
+                            <a href="/Users/LoginIndex">Đăng nhập</a>
+                        </div>
+                    </div>
+                </div>
+
+            }
+
+
+        </div>
+    </div>
+    <script src="~/assets/js/base.js" defer="defer"></script>
+
+</body>
+</html>
+

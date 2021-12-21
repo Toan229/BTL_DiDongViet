@@ -23,6 +23,6 @@ namespace BTL_DiDongViet.Models
 
         public virtual Order Order { get; set; }
 
-        public virtual Product Product { get; set; }
+        public virtual Products Products { get; set; }
     }
 }
