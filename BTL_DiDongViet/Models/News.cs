@@ -8,8 +8,7 @@ namespace BTL_DiDongViet.Models
 
     public partial class News
     {
-        [StringLength(10)]
-        public string ID { get; set; }
+        public long ID { get; set; }
 
         [StringLength(50)]
         public string Title { get; set; }

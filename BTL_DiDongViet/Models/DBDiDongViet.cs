@@ -19,7 +19,6 @@ namespace BTL_DiDongViet.Models
         public virtual DbSet<OrderDetail> OrderDetails { get; set; }
         public virtual DbSet<ProductCategory> ProductCategories { get; set; }
         public virtual DbSet<Product> Products { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<User> Users { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -35,10 +34,6 @@ namespace BTL_DiDongViet.Models
             modelBuilder.Entity<Admin>()
                 .Property(e => e.Password)
                 .IsUnicode(false);
-
-            modelBuilder.Entity<News>()
-                .Property(e => e.ID)
-                .IsFixedLength();
 
             modelBuilder.Entity<News>()
                 .Property(e => e.Image)
