@@ -13,7 +13,7 @@ namespace BTL_DiDongViet.Models
         public ProductCategory()
         {
             ProductCategory1 = new HashSet<ProductCategory>();
-            Products = new HashSet<Product>();
+            Products = new HashSet<Products>();
         }
 
         public long ID { get; set; }
@@ -43,6 +43,6 @@ namespace BTL_DiDongViet.Models
         public virtual ProductCategory ProductCategory2 { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Product> Products { get; set; }
+        public virtual ICollection<Products> Products { get; set; }
     }
 }

@@ -6,13 +6,13 @@ namespace BTL_DiDongViet.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class Product
+    public partial class Products
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Product()
+        public Products()
         {
-            Feedbacks = new HashSet<Feedback>();
-            OrderDetails = new HashSet<OrderDetail>();
+            Feedback = new HashSet<Feedback>();
+            OrderDetail = new HashSet<OrderDetail>();
         }
 
         public long ID { get; set; }
@@ -53,10 +53,10 @@ namespace BTL_DiDongViet.Models
         public long? NumberOfPurchases { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Feedback> Feedbacks { get; set; }
+        public virtual ICollection<Feedback> Feedback { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<OrderDetail> OrderDetails { get; set; }
+        public virtual ICollection<OrderDetail> OrderDetail { get; set; }
 
         public virtual ProductCategory ProductCategory { get; set; }
     }

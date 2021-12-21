@@ -12,14 +12,15 @@ namespace BTL_DiDongViet.Models
         {
         }
 
-        public virtual DbSet<Admin> Admins { get; set; }
-        public virtual DbSet<Feedback> Feedbacks { get; set; }
+        public virtual DbSet<Admin> Admin { get; set; }
+        public virtual DbSet<Feedback> Feedback { get; set; }
         public virtual DbSet<News> News { get; set; }
-        public virtual DbSet<Order> Orders { get; set; }
-        public virtual DbSet<OrderDetail> OrderDetails { get; set; }
-        public virtual DbSet<ProductCategory> ProductCategories { get; set; }
-        public virtual DbSet<Product> Products { get; set; }
-        public virtual DbSet<User> Users { get; set; }
+       
+        public virtual DbSet<Order> Order { get; set; }
+        public virtual DbSet<OrderDetail> OrderDetail { get; set; }
+        public virtual DbSet<ProductCategory> ProductCategory { get; set; }
+        public virtual DbSet<Products> Products { get; set; }
+        public virtual DbSet<User> User { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -44,7 +45,7 @@ namespace BTL_DiDongViet.Models
                 .IsFixedLength();
 
             modelBuilder.Entity<Order>()
-                .HasMany(e => e.OrderDetails)
+                .HasMany(e => e.OrderDetail)
                 .WithRequired(e => e.Order)
                 .WillCascadeOnDelete(false);
 
@@ -63,18 +64,24 @@ namespace BTL_DiDongViet.Models
                 .HasForeignKey(e => e.CategoryID)
                 .WillCascadeOnDelete();
 
-            modelBuilder.Entity<Product>()
+            modelBuilder.Entity<Products>()
                 .Property(e => e.Price)
                 .HasPrecision(19, 4);
 
-            modelBuilder.Entity<Product>()
+            modelBuilder.Entity<Products>()
                 .Property(e => e.Sale)
                 .HasPrecision(18, 0);
 
-            modelBuilder.Entity<Product>()
-                .HasMany(e => e.Feedbacks)
-                .WithOptional(e => e.Product)
+            modelBuilder.Entity<Products>()
+                .HasMany(e => e.Feedback)
+                .WithOptional(e => e.Products)
+                .HasForeignKey(e => e.ProductID)
                 .WillCascadeOnDelete();
+
+            modelBuilder.Entity<Products>()
+                .HasMany(e => e.OrderDetail)
+                .WithRequired(e => e.Products)
+                .HasForeignKey(e => e.ProductID);
 
             modelBuilder.Entity<User>()
                 .Property(e => e.Username)
@@ -89,12 +96,12 @@ namespace BTL_DiDongViet.Models
                 .IsFixedLength();
 
             modelBuilder.Entity<User>()
-                .HasMany(e => e.Feedbacks)
+                .HasMany(e => e.Feedback)
                 .WithOptional(e => e.User)
                 .WillCascadeOnDelete();
 
             modelBuilder.Entity<User>()
-                .HasMany(e => e.Orders)
+                .HasMany(e => e.Order)
                 .WithOptional(e => e.User)
                 .WillCascadeOnDelete();
         }
