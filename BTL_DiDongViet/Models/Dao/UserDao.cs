@@ -17,12 +17,12 @@ namespace BTL_DiDongViet.Models.Dao
 
         public User GetByID(string userName)
         {
-            return db.Users.SingleOrDefault(x => x.Username == userName);
+            return db.User.SingleOrDefault(x => x.Username == userName);
         }
 
         public int Login(string userName, string passWord)
         {
-            var result = db.Users.SingleOrDefault(x => x.Username == userName);
+            var result = db.User.SingleOrDefault(x => x.Username == userName);
             if (result == null)
             {
                 return 0;
@@ -37,7 +37,7 @@ namespace BTL_DiDongViet.Models.Dao
 
         public bool CheckUserName (string userName)
         {
-            return db.Users.Count(x => x.Username == userName) > 0;
+            return db.User.Count(x => x.Username == userName) > 0;
         }
             }
         }

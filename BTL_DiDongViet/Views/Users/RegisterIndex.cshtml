@@ -8,7 +8,7 @@
 <html lang="en" dir="ltr">
 <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Trang đăng kí</title>
     <link href="~/assets/css/base.css" rel="stylesheet" type="text/css" />
     <link href="~/assets/css/sign_up.css" rel="stylesheet" type="text/css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
@@ -28,7 +28,7 @@
                 <div class="navbar-right__text"></div>
             </div>
             <div class="navbar-left">
-                <a href="/Users/Login" style="text-decoration:none;">Đăng Nhập</a>
+                <a href="/Users/LoginIndex" style="text-decoration:none;">Đăng Nhập</a>
             </div>
         </div>
     </nav>
@@ -53,9 +53,10 @@
                     @Html.TextBoxFor(model => model.Email, new { @class = "clearable", @placeholder = "Email", @required = true, @style = "margin-top: 20px" })
                     @Html.TextBoxFor(model => model.Phone, new { @class = "clearable", @placeholder = "Số điện thoại", @required = true, @style = "margin-top: 20px" })
                     @if (ViewBag.Error != null)
+                        
                     {
                         <br />
-                        <div class="alert alert-danger " role="alert" style="color:red;">@ViewBag.Error</div>
+                        <div class="alert alert-danger" role="alert" style="color:red; margin-top:8px;">@ViewBag.Error</div>
                     }
                     <button class="mg-t-30" type="submit" name="button" value="Xác nhận">Xác nhận</button>
                     <div class="form-social">
@@ -93,7 +94,7 @@
                         </div>
                         <div class="form-footer">
                             <span class="form-footer__text">Bạn đã có tài khoản?</span>
-                            <a href="/Users/Login">Đăng nhập</a>
+                            <a href="/Users/LoginIndex">Đăng nhập</a>
                         </div>
                     </div>
                 </div>

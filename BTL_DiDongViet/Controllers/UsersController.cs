@@ -107,59 +107,74 @@ namespace BTL_DiDongViet.Controllers
         */
         public ActionResult Register([Bind(Include = "ID,Username,Password,Name,Address,Email,Phone,Status,CreatedDate,CreateBy,ModifliedDate,ModifliedBy")] RegisterModel model)
         {
-           
-                
-            //  try {
-                var userName = db.Users.SingleOrDefault(x => x.Username == model.Username);
-                if (userName != null)
+            if (ModelState.IsValid)
+            {
+                try
                 {
-                    throw new Exception("Tài khoản đã tồn tại");
-                    ModelState.AddModelError("", "Tài khoản đã tồn tại.");
+                    var userName = db.User.SingleOrDefault(x => x.Username == model.Username);
+                    if (userName != null)
+                    {
+                        //ModelState.AddModelError("", "Tài khoản đã tồn tại!");
+                        throw new Exception("Tài khoản đã tồn tại!");
+                    }
+                    else
+                    {
+                        var user = new User();
+                        Random rnd = new Random();
+                        //BigInteger num = rnd.Next(1000);
+
+                        user.Username = model.Username;
+                        if (model.Password.Length < 6)
+                        {
+                            throw new Exception("Mật khẩu chưa đủ 6 kí tự!");
+                        }
+                        else
+                        {
+                            user.Password = model.Password;
+                        }
+                        bool flag = true;
+                        foreach (char c in model.Phone)
+                        {
+                            if (!Char.IsDigit(c)) { throw new Exception("Số điện thoại nhập không đúng định dạng!");
+                                flag = false;
+                            }
+                        }
+                        if(flag)
+                        {
+                            user.Phone = model.Phone;
+                        }
+                        user.Name = model.Name;
+                        user.Address = model.Address;
+                        user.Email = model.Email;       
+                        user.CreatedDate = DateTime.Now;
+                        user.CreateBy = model.Name;
+                        user.ModifiedDate = DateTime.Now;
+                        user.ModifiedBy = model.Name;
+                        user.Status = true;
+                        db.User.Add(user);
+                        db.SaveChanges();
+                        model = new RegisterModel();
+                        return View("RegisterSuccess");
+
+                    }
+
                 }
-                else
+                catch (Exception ex)
                 {
-                    var user = new User();
-                    Random rnd = new Random();
-                    BigInteger num = rnd.Next(1000);
-                    user.ID = 2;
-                    user.Username = model.Username;
+                    ViewBag.Error = ex.Message;
+                    return View("RegisterIndex");
 
-                    user.Password = model.Password;
-
-                    user.Name = model.Name;
-
-                    user.Address = model.Address;
-
-                    user.Email = model.Email;
-
-                    user.Phone = model.Phone;
-
-                    user.CreatedDate = DateTime.Now;
-                    user.CreateBy = num.ToString();
-                    user.ModifiedDate = DateTime.Now;
-                    user.ModifiedBy = num.ToString();
-                    user.Status = true;
-                    db.Users.Add(user);
-                    db.SaveChanges();
-                    model = new RegisterModel();
-                    return RedirectToAction("LoginIndex");
                 }
-                /*
-              }
-
-              catch (Exception ex)
-              {
-                  ViewBag.Error = ex.Message;
-                  return View("RegisterIndex");
-                  Debug.WriteLine("<<< catch : " + ex.ToString());
-
-              }
-              */
             }
+
+
+            return View("RegisterIndex");
+
+        }
         public ActionResult Logout()
         {
             Session[CommonConstants.CLIENT_SESSION] = null;
-            return RedirectToRoute("TrangChu");
+            return RedirectToRoute("home");
         }
 
 
