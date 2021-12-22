@@ -12,15 +12,14 @@ namespace BTL_DiDongViet.Models
         {
         }
 
-        public virtual DbSet<Admin> Admins { get; set; }
-        public virtual DbSet<Feedback> Feedbacks { get; set; }
+        public virtual DbSet<Admin> Admin { get; set; }
+        public virtual DbSet<Feedback> Feedback { get; set; }
         public virtual DbSet<News> News { get; set; }
-        public virtual DbSet<Order> Orders { get; set; }
-        public virtual DbSet<OrderDetail> OrderDetails { get; set; }
-        public virtual DbSet<ProductCategory> ProductCategories { get; set; }
+        public virtual DbSet<Order> Order { get; set; }
+        public virtual DbSet<OrderDetail> OrderDetail { get; set; }
+        public virtual DbSet<ProductCategory> ProductCategory { get; set; }
         public virtual DbSet<Products> Products { get; set; }
-        public virtual DbSet<User> Users { get; set; }
-
+        public virtual DbSet<User> User { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

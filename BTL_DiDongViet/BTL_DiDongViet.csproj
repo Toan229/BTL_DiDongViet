@@ -1910,6 +1910,7 @@
     <Content Include="Views\Users\LoginIndex.cshtml" />
     <Content Include="Views\Users\RegisterIndex.cshtml" />
     <Content Include="Views\Users\RegisterSuccess.cshtml" />
+    <Content Include="Views\Category\Products.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
