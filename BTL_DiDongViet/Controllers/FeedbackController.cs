@@ -6,15 +6,10 @@ using System.Web.Mvc;
 
 namespace BTL_DiDongViet.Controllers
 {
-    public class ProductController : Controller
+    public class FeedbackController : Controller
     {
-        // GET: Product
+        // GET: Feedback
         public ActionResult Index()
-        {
-            return View();
-        }
-        //GET: Details
-        public ActionResult Products(int id)
         {
             return View();
         }
