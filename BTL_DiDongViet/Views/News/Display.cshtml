@@ -1,0 +1,172 @@
+﻿@model PagedList.IPagedList<BTL_DiDongViet.Models.News>
+@using PagedList;
+@using PagedList.Mvc;
+
+
+@{
+    ViewBag.Title = "Display";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<style>
+    a:hover {
+        color: #be1e2d !important;
+    }
+
+    .trang {
+        width: 75px;
+        height: 45px;
+        display: block;
+    }
+
+        .trang .pagination {
+            font-size: 16px;
+            background: white;
+            display: flex;
+            transform: translateX(1095px);
+            height: 30px;
+            padding: 8px;
+            width: max-content;
+        }
+
+        .trang .active {
+            display: block;
+            margin-right: 14px;
+            height: 15px;
+        }
+            .trang a {
+                text-decoration: none;
+                color: black;
+            }
+    .trang li {
+        margin: 0 10px;
+    }
+</style>
+<div class="main" style="padding-top: 0px;">
+    <!-- Welcome Package Begin -->
+    <div class="welcome-package-banner"
+         data-current-src="https://cf.shopee.vn/file/d3fa706887cf34ddd491c8fc60e37d9f_xxhdpi"
+         style="background-image: url(https://didongviet.vn/pub/media/mageplaza/bannerslider/banner/image/1/2/1280x80_3_.png); background-size: contain; background-repeat: no-repeat;">
+    </div>
+    <!-- Welcome Package End -->
+    <div>
+        <a href="home" class="nav-link nav-arrow">Trang chủ</a>
+        <span class="nav-link">Tin tức</span>
+    </div>
+    <!-- Section Below The Fold Begin -->
+    <div class="section-below-the-fold" style="padding-bottom: 0;">
+        <!-- Flash Sale Begin-->
+        <div class="shopee-flash-sale-overview-carousel">
+            <div class="shopee-header-section
+                        shopee-header-section--simple">
+                <div class="shopee-header-section__header">
+                    <div class="shopee-header-section__header__title"
+                         style=" padding: 16px 0;margin-right: 0">
+                        <div class="flash-sale-header-with-countdown-timer
+                                 flash-sale-header-with-countdown-timer--undefined">
+                            <div class="flash-sale-header-with-countdown-timer__wrapper
+                                    flash-sale-header-with-countdown-timer__wrapper--undefined">
+                                <div class="
+                                       flash-sale-header-with-countdown-timer__header--vn">Tin tức công nghệ</div>
+                                <div class="shopee-countdown-timer
+                                       flash-sale-header-with-countdown-timer__countdown-timer">
+                                    <div class="shopee-countdown-timer__number">
+                                        <div class="shopee-countdown-timer__number__hexa">
+                                        </div>
+                                        <div class="shopee-countdown-timer__number__deca">
+                                        </div>
+                                    </div>
+                                    <div class="shopee-countdown-timer__colon
+                                          shopee-countdown-timer__colon--flashing-off">
+                                        <div class="colon-dot__wrapper">
+                                            <span class="colon-dot"></span>
+                                        </div>
+                                        <div class="colon-dot__wrapper">
+                                            <span class="colon-dot"></span>
+                                        </div>
+                                    </div>
+                                    <div class="shopee-countdown-timer__number">
+                                    </div>
+                                    <div class="shopee-countdown-timer__colon
+                                          shopee-countdown-timer__colon--flashing-off"></div>
+                                    <div class="shopee-countdown-timer__number">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="shopee-header-section__content">
+                    @foreach (var item in Model)
+                    {
+                        string url = "Detail/" + item.ID;
+                        string de = item.NewContent.Substring(0, 250);
+                        <div class="image-carousel">
+                            <div class="image-carousel__item-list-wrapper"
+                                 style="margin-top: 16px;">
+                                <div class="container">
+                                    <img style="width: 300px; height: auto;object-fit: contain;"
+                                         src="~/assets/img/NewsImage/@item.Image" alt="">
+                                    <div class="container-right">
+                                        <h2 style="margin-bottom: 4px;font-size: 24px">
+                                            <a href="@url" class="news-links"
+                                               style="text-decoration: none; color: black ">@item.Title</a>
+                                        </h2>
+                                        <div class="new-time">@item.CreatedDate</div>
+                                        <div class="new-desc">@item.Description <span>
+    <a href="@url">Xem thêm</a>
+</span></div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                </div>
+                <div class="trang">
+                    <div class="danh-sach-bot">
+                        @Html.PagedListPager(Model, page => Url.Action("Display", "News", new { page }))
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Flash Sale End-->
+        <!-- Skinny Banner Beign-->
+        <div style="margin-top: 20px">
+            <div class="shopee-skinny-banner__container">
+                <a class="shopee-skinny-banner" href="" style="width: 610px;
+                           height: 119px;
+                           border-radius: 2px;">
+                    <div class="reactJS-25r8I
+                              shopee-skinny-banner__full-height">
+                        <div style="background: url(https://cdn.didongviet.vn/pub/media/mageplaza/bannerslider/banner/image/a/i/airpod-3.jpg);
+                                 background-size: cover;
+                                 background-repeat: no-repeat;" class="shopee-skinny-banner__full-height
+                                 reactJS_2GchKS"></div>
+                    </div>
+                </a>
+            </div>
+            <div class="shopee-skinny-banner__container">
+                <a class="shopee-skinny-banner" href="" style="width: 610px;
+                           height: 119px;
+                           border-radius: 2px;">
+                    <div class="reactJS-25r8I
+                              shopee-skinny-banner__full-height">
+                        <div class="shopee-skinny-banner__full-height
+                                 reactJS_2GchKS" style="background-image: url(https://cdn.didongviet.vn/pub/media/mageplaza/bannerslider/banner/image/a/i/airpods-didongviet-banner-1.jpg);
+                                 background-size: cover;
+                                 background-repeat: no-repeat;"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <!-- Skinny Banner End-->
+        <!-- Section Below The Fold End -->
+    </div>
+</div>
+
+
+
+
