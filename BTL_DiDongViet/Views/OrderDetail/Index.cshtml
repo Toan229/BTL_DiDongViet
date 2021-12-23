@@ -1,0 +1,65 @@
+﻿@using BTL_DiDongViet.Models
+@model List<Product>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="cart-container">
+    <div class="cart-left">
+        <div class="card__header">Giỏ hàng</div>
+        @if (Model != null)
+        {
+            foreach (var item in Model)
+            {
+                <div class="cart-items">
+                    <div class="card__body">
+                        <img style="width: 128px; height: 128px;" src="~/assets/img/ProductImages/@item.Image" alt="">
+                        <div class="products-info">
+                            <div>@item.ProductName</div>
+                            <span class="products-color">@item.Color</span>
+                        </div>
+                        <div style="position: absolute; right: 0">
+                            <div class="products-price">@String.Format("{0:0,0}", item.Price) đ</div>
+                            <div class="control-qty">
+                                <input type="hidden" name="cart[1140945][qty]" value="1" wfd-invisible="true">
+                                <a onclick="clickAlert(this, '-'); return false;" href="#" class="desc">-</a>
+                                <div class="number">@item.Quantity</div>
+                                <a onclick="clickAlert(this, '+'); return false;" href="#" class="inc">+</a>
+                            </div>
+                            <div class="products-delete">@Html.ActionLink("Xóa", "XoaGiohang", new { @iProductID = item.ID }, new { @style = "text-decoration:none; color: red;" })</div>
+                              
+                        </div>
+                    </div>
+                </div>
+
+            }
+        }
+    </div>
+       
+
+        <div class="cart-right">
+            <div class="card">
+                <div class="card__header">Thành tiền</div>
+                <div class="card__body">
+                    <div style="font-size: 16px;">
+                        <span>Tiền hàng</span>
+                        <span style="float: right; font-weight: 400;"> đ</span>
+                    </div>
+                    <div style="font-size: 16px; margin-top: 8px;">
+                        <span>Giảm giá</span>
+                        <span style="float: right; font-weight: 400;">0đ</span>
+                    </div>
+                </div>
+                <div class="card__footer">
+                    <div style="font-size: 16px;">
+                        <span>Tạm tính</span>
+                        <span style="float: right; font-weight: 400;">23,490,000đ</span>
+                    </div>
+                    <input type="button" class="dathang" value="Xác nhận đặt hàng" />
+                </div>
+            </div>
+        </div>
+    </div>
+
