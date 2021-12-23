@@ -131,6 +131,8 @@
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\InformationController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
+    <Compile Include="Controllers\OrderDetailController.cs" />
+    <Compile Include="Controllers\OrdersController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -138,6 +140,7 @@
     <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\DBDiDongViet.cs" />
     <Compile Include="Models\Feedback.cs" />
+    <Compile Include="Models\Giohang.cs" />
     <Compile Include="Models\News.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\OrderDetail.cs" />
@@ -156,6 +159,24 @@
     <Content Include="assets\img\footer.png" />
     <Content Include="assets\img\ggplay.png" />
     <Content Include="assets\img\logo.png" />
+    <Content Include="assets\img\NewsImages\n1.jpg" />
+    <Content Include="assets\img\NewsImages\n2.jpg" />
+    <Content Include="assets\img\NewsImages\n3.jpg" />
+    <Content Include="assets\img\NewsImages\n4.jpg" />
+    <Content Include="assets\img\NewsImages\n5.jpg" />
+    <Content Include="assets\img\ProductImages\h1.jpg" />
+    <Content Include="assets\img\ProductImages\h11.jpg" />
+    <Content Include="assets\img\ProductImages\h12.jpg" />
+    <Content Include="assets\img\ProductImages\h13.jpg" />
+    <Content Include="assets\img\ProductImages\h14.jpg" />
+    <Content Include="assets\img\ProductImages\h2.jpg" />
+    <Content Include="assets\img\ProductImages\h3.jpg" />
+    <Content Include="assets\img\ProductImages\h4.jpg" />
+    <Content Include="assets\img\ProductImages\h5.jpg" />
+    <Content Include="assets\img\ProductImages\h6.jpg" />
+    <Content Include="assets\img\ProductImages\h7.jpg" />
+    <Content Include="assets\img\ProductImages\h8.jpg" />
+    <Content Include="assets\img\ProductImages\h9.jpg" />
     <Content Include="assets\img\qrcode.png" />
     <Content Include="assets\img\qrcode_login.png" />
     <Content Include="assets\img\xuhuongMS.png" />
@@ -1903,10 +1924,11 @@
     <Content Include="Views\Users\Edit.cshtml" />
     <Content Include="Views\Users\Index.cshtml" />
     <Content Include="Views\Category\Category.cshtml" />
+    <Content Include="Views\Orders\Index.cshtml" />
+    <Content Include="Views\OrderDetail\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="assets\img\ProductImages\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
