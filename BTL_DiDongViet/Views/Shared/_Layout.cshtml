@@ -6,6 +6,7 @@
     <title>Di Động Việt</title>
     <link rel="stylesheet" href="@Url.Content("~/assets/css/base.css")"  />
     <link rel="stylesheet" href="@Url.Content("~/assets/css/main.css")" />
+    <link href="~/assets/js/jquery-ui/themes/smoothness/jquery-ui.min.css" rel="stylesheet" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -66,41 +67,19 @@
                 <!-- Search Bar Begin -->
                 <div class="search-bar">
                     <!-- Search Input Begin -->
-                    <div class="search-input-wrapper">
-                        <input class="clearable search-input" type="text" name="" value="" placeholder="Nhấn để tìm kiếm sản phẩm">
-                        <!-- Search History Begin -->
-                      @*     <div class="search-history">
-                            <div class="search-history__header">
-                                Official Sale
-                                <img src="https://cf.shopee.vn/file/f13b16e7b84f6f0f3bbb73fcb3739b6b" height="24">
-                            </div>
-                              <ul class="search-history__list">
-            <li class="list__item">
-                <a href="">Kem duong da</a>
-            </li>
-            <li class="list__item">
-                <a href="">Kem duong da</a>
-            </li>
-            <li class="list__item">
-                <a href="">Kem tri mun</a>
-            </li>
-            <li class="list__item">
-                <a href="">Kem duong da</a>
-            </li>
-            <li class="list__item">
-                <a href="">Kem duong da</a>
-            </li>
-        </ul>
-                    </div> *@
-                        <!-- Search History End -->
-                    </div> 
+                    <form action="Users/Search" method="post" style="display: flex; width: 872px;">
+                        <div class="search-input-wrapper">
+                            <input class="clearable search-input" type="text" name="keyword" value="" placeholder="Nhấn để tìm kiếm sản phẩm">
+                        </div>
                         <!-- Search Input End -->
                         <!-- Search Btn Begin -->
-                        <button type="button" name="button" class="search-btn">
+                        <button type="submit" name="button" class="search-btn">
                             <div class="search-wrapper">
                                 <i class="fas fa-search"></i>
                             </div>
                         </button>
+                    </form>
+                  
                         <!-- Search Btn End -->
                     </div>
                 <!-- Search Bar End -->
@@ -254,6 +233,7 @@
             </div>
         </footer>
         <script src="@Url.Content("~/assets/js/base.js")" defer="defer"></script>
+        <script src="~/assets/js/jquery-ui/jquery-ui.min.js"></script>
     </div>
 
     @Scripts.Render("~/bundles/jquery")

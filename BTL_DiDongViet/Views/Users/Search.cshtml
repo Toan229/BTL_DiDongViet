@@ -1,0 +1,172 @@
+﻿@model PagedList.IPagedList<BTL_DiDongViet.ViewModel.Products>
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    a:hover {
+        color: #be1e2d !important;
+    }
+
+    .trang {
+        width: 75px;
+        height: 45px;
+        display: block;
+    }
+
+        .trang .pagination {
+            font-size: 16px;
+            background: white;
+            display: flex;
+            transform: translateX(1095px);
+            height: 30px;
+            padding: 8px;
+            width: max-content;
+        }
+
+        .trang .active {
+            display: block;
+            margin-right: 14px;
+            height: 15px;
+        }
+
+        .trang a {
+            text-decoration: none;
+            color: black;
+        }
+
+        .trang li {
+            margin: 0 10px;
+        }
+</style>
+<div class="main" style="padding-top: 0px;">
+    <!-- Welcome Package Begin -->
+    <div class="welcome-package-banner"
+         data-current-src="https://cf.shopee.vn/file/d3fa706887cf34ddd491c8fc60e37d9f_xxhdpi"
+         style="background-image: url(https://didongviet.vn/pub/media/mageplaza/bannerslider/banner/image/1/2/1280x80_3_.png); background-size: contain; background-repeat: no-repeat;">
+    </div>
+    <!-- Welcome Package End -->
+    <div>
+        <a href="Home" class="nav-link nav-arrow">Trang chủ</a>
+        <span class="nav-link nav-arrow">Tìm kiếm</span>
+    </div>
+    @if (Model.Count() != 0)
+    {
+        <!-- Trang Begin -->
+        <div class="trang">
+            <p style=" font-size: 16px; background: white; padding: 16px; width: max-content; font-weight: 600;">
+                Từ @ViewBag.Start đến @ViewBag.End (trong tổng số @ViewBag.Count sản phẩm)
+            </p>
+            <div class="danh-sach">
+                @Html.PagedListPager(Model, page => Url.Action("Search", "Users", new { page }))
+            </div>
+        </div>
+        <div class="section-below-the-fold" style="padding-bottom: 0;">
+            <!-- Flash Sale Begin-->
+            <div class="shopee-flash-sale-overview-carousel">
+                <div class="shopee-header-section
+                        shopee-header-section--simple">
+                    <div class="shopee-header-section__header">
+                        <div class="shopee-header-section__header__title"
+                             style=" padding: 16px 0;margin-right: 0">
+                            Các kết quả tìm kiếm
+                        </div>
+                    </div>
+                    <div class="shopee-header-section__content">
+
+                        @foreach (var item in Model)
+                        {  <style> a{
+     
+ }</style>
+                            string decr = item.Description.Substring(0, item.Description.Length - 30);
+                            <div class="image-carousel">
+                                <div class="image-carousel__item-list-wrapper">
+                                    <div class="container" style=" flex-direction: row; font-size: 16px; padding:32px 53px;">
+                                        <img style="object-fit: contain; width: 200px;" src="~/assets/img/ProductsImage/@item.Image" alt="">
+                                        <div class="container-right">
+
+                                            <h2 style="margin-bottom: 4px;font-size: 24px">
+                                                <a href="@item.Url" style="text-decoration: none; ">@item.ProductName</a>
+                                            </h2>
+                                            <div class="new-time">@item.CreateDate</div>
+                                            <div class="new-desc">@item.Price đ</div>
+                                            <a href="/them-gio-hang?productID=@item.ID&quantity=1" class="input">Mua hàng</a>
+                                            <div class="wrapper-bot">
+                                                <p style="font-weight:bold">Thông tin chi tiết</p>
+                                                <div class="description">
+                                                    @decr
+                                                    ...<a href="@item.Url">Xem thêm</a>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        }
+                        <div class="trang">
+                            <div class="danh-sach-bot">
+                                @Html.PagedListPager(Model, page => Url.Action("Search", "Users", new { page }))
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <!-- Flash Sale End-->
+            <!-- Section Below The Fold End -->
+        </div>
+    }
+    else
+    {
+        <div style="background: white; padding: 16px; margin-top: 14px; font-size: 16px;"><h3> Không tìm thấy sản phẩm tương ứng</h3></div>
+        
+    }
+
+    <!-- Section Below The Fold Begin -->
+    <!-- Skinny Banner Beign-->
+    <div style="margin-top: 20px">
+        <div class="shopee-skinny-banner__container">
+            <a class="shopee-skinny-banner" href="" style="width: 610px;
+                           height: 119px;
+                           border-radius: 2px;">
+                <div class="reactJS-25r8I
+                              shopee-skinny-banner__full-height">
+                    <div style="background: url(https://cdn.didongviet.vn/pub/media/mageplaza/bannerslider/banner/image/a/i/airpod-3.jpg);
+                                 background-size: cover;
+                                 background-repeat: no-repeat;" class="shopee-skinny-banner__full-height
+                                 reactJS_2GchKS"></div>
+                </div>
+            </a>
+        </div>
+        <div class="shopee-skinny-banner__container">
+            <a class="shopee-skinny-banner" href="" style="width: 610px;
+                           height: 119px;
+                           border-radius: 2px;">
+                <div class="reactJS-25r8I
+                              shopee-skinny-banner__full-height">
+                    <div class="shopee-skinny-banner__full-height
+                                 reactJS_2GchKS" style="background-image: url(https://cdn.didongviet.vn/pub/media/mageplaza/bannerslider/banner/image/a/i/airpods-didongviet-banner-1.jpg);
+                                 background-size: cover;
+                                 background-repeat: no-repeat;"></div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <!-- Skinny Banner End-->
+</div>
+
+
+
+
+
+
+
+
+
+
