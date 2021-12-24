@@ -34,7 +34,7 @@ namespace BTL_DiDongViet
            );
 
             routes.MapRoute(
-                name: "home",
+                name: "Home",
                 url: "Users/Create",
                 defaults: new { controller = "Users", action = "Create", id = UrlParameter.Optional },
                 namespaces: new[] { "BTL_DiDongViet.Controllers" }

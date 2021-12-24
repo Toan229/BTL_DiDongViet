@@ -20,5 +20,10 @@ namespace BTL_DiDongViet.Controllers
         {
             return View();
         }
+
+        public ActionResult Gioithieu()
+        {
+            return View();
+        }
     }
 }

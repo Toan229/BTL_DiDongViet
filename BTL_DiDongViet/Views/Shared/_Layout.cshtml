@@ -12,6 +12,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin" />
     <link rel="stylesheet" href="@Url.Content("~/assets/fonts/fontawesome-free-5.15.4-web/css/all.min.css")" />
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+    <style>
+        .product-category .wrapper:hover a {
+            color: white !important;
+        }
+    </style>
 </head>
 <body>
     <header class="header">
@@ -22,13 +27,13 @@
                 </ul>
                 <ul class="navbar-list">
                     <li class="navbar-list__item">
-                        <a href="#" class="navbar-list__link">
+                        <a href="Information/Gioithieu" class="navbar-list__link">
                             <i class="fas fa-bookmark" style="margin-right: 6px;"></i>
                             Giới thiệu
                         </a>
                     </li>
                     <li class="navbar-list__item">
-                        <a href="#" class="navbar-list__link">
+                        <a href="Information/Contact" class="navbar-list__link">
                             <div class="navbar__help-center-icon">
                                 <svg height="16" viewBox="0 0 16 16" width="16" class="shopee-svg-icon icon-help-center">
                                     <g fill="none" fill-rule="evenodd" transform="translate(1)">
@@ -42,7 +47,11 @@
                     </li>
                     <li class="navbar-list__item">
                         <i class="fas fa-user"></i>
-                        <a href="/sign_up.html" class="navbar-list__link">Username</a>
+                        <a href="" class="navbar-list__link">Username</a>
+                    </li>
+                    <li class="navbar-list__item">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <a href="/Users/Logout" class="navbar-list__link">Đăng xuất</a>
                     </li>
                     <!-- <li class="navbar-list__item"> <a href="/log_in.html" class="navbar-list__link">Đăng nhập</a> </li> -->
                 </ul>
@@ -51,7 +60,7 @@
         <div class="grid">
             <div class="header-with-search">
                 <!-- Header Search Begin -->
-                <a class="header-with-search__logo-section" href="/">
+                <a class="header-with-search__logo-section" href="Home">
                     <img src="https://didongviet.vn/pub/media/logo/stores/1/logo-ddv.png" style="margin-right: 10px;">
                 </a>
                 <!-- Search Bar Begin -->
@@ -60,40 +69,40 @@
                     <div class="search-input-wrapper">
                         <input class="clearable search-input" type="text" name="" value="" placeholder="Nhấn để tìm kiếm sản phẩm">
                         <!-- Search History Begin -->
-                        <div class="search-history">
+                      @*     <div class="search-history">
                             <div class="search-history__header">
-                                10.10 Official Sale
+                                Official Sale
                                 <img src="https://cf.shopee.vn/file/f13b16e7b84f6f0f3bbb73fcb3739b6b" height="24">
                             </div>
-                            <ul class="search-history__list">
-                                <li class="list__item">
-                                    <a href="">Kem duong da</a>
-                                </li>
-                                <li class="list__item">
-                                    <a href="">Kem duong da</a>
-                                </li>
-                                <li class="list__item">
-                                    <a href="">Kem tri mun</a>
-                                </li>
-                                <li class="list__item">
-                                    <a href="">Kem duong da</a>
-                                </li>
-                                <li class="list__item">
-                                    <a href="">Kem duong da</a>
-                                </li>
-                            </ul>
-                        </div>
+                              <ul class="search-history__list">
+            <li class="list__item">
+                <a href="">Kem duong da</a>
+            </li>
+            <li class="list__item">
+                <a href="">Kem duong da</a>
+            </li>
+            <li class="list__item">
+                <a href="">Kem tri mun</a>
+            </li>
+            <li class="list__item">
+                <a href="">Kem duong da</a>
+            </li>
+            <li class="list__item">
+                <a href="">Kem duong da</a>
+            </li>
+        </ul>
+                    </div> *@
                         <!-- Search History End -->
+                    </div> 
+                        <!-- Search Input End -->
+                        <!-- Search Btn Begin -->
+                        <button type="button" name="button" class="search-btn">
+                            <div class="search-wrapper">
+                                <i class="fas fa-search"></i>
+                            </div>
+                        </button>
+                        <!-- Search Btn End -->
                     </div>
-                    <!-- Search Input End -->
-                    <!-- Search Btn Begin -->
-                    <button type="button" name="button" class="search-btn">
-                        <div class="search-wrapper">
-                            <i class="fas fa-search"></i>
-                        </div>
-                    </button>
-                    <!-- Search Btn End -->
-                </div>
                 <!-- Search Bar End -->
                 <!-- Cart Begin -->
                 <div class="cart-wrapper">
@@ -145,13 +154,16 @@
                         <div class="wrapper">
                             <i></i>
                             <span>
-                                Tin tức
+                                <a href="/News/Display" style="text-decoration: none;">Tin tức
+                                    </a>
                             </span>
                         </div>
                         <div class="wrapper">
                             <i></i>
                             <span>
-                                Chính sách
+                                <a href="/Information/Policy" style="text-decoration: none;">
+                                    Chính sách
+                                </a>
                             </span>
                         </div>
                     </div>
@@ -170,22 +182,22 @@
                         <div class="footer-link footer-link-left">
                             <ul>
                                 <li>
-                                    <a href="https://didongviet.vn/mua-hang-tra-gop">Giới thiệu</a>
+                                    @Html.ActionLink("Giới thiệu", "Gioithieu", "Information")
                                 </li>
                                 <li>
                                     @Html.ActionLink("Liên hệ", "Contact", "Information")
                                 </li>
                                 <li>
-                                    @Html.ActionLink("Tin tức", "News", "News")
+                                    @Html.ActionLink("Tin tức", "Display", "News")
                                 </li>
                                 <li>
-                                    @Html.ActionLink("Chính sách bán hàng", "Contact", "Information")
+                                    @Html.ActionLink("Chính sách bán hàng", "Policy", "Information")
                                 </li>
                                 <li>
                                     @Html.ActionLink("Chính sách bảo mật", "Policy", "Information")
                                 </li>
                                 <li>
-                                    <a href="https://didongviet.vn/chinh-sach-su-dung">Chính sách sử dụng</a>
+                                    @Html.ActionLink("Chính sách sử dụng", "Policy", "Information")
                                 </li>
                             </ul>
                         </div>

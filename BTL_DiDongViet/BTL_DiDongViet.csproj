@@ -1962,11 +1962,9 @@
     <Content Include="Views\Users\LoginIndex.cshtml" />
     <Content Include="Views\Users\RegisterIndex.cshtml" />
     <Content Include="Views\Users\RegisterSuccess.cshtml" />
-    <Content Include="Views\News\Policy.cshtml" />
-    <Content Include="Views\News\Gioithieu.cshtml" />
-    <Content Include="Views\News\Lienhe.cshtml" />
     <Content Include="Views\News\Display.cshtml" />
     <Content Include="Views\News\Detail.cshtml" />
+    <Content Include="Views\Information\Gioithieu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
