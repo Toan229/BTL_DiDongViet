@@ -22,7 +22,7 @@ namespace BTL_DiDongViet.Models
         public Giohang(int ProductID)
         {
             iProductID = ProductID;
-            Product sanpham = db.Products.Single(n => n.ID == iProductID);
+            Products sanpham = db.Products.Single(n => n.ID == iProductID);
             sProductName = sanpham.ProductName;
             sColor = sanpham.Color;
             dPrice = sanpham.Price;

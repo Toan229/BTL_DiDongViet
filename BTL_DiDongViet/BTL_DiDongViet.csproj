@@ -136,12 +136,12 @@
     <Compile Include="Controllers\OrderDetailController.cs" />
     <Compile Include="Controllers\OrdersController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
-
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Admin.cs" />
+    <Compile Include="Models\CartViewModel.cs" />
     <Compile Include="Models\Dao\LoginClientModel.cs" />
     <Compile Include="Models\Dao\RegisterModel.cs" />
     <Compile Include="Models\Dao\UserDao.cs" />
@@ -1931,7 +1931,7 @@
     <Content Include="Views\Users\Index.cshtml" />
     <Content Include="Views\Category\Category.cshtml" />
     <Content Include="Views\Orders\Index.cshtml" />
-    <Content Include="Views\OrderDetail\Index.cshtml" />
+    <Content Include="Views\OrderDetail\Cart.cshtml" />
     <Content Include="Views\Users\LoginIndex.cshtml" />
     <Content Include="Views\Users\RegisterIndex.cshtml" />
     <Content Include="Views\Users\RegisterSuccess.cshtml" />

@@ -98,22 +98,71 @@ namespace BTL_DiDongViet.Controllers
         // GET: OrderDetail
         //Trang cart.html
 
-        public ActionResult Index(int? userID)
+        public CartViewModel layGioHang(int userID)
         {
-            //if(userID != null)
-            //{
-                userID = 2;//Test 
-                var order = db.Orders.ToList().Find(o => o.UserID == userID);
+                var order = db.Order.ToList().Find(o => o.UserID == userID);
            
-                List<OrderDetail> orderDetail = db.OrderDetails.ToList().FindAll(o => o.OrderID == order.ID);
-                List<Product> productList = new List<Product>();
+                List<OrderDetail> orderDetail = db.OrderDetail.ToList().FindAll(o => o.OrderID == order.ID);
+                List<Products> productList = new List<Products>();
                 foreach (var item in orderDetail)
                 {
                     productList.Add(db.Products.Find(item.ProductID));
                 }
-                return View(productList);
-            //}
-            //return View();
+                CartViewModel viewModel = new CartViewModel();
+                viewModel.order = orderDetail;
+                viewModel.product = productList;
+            return viewModel;
+        }
+
+        public ActionResult Cart(int? userID)
+        {
+            userID = 1;
+            if(userID != null)
+            {
+                Session["userID"] =  userID;
+                CartViewModel viewModel =  layGioHang((int)Session["userID"]);
+                return View(viewModel);
+            }
+            return RedirectToAction("LoginIndex", "Users");
+        }
+        public ActionResult XoaGiohang(int ProductID)
+        {
+            var order = db.Order.ToList().Find(o => o.UserID == 1);
+            List<OrderDetail> orderDetail = db.OrderDetail.ToList().FindAll(o => o.OrderID == order.ID);
+            if (orderDetail != null)
+            {
+                orderDetail.RemoveAll(n => n.ProductID == ProductID);
+                return RedirectToAction("OrderDetail");
+            }
+            if (orderDetail.Count == 0)
+            {
+                return RedirectToAction("Index", "Product");
+            }
+            return RedirectToAction("Cart");
+        }
+
+        public ActionResult ChinhSuaSoLuong(int? productID, string act = "default")
+        {
+            if(Session["userID"] != null)
+            {
+                if(productID == null || act.Equals("default"))
+                {
+                    return RedirectToAction("Cart");
+                }
+                var order = db.Order.ToList().Find(o => o.UserID == (int)Session["userID"]);
+                if (act.Equals("add"))
+                {
+                    db.OrderDetail.ToList().Find(o => o.OrderID == order.ID && o.ProductID == productID).Quantity++;
+                }
+                else
+                {
+                    db.OrderDetail.ToList().Find(o => o.OrderID == order.ID && o.ProductID == productID).Quantity--;
+                }
+                db.SaveChanges();
+                return RedirectToAction("Cart");
+            }
+
+            return RedirectToAction("LoginIndex", "Users");
         }
     }
 }

@@ -1879,6 +1879,7 @@ footer.footer {
       line-height: 28px;
       color: #be1e2d;
       margin-bottom: 8px;
+      text-align: right;
 }
 
 .cart-items .products-delete {
