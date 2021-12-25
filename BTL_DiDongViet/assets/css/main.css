@@ -768,7 +768,7 @@ header.notification {
 }
 
 .product-list_item .item__text {
-      font-size: 18px;
+      font-size: 16px;
       text-align: center;
       color: #BE1E2D;
       margin-bottom: 5px;
@@ -2111,4 +2111,43 @@ textarea {
 
 .capitalize-word {
       text-transform: capitalize;
+}
+
+/* Trend Banner */
+.trend-body {
+    padding: 16px;
+    position: absolute;
+    background: white;
+    top: 30px;
+    left: 4px;
+    height: 253px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.banner {
+    position: relative;
+}
+
+.trend-item {
+    width: 160px;
+    padding: 0 4px;
+    cursor: pointer;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 4px;
+}
+
+.text-trend {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.trend-item:hover {
+    color: #be1e2d;
+}
+
+.trend-desc {
+    margin-top: 4px;
+    font-size: 11px;
 }
