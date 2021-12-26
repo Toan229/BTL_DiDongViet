@@ -1,0 +1,55 @@
+﻿@model BTL_DiDongViet.Models.CartViewModel
+@{
+    ViewBag.Title = "Xác nhận thông tin";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="main">
+    <div class="cart-container">
+        <div class="cart-left" style="width: 450px;">
+            <div class="card__header">Thông tin nhận hàng</div>
+            <div class="cart-items">
+                <div class="card__body info-commit">
+                    <label for="ship-name">Họ và Tên</label>
+                    <input id="ship-name" class="clearable" type="text" name="" value="" placeholder="">
+                    <label for="ship-address">Địa chỉ</label>
+                    <input id="ship-address" class="clearable" type="text" name="" value="" placeholder="">
+                    <label for="ship-email">Email</label>
+                    <input id="ship-email" class="clearable" type="email" name="" value="" placeholder="">
+                    <label for="ship-phone">Số điện thoại</label>
+                    <input id="ship-phone" class="clearable" type="text" name="" value="" placeholder="">
+                </div>
+            </div>
+        </div>
+        <div class="cart-right">
+            <div class="card">
+                <div class="card__header">Thông tin thanh toán</div>
+                <div class="card__body">
+                    <div style="font-size: 16px;">
+                        <span>Tên sản phẩm</span>
+                        <span style="float: right; font-weight: 400;">iPhone 13 128GB Chính Hãng (VN/A)</span>
+                    </div>
+                    <div style="font-size: 16px; margin-top: 8px;">
+                        <span>Màu</span>
+                        <span style="float: right; font-weight: 400;">Màu đen</span>
+                    </div>
+                    <div style="font-size: 16px;margin-top: 8px;">
+                        <span>Số lượng</span>
+                        <span style="float: right; font-weight: 400;">1</span>
+                    </div>
+                </div>
+                <div class="card__footer">
+                    <div style="font-size: 16px;">
+                        <span>Tổng tiền</span>
+                        <span style="float: right; font-weight: 400;">23,490,000đ</span>
+                    </div>
+                    <button class="dathang">
+                        <a href="cart_commit.html" style="text-decoration: none; color: white;">
+                            <span>Đặt hàng</span>
+                        </a>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

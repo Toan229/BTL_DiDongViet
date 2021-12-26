@@ -116,7 +116,7 @@ namespace BTL_DiDongViet.Controllers
 
         public ActionResult Cart(int? userID)
         {
-            userID = 1;
+            userID = 3;
             if(userID != null)
             {
                 Session["userID"] =  userID;
@@ -125,20 +125,18 @@ namespace BTL_DiDongViet.Controllers
             }
             return RedirectToAction("LoginIndex", "Users");
         }
-        public ActionResult XoaGiohang(int ProductID)
+        public ActionResult XoaGiohang(int? productID)
         {
-            var order = db.Order.ToList().Find(o => o.UserID == 1);
-            List<OrderDetail> orderDetail = db.OrderDetail.ToList().FindAll(o => o.OrderID == order.ID);
-            if (orderDetail != null)
-            {
-                orderDetail.RemoveAll(n => n.ProductID == ProductID);
-                return RedirectToAction("OrderDetail");
-            }
-            if (orderDetail.Count == 0)
-            {
-                return RedirectToAction("Index", "Product");
-            }
-            return RedirectToAction("Cart");
+            
+                var order = db.Order.ToList().Find(o => o.UserID == (int)Session["userID"]);//Mỗi user ~ 1 order, 1 user thì chỉ có 1 order thôi
+                OrderDetail orderDetail = db.OrderDetail.ToList().Find(o => o.OrderID == order.ID && o.ProductID == productID);
+                if (orderDetail != null)
+                {
+                    db.OrderDetail.Remove(orderDetail);
+                    db.SaveChanges();
+                }
+                return RedirectToAction("Cart");
+
         }
 
         public ActionResult ChinhSuaSoLuong(int? productID, string act = "default")
@@ -164,5 +162,19 @@ namespace BTL_DiDongViet.Controllers
 
             return RedirectToAction("LoginIndex", "Users");
         }
+
+        public ActionResult DatHang(double tongTien = 0)
+        {
+            if(tongTien == 0)
+            {
+                return RedirectToAction("Cart");
+            }
+            else
+            {
+                CartViewModel viewModel = layGioHang((int)Session["userID"]);
+                return View(viewModel);
+            }
+        }
     }
+
 }
