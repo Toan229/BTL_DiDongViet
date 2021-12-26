@@ -1,0 +1,82 @@
+﻿@model BTL_DiDongViet.Models.Products
+
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="main pd-top-0">
+    <!-- Welcome Package Begin -->
+    <div class="welcome-package-banner" data-current-src="https://cf.shopee.vn/file/d3fa706887cf34ddd491c8fc60e37d9f_xxhdpi" style="background-image: url(https://didongviet.vn/pub/media/mageplaza/bannerslider/banner/image/1/2/1280x80_3_.png); background-size: contain; background-repeat: no-repeat;"></div>
+    <!-- Welcome Package End -->
+    <!-- Nav Tag Begin -->
+    <div>
+        <a href="index_user.html" class="nav-link nav-arrow">Trang chủ</a>
+        @if (Model.CategoryID == 2) { <a href="apple_category.html" class="nav-link nav-arrow">Apple Iphone</a>}
+        else { <a href="apple_category.html" class="nav-link nav-arrow">Điện thoại</a>}
+        <a class="nav-link">@Model.ProductName</a>
+    </div>
+    <!-- Nav Tag End-->
+    <!-- Product Begin-->
+    <div class="product-wrapper">
+        <div class="product-wrapper-left">
+            <div style="max-width: 356px;">
+                <img src="~/assets/img/ProductsImage/@Model.Image" alt="">
+                <div style="padding: 16px; line-height: 24px;">
+                    @Model.Description
+                </div>
+            </div>
+            <div style="display: inline-block; width: 830px;">
+                <div class="product-title">
+
+                    @Model.ProductName
+
+                </div>
+                <div class="product-info" style="margin-top: 8px;">
+                    <div class="product-ram">@Model.Storage</div>
+                    <div class="product-price">@Model.Price ₫</div>
+                </div>
+                <div class="product-color">@Model.Color</div>
+                <div class="product-status">
+                    <i class="fas fa-map-marker-alt margin-right: 0.4rem;"></i>
+                    @if(@Model.Quantity > 0){
+                <span>Hiện đang còn hàng</span>
+                    } else {
+                    <span>Hiện đã hết hàng</span>
+                    }
+                </div>
+                <div class="product-giaohang" style="padding: 12px; font-size: 16px; "> <i class="fas fa-tag" style="margin-right: 8px;"></i>@Model.Sale % GIẢM</div>
+                @if(@Model.Quantity > 0){
+                <button class="product-dathang" type="submit">THÊM VÀO GIỎ HÀNG</button>
+
+                } else {
+                <button class="product-dathang" type="submit" disabled>THÊM VÀO GIỎ HÀNG</button>
+
+                }
+            </div>
+        </div>
+        <div class="product-wrapper-right">
+            <div class="bosanpham">
+                <i class="fas fa-archive"></i>Bộ sản phẩm
+                <div class="desc">@Model.Sets</div>
+            </div>
+            <div class="baohanh">
+                <i class="fas fa-clipboard-check"></i>Bảo hành
+                <div class="desc">
+                    @Model.Insurance
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="product-wrapper-left feedback-container">
+        <!-- FeedBack Begin-->
+        <header>
+            Feedback về sản phẩm
+        </header>
+        <div style="width: 100%;">
+            <textarea onclick="" name="detail" class="field-required" placeholder="Hãy thêm đánh giá về sản phẩm..." id="review_field" cols="5" rows="3" data-validate="{required:true}"></textarea>
+            <button class="product-dathang fb-button">Gửi nhận xét</button>
+        </div>
+        <!-- FeedBack End-->
+    </div>
+    <!-- Product End-->
+</div>

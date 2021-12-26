@@ -139,6 +139,7 @@
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\InformationController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
+    <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -2388,6 +2389,7 @@
     <Content Include="Views\News\Detail.cshtml" />
     <Content Include="Views\Information\Gioithieu.cshtml" />
     <Content Include="Views\Users\Search.cshtml" />
+    <Content Include="Views\Products\Detail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
