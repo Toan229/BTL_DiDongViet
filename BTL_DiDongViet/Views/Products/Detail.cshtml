@@ -1,8 +1,8 @@
 ﻿@model BTL_DiDongViet.Models.Products
-
 @{
     ViewBag.Title = "Detail";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var ListFB = (List<BTL_DiDongViet.ViewModel.Feedback>)ViewBag.ListFB;
 }
 <div class="main pd-top-0">
     <!-- Welcome Package Begin -->
@@ -11,8 +11,10 @@
     <!-- Nav Tag Begin -->
     <div>
         <a href="index_user.html" class="nav-link nav-arrow">Trang chủ</a>
-        @if (Model.CategoryID == 2) { <a href="apple_category.html" class="nav-link nav-arrow">Apple Iphone</a>}
-        else { <a href="apple_category.html" class="nav-link nav-arrow">Điện thoại</a>}
+        @if (Model.CategoryID == 2)
+        {<a href="apple_category.html" class="nav-link nav-arrow">Apple Iphone</a>}
+        else
+        { <a href="apple_category.html" class="nav-link nav-arrow">Điện thoại</a>}
         <a class="nav-link">@Model.ProductName</a>
     </div>
     <!-- Nav Tag End-->
@@ -38,18 +40,24 @@
                 <div class="product-color">@Model.Color</div>
                 <div class="product-status">
                     <i class="fas fa-map-marker-alt margin-right: 0.4rem;"></i>
-                    @if(@Model.Quantity > 0){
-                <span>Hiện đang còn hàng</span>
-                    } else {
-                    <span>Hiện đã hết hàng</span>
+                    @if (@Model.Quantity > 0)
+                    {
+                        <span>Hiện đang còn hàng</span>
+                    }
+                    else
+                    {
+                        <span>Hiện đã hết hàng</span>
                     }
                 </div>
                 <div class="product-giaohang" style="padding: 12px; font-size: 16px; "> <i class="fas fa-tag" style="margin-right: 8px;"></i>@Model.Sale % GIẢM</div>
-                @if(@Model.Quantity > 0){
-                <button class="product-dathang" type="submit">THÊM VÀO GIỎ HÀNG</button>
+                @if (@Model.Quantity > 0)
+                {
+                    <button class="product-dathang" type="submit">THÊM VÀO GIỎ HÀNG</button>
 
-                } else {
-                <button class="product-dathang" type="submit" disabled>THÊM VÀO GIỎ HÀNG</button>
+                }
+                else
+                {
+                    <button class="product-dathang" type="submit" disabled>THÊM VÀO GIỎ HÀNG</button>
 
                 }
             </div>
@@ -78,5 +86,23 @@
         </div>
         <!-- FeedBack End-->
     </div>
+
+    @foreach(var item in ListFB)
+    {
+        
+<div class="product-wrapper-left feedback-container"
+     style="display: flex; flex-direction: column; line-height: 26px;">
+    <!-- FeedBack Begin-->
+    <header>
+        <i class="fas fa-user" style="margin-right: 8px;"></i>@item.UserName
+    </header>
+
+    <div>@item.FBContent</div>
+    <div style="color:#ccc;">@item.CreatedDate</div>
+    <!-- FeedBack End-->
+</div>
+
+    }
+    
     <!-- Product End-->
 </div>

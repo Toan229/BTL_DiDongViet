@@ -6,6 +6,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using PagedList.Mvc;
+using BTL_DiDongViet.Models.Dao;
+
 
 namespace BTL_DiDongViet.Controllers
 {
@@ -26,6 +28,8 @@ namespace BTL_DiDongViet.Controllers
             {
                 return HttpNotFound();
             }
+            FeedbackModel Feedback = new FeedbackModel();
+            ViewBag.ListFB = Feedback.ListFeedback(11,id);
             ViewBag.Lst = db.Products.Where(x => x.ID != id).ToList();
             return View(model);
         }
