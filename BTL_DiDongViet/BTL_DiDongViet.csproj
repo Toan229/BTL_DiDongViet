@@ -141,6 +141,7 @@
     </Compile>
     <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\Dao\LoginClientModel.cs" />
+    <Compile Include="Models\Dao\ProductDao.cs" />
     <Compile Include="Models\Dao\RegisterModel.cs" />
     <Compile Include="Models\Dao\UserDao.cs" />
     <Compile Include="Models\DBDiDongViet.cs" />
@@ -163,6 +164,45 @@
     <Content Include="assets\img\footer.png" />
     <Content Include="assets\img\ggplay.png" />
     <Content Include="assets\img\logo.png" />
+    <Content Include="assets\img\ProductImages\h1.jpg" />
+    <Content Include="assets\img\ProductImages\h11.jpg" />
+    <Content Include="assets\img\ProductImages\h12.jpg" />
+    <Content Include="assets\img\ProductImages\h13.jpg" />
+    <Content Include="assets\img\ProductImages\h14.jpg" />
+    <Content Include="assets\img\ProductImages\h15.jpg" />
+    <Content Include="assets\img\ProductImages\h16.jpg" />
+    <Content Include="assets\img\ProductImages\h17.jpg" />
+    <Content Include="assets\img\ProductImages\h18.jpg" />
+    <Content Include="assets\img\ProductImages\h19.jpg" />
+    <Content Include="assets\img\ProductImages\h2.jpg" />
+    <Content Include="assets\img\ProductImages\h20.jpg" />
+    <Content Include="assets\img\ProductImages\h21.jpg" />
+    <Content Include="assets\img\ProductImages\h22.jpg" />
+    <Content Include="assets\img\ProductImages\h23.jpg" />
+    <Content Include="assets\img\ProductImages\h24.jpg" />
+    <Content Include="assets\img\ProductImages\h25.jpg" />
+    <Content Include="assets\img\ProductImages\h26.jpg" />
+    <Content Include="assets\img\ProductImages\h27.jpg" />
+    <Content Include="assets\img\ProductImages\h28.jpg" />
+    <Content Include="assets\img\ProductImages\h29.jpg" />
+    <Content Include="assets\img\ProductImages\h3.jpg" />
+    <Content Include="assets\img\ProductImages\h30.jpg" />
+    <Content Include="assets\img\ProductImages\h31.png" />
+    <Content Include="assets\img\ProductImages\h32.jpg" />
+    <Content Include="assets\img\ProductImages\h33.jpg" />
+    <Content Include="assets\img\ProductImages\h34.jpg" />
+    <Content Include="assets\img\ProductImages\h35.jpg" />
+    <Content Include="assets\img\ProductImages\h36.jpg" />
+    <Content Include="assets\img\ProductImages\h37.jpg" />
+    <Content Include="assets\img\ProductImages\h38.jpg" />
+    <Content Include="assets\img\ProductImages\h39.jpg" />
+    <Content Include="assets\img\ProductImages\h4.jpg" />
+    <Content Include="assets\img\ProductImages\h40.jpg" />
+    <Content Include="assets\img\ProductImages\h5.jpg" />
+    <Content Include="assets\img\ProductImages\h6.jpg" />
+    <Content Include="assets\img\ProductImages\h7.jpg" />
+    <Content Include="assets\img\ProductImages\h8.jpg" />
+    <Content Include="assets\img\ProductImages\h9.jpg" />
     <Content Include="assets\img\qrcode.png" />
     <Content Include="assets\img\qrcode_login.png" />
     <Content Include="assets\img\xuhuongMS.png" />
@@ -1914,12 +1954,11 @@
     <Content Include="Views\Users\LoginIndex.cshtml" />
     <Content Include="Views\Users\RegisterIndex.cshtml" />
     <Content Include="Views\Users\RegisterSuccess.cshtml" />
-    <Content Include="Views\Product\Products.cshtml" />
     <Content Include="Views\Feedback\Feedback.cshtml" />
+    <Content Include="Views\Product\Detail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="assets\img\ProductImages\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
