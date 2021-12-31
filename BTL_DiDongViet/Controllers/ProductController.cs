@@ -18,5 +18,10 @@ namespace BTL_DiDongViet.Controllers
         {
             return View();
         }
+        /*public ActionResult ThemGiohang()
+        {
+            RedirectToAction("Cart");
+            
+        }*/
     }
 }

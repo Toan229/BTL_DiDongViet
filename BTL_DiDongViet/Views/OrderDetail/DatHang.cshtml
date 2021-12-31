@@ -25,23 +25,35 @@
             <div class="card">
                 <div class="card__header">Thông tin thanh toán</div>
                 <div class="card__body">
-                    <div style="font-size: 16px;">
-                        <span>Tên sản phẩm</span>
-                        <span style="float: right; font-weight: 400;">iPhone 13 128GB Chính Hãng (VN/A)</span>
-                    </div>
-                    <div style="font-size: 16px; margin-top: 8px;">
-                        <span>Màu</span>
-                        <span style="float: right; font-weight: 400;">Màu đen</span>
-                    </div>
-                    <div style="font-size: 16px;margin-top: 8px;">
-                        <span>Số lượng</span>
-                        <span style="float: right; font-weight: 400;">1</span>
-                    </div>
+                    @{ double total = 0; double sale = 0;}
+                    @if (Model != null)
+                    {
+                        foreach (var item in Model.product)
+                        {
+                            var pQuantity = Model.order.Find(o => o.ProductID == item.ID);
+                            total += double.Parse(item.Price.ToString()) * pQuantity.Quantity;
+                            sale += double.Parse((item.Price - item.Sale * item.Price / 100).ToString()) * pQuantity.Quantity;
+                            <div style="font-size: 16px;">
+                                <span>Tên sản phẩm</span>
+                                <span style="float: right; font-weight: 400;">@item.ProductName</span>
+                            </div>
+                            <div style="font-size: 16px; margin-top: 8px;">
+                                <span>Màu</span>
+                                <span style="float: right; font-weight: 400;">@item.Color</span>
+                            </div>
+                            <div style="font-size: 16px;margin-top: 8px;">
+                                <span>Số lượng</span>
+                                <span style="float: right; font-weight: 400;">@pQuantity.Quantity</span>
+                            </div>
+
+                        }
+                    }
+
                 </div>
                 <div class="card__footer">
                     <div style="font-size: 16px;">
                         <span>Tổng tiền</span>
-                        <span style="float: right; font-weight: 400;">23,490,000đ</span>
+                        <span style="float: right; font-weight: 400;">@String.Format("{0:0,0}", sale)đ</span>
                     </div>
                     <button class="dathang">
                         <a href="cart_commit.html" style="text-decoration: none; color: white;">
