@@ -179,7 +179,7 @@
                         {
                             count++;
                             <a href="#" class="product-list_item">
-                                <div class="item__img" style="background-image: url(../../assets/img/ProductImages/@item.Image"></div>
+                                <div class="item__img" style="background-image: url(../../assets/img/ProductImages/@item.Image)"></div>
                                 <div class="item__text" style="font-size:12px;color:black;">
                                     @item.ProductName
                                 </div>
@@ -243,7 +243,7 @@
                         </div>
                     </div>
                     <a href="/flash_sale?promotionId=2026713624" class="shopee-header-section__header-link">
-                        <button class="shopee-button-no-outline">
+                        <div class="shopee-button-no-outline">
                             Xem thêm 
                             <svg enable-background="new 0 0 11 11" viewBox="0 0 11 11" x="0" y="0" class="shopee-svg-icon
                                     icon-arrow-right">
@@ -252,7 +252,7 @@
                                        4.6-5.5
                                        4.6c-.2.2-.2.5-.1.7.1.1.3.2.4.2z"></path>
                             </svg>
-                        </button>
+                        </div>
                     </a>
                 </div>
                 <div class="shopee-header-section__content">
@@ -310,18 +310,22 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="shopee-item-card__badge-wrapper
-                                                      shopee-fs-item-card__badge-wrapper
-                                                      shopee-fs-item-card__badge-wrapper--home-page">
-                                                                <div class="reactJS_3iRehQ
-                                                         reactJS_36vTKx
-                                                         reactJS_2xY8te
-                                                         shopee-badge">
-                                                                    <div class="reactJS_2TDZGE">
-                                                                        <span class="percent">Giảm <br />@item.Sale% </span><span class="reactJS_17XqBU">giảm</span>
+                                                            @if (item.Sale > 0)
+                                                            {
+                                                                <div class="shopee-item-card__badge-wrapper
+                                                              shopee-fs-item-card__badge-wrapper
+                                                              shopee-fs-item-card__badge-wrapper--home-page">
+                                                                    <div class="reactJS_3iRehQ
+                                                                 reactJS_36vTKx
+                                                                 reactJS_2xY8te
+                                                                 shopee-badge">
+                                                                        <div class="reactJS_2TDZGE">
+                                                                            <span class="percent">Giảm <br />@item.Sale% </span><span class="reactJS_17XqBU">giảm</span>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
-                                                            </div>
+                                                            }
+
                                                         </div>
                                                     </a>
                                                 </div>
@@ -370,203 +374,7 @@
                 </a>
             </div>
         </div>
-        <!-- Skinny Banner End-->
-        <!-- Home Page Mall Begin -->
-        <div class="homepage-mall-section">
-            <div class="shopee-header-section shopee-header-section--simple">
-                <div class="shopee-header-section__header">
-                    <div class="shopee-header-section__header__title">
-                        <div class="reactJS_2V1Vu">
-                            <a class="reacrtJS_2jXJnV reactJS_2QwDm3" href="/mall">Apple Chính Hãng</a>
-                            <div class="reactJS_2Kl5gH">
-                                <div class="reactJS_sQprQi">
-                                    <img class="reactJS_2SCKPT" src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg//assets/6c502a2641457578b0d5f5153b53dd5d.png">7 ngày miễn phí trả hàng
-                                </div>
-                                <div class="reactJS_sQprQi">
-                                    <img class="reactJS_2SCKPT" src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg//assets/16ead7e0a68c3cff9f32910e4be08122.png">Hàng chính hãng 100%
-                                </div>
-                                <div class="reactJS_sQprQi">
-                                    <img class="reactJS_2SCKPT" src="https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg//assets/511aca04cc3ba9234ab0e4fcf20768a2.png">Miễn phí vận chuyển
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="shopee-header-section__header-link">
-                        <button class="shopee-button-no-outline">
-                            <a class="reactJS_19fjwV" href="/mall">
-                                <div class="reactJS_3WSAH5">
-                                    Xem tất cả
-                                    <div class="reactJS_2TyZyx">
-                                        <svg enable-background="new 0 0 11 11" viewBox="0 0 11 11" x="0" y="0" class="shopee-svg-icon icon-arrow-right">
-                                            <path d="m2.5 11c .1 0 .2 0 .3-.1l6-5c
-                                                                                                            .1-.1.2-.3.2-.4s-.1-.3-.2-.4l-6-5c-.2-.2-.5-.1-.7.1s-.1.5.1.7l5.5
-                                                                                                            4.6-5.5
-                                                                                                            4.6c-.2.2-.2.5-.1.7.1.1.3.2.4.2z"></path>
-                                        </svg>
-                                    </div>
-                                </div>
-                            </a>
-                        </button>
-                    </div>
-                </div>
-                <div id="apple-wrapper">
-                    <div class="shopee-header-section__content">
-                        <div class="reactJS_1gcn8R">
-                            <div class="shopee-banner-carousel">
-                                <div class="stardust-carousel__item-list-wrapper">
-                                    <ul class="stardust-carousel__item-list">
-                                        <li class="stardust-carousel__item">
-                                            <div class="stardust-carousel__item-inner-wrapper">
-                                                <img src="https://didongviet.vn/pub/media/wysiwyg/09/ph_-ki_n-apple.jpg">
-                                            </div>
-                                        </li>
-                                    </ul>
-                                    <div class="stardust-carousel__dots">
-                                        <div class="stardust-carousel__dot stardust-carousel__dot--active"></div>
-                                        <div class="stardust-carousel__dot"></div>
-                                        <div class="stardust-carousel__dot"></div>
-                                        <div class="stardust-carousel__dot"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="reactJS_1QAEyW">
-                            <div class="image-carousel">
-                                <div class="image-carousel__item-list-wrapper">
-                                    <ul class="image-carousel__item-list">
-                                        <li class="image-carousel__item">
-                                            <div>
-                                                <div class="ofs-carousel__item" location="0" shopid="230940122">
-                                                    <a class="ofs-carousel__shop-cover-image" href="https://didongviet.vn/tai-nghe-bluetooth-apple-airpods-max">
-                                                        <div class="reactJS-25r8I">
-                                                            <div class="ofs-carousel__cover-image reactJS_2GchKS" style="background-image:
-                                                                                                                                       url(https://didongviet.vn/pub/media/catalog/product//t/a/tai-nghe-bluetooth-apple-airpods-max.png);
-                                                                                                                                       background-size: contain;
-                                                                                                                                       background-repeat: no-repeat;"></div>
-                                                        </div>
-                                                    </a>
-                                                    <div class="ofs-carousel__item__text">
-                                                        Tai nghe Bluetooth AirPods Max Chính Hãng (VN/A)
-                                                    </div>
-                                                </div>
-                                                <div class="ofs-carousel__item" location="1" shopid="140594869">
-                                                    <a class="ofs-carousel__shop-cover-image" href="https://didongviet.vn/apple-airtag">
-                                                        <div class="reactJS-25r8I">
-                                                            <div class="ofs-carousel__cover-image reactJS_2GchKS" style="background-image:
-                                                                                                                           url(https://didongviet.vn/pub/media/catalog/product//a/p/apple-airtag.png);
-                                                                                                                           background-size: contain;
-                                                                                                                           background-repeat: no-repeat;"></div>
-                                                        </div>
-                                                    </a>
-                                                    <div class="ofs-carousel__item__text">
-                                                        Apple AirTag Chính Hãng
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="image-carousel__item">
-                                            <div>
-                                                <div class="ofs-carousel__item" location="2" shopid="230940122">
-                                                    <a class="ofs-carousel__shop-cover-image" href="https://didongviet.vn/airpods-pro-2021.html">
-                                                        <div class="reactJS-25r8I">
-                                                            <div class="ofs-carousel__cover-image reactJS_2GchKS" style="background-image:
-                                                                                                                                 url(https://didongviet.vn/pub/media/catalog/product//t/a/tai-nghe-bluetooth-apple-airpods-pro-2021-didongviet-12.jpg);
-                                                                                                                                 background-size: contain;
-                                                                                                                                 background-repeat: no-repeat;"></div>
-                                                        </div>
-                                                    </a>
-                                                    <div class="ofs-carousel__item__text">
-                                                        Tai nghe Bluetooth Apple AirPods Pro 2021 MagSafe Chính hãng
-                                                    </div>
-                                                </div>
-                                                <div class="ofs-carousel__item" location="3" shopid="140594869">
-                                                    <a class="ofs-carousel__shop-cover-image" href="https://didongviet.vn/chuot-khong-day-apple-magic-mouse-2-2021.html">
-                                                        <div class="reactJS-25r8I">
-                                                            <div class="ofs-carousel__cover-image
-                                                               reactJS_2GchKS" style="background-image:
-                                                               url(https://didongviet.vn/pub/media/catalog/product//c/h/chuot-khong-day-apple-magic-mouse-2-2021.jpg);
-                                                               background-size: contain;
-                                                               background-repeat: no-repeat;"></div>
-                                                        </div>
-                                                    </a>
-                                                    <div class="ofs-carousel__item__text">
-                                                        Chuột không dây Apple Magic Mouse 2 2021 Chính Hãng
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="image-carousel__item">
-                                            <div>
-                                                <div class="ofs-carousel__item" location="4" shopid="230940122">
-                                                    <a class="ofs-carousel__shop-cover-image" href="https://didongviet.vn/de-sac-khong-day-apple-magsafe">
-                                                        <div class="reactJS-25r8I">
-                                                            <div class="ofs-carousel__cover-image
-                                                               reactJS_2GchKS" style="background-image:
-                                                               url(https://didongviet.vn/pub/media/catalog/product//d/e/de-sac-khong-day-apple-magsafe.png);
-                                                               background-size: contain;
-                                                               background-repeat: no-repeat;"></div>
-                                                        </div>
-                                                    </a>
-                                                    <div class="ofs-carousel__item__text">
-                                                        Đế sạc không dây Apple MagSafe Chính Hãng
-                                                    </div>
-                                                </div>
-                                                <div class="ofs-carousel__item" location="5" shopid="140594869">
-                                                    <a class="ofs-carousel__shop-cover-image" href="https://didongviet.vn/cu-sac-nhanh-apple-iphone-20w-type-c-chinh-hang">
-                                                        <div class="reactJS-25r8I">
-                                                            <div class="ofs-carousel__cover-image
-                                                               reactJS_2GchKS" style="background-image:
-                                                               url(https://didongviet.vn/pub/media/catalog/product//c/u/cu-sac-nhanh-apple-iphone-20w-type-c.png);
-                                                               background-size: contain;
-                                                               background-repeat: no-repeat;"></div>
-                                                        </div>
-                                                    </a>
-                                                    <div class="ofs-carousel__item__text">
-                                                        Củ sạc nhanh Apple iPhone 20W Type-C Chính Hãng
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="image-carousel__item">
-                                            <div>
-                                                <div class="ofs-carousel__item" location="6" shopid="230940122">
-                                                    <a class="ofs-carousel__shop-cover-image" href="https://didongviet.vn/apple-airtag-loop">
-                                                        <div class="reactJS-25r8I">
-                                                            <div class="ofs-carousel__cover-image
-                                                               reactJS_2GchKS" style="background-image:
-                                                               url(https://didongviet.vn/pub/media/catalog/product//a/p/apple-airtag-loop.png);
-                                                               background-size: contain;
-                                                               background-repeat: no-repeat;"></div>
-                                                        </div>
-                                                    </a>
-                                                    <div class="ofs-carousel__item__text">
-                                                        Apple AirTag Loop Chính Hãng
-                                                    </div>
-                                                </div>
-                                                <div class="ofs-carousel__item" location="7" shopid="140594869">
-                                                    <a class="ofs-carousel__shop-cover-image" href="https://didongviet.vn/ban-phim-smart-keyboard-11inch-2021.html">
-                                                        <div class="reactJS-25r8I">
-                                                            <div class="ofs-carousel__cover-image
-                                                               reactJS_2GchKS" style="background-image:
-                                                               url(https://didongviet.vn/pub/media/catalog/product//b/a/ban-phim-smart-keyboard-11inch-2021.png);
-                                                               background-size: contain;
-                                                               background-repeat: no-repeat;"></div>
-                                                        </div>
-                                                    </a>
-                                                    <div class="ofs-carousel__item__text">
-                                                        Bàn phím Magic Keyboard iPad Pro 11inch 2021
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+
         <!-- Home Page Mall End -->
         <!-- Top Search Begin -->
         <div class="shopee-header-section reactJS_3b6QpT shopee-header-section--simple">
@@ -575,11 +383,11 @@
                     <span class="reactJS_1LyPB">Tablet</span>
                 </div>
                 <a class="shopee-header-section__header-link" href="/top_products?catId=VN_BITL0_157">
-                    <button class="shopee-button-no-outline">
+                    <div class="shopee-button-no-outline">
                         Xem tất cả&nbsp;<svg enable-background="new 0 0 11 11" viewBox="0 0 11 11" x="0" y="0" class="shopee-svg-icon icon-arrow-right">
                             <path d="m2.5 11c .1 0 .2 0 .3-.1l6-5c .1-.1.2-.3.2-.4s-.1-.3-.2-.4l-6-5c-.2-.2-.5-.1-.7.1s-.1.5.1.7l5.5 4.6-5.5 4.6c-.2.2-.2.5-.1.7.1.1.3.2.4.2z"></path>
                         </svg>
-                    </button>
+                    </div>
                 </a>
             </div>
             <div class="shopee-header-section__content">
@@ -589,80 +397,33 @@
                             <li class="stardust-carousel__item" style="width: 33.3333%;">
                                 <div class="stardust-carousel__item-inner-wrapper">
                                     <div class="reactJS_3cAq1q">
-                                        <a class="reactJS_2j61U1 reactJS_2xaiMR" href="https://didongviet.vn/samsung-galaxy-tab-a7">
-                                            <div class="reactJS_qJTSM5">
-                                                <div class="reactJS_1UlW3k reactJS_1qoDIm reactJS_2Uy3h"></div>
-                                                <div class="reactJS_25r8I reactJS_30vIDo">
-                                                    <img width="invalid-value" height="invalid-value" class="reactJS_GqgJnR reactJS_2GchKS" style="object-fit: contain" src="https://didongviet.vn/pub/media/catalog/product//g/a/galaxy-tab-a7-vang-didongviet_2.jpg">
-                                                </div>
-                                                <div class="reactJS_b5h6nF">
-                                                    7.990.000 ₫
-                                                </div>
-                                            </div>
-                                            <div class="reactJS_2wthtC">Samsung Galaxy Tab A7 (2020) Chính Hãng</div>
-                                        </a>
-                                        <a class="reactJS_2j61U1 reactJS_2xaiMR" href="https://didongviet.vn/samsung-galaxy-tab-s7-fe">
-                                            <div class="reactJS_qJTSM5">
-                                                <div class="reactJS_1UlW3k reactJS_1qoDIm reactJS_2Uy3h"></div>
-                                                <div class="reactJS_25r8I reactJS_30vIDo">
-                                                    <img width="invalid-value" height="invalid-value" class="reactJS_GqgJnR reactJS_2GchKS" style="object-fit: contain" src="https://didongviet.vn/pub/media/catalog/product//s/a/samsung-galaxy-tab-s7-fe-didongviet_1_2.jpg">
-                                                </div>
-                                                <div class="reactJS_b5h6nF">
-                                                    12.590.000 ₫
-                                                </div>
-                                            </div>
-                                            <div class="reactJS_2wthtC">Samsung Galaxy Tab S7 FE 64GB Chính Hãng</div>
-                                        </a>
-                                        <a class="reactJS_2j61U1 reactJS_2xaiMR" href="https://didongviet.vn/samsung-galaxy-tab-a8-2022.html">
-                                            <div class="reactJS_qJTSM5">
-                                                <div class="reactJS_1UlW3k reactJS_1qoDIm reactJS_2Uy3h"></div>
-                                                <div class="reactJS_25r8I reactJS_30vIDo">
-                                                    <img width="invalid-value" height="invalid-value" class="reactJS_GqgJnR reactJS_2GchKS" style="object-fit: contain" src="https://didongviet.vn/pub/media/catalog/product//g/a/galaxy-tab-a8-2022-didongviet.jpg">
-                                                </div>
-                                                <div class="reactJS_b5h6nF">
-                                                    7.990.000 ₫
-                                                </div>
-                                            </div>
-                                            <div class="reactJS_2wthtC">Samsung Galaxy Tab A8 (2022) Chính hãng</div>
-                                        </a>
-                                        <a class="reactJS_2j61U1 reactJS_2xaiMR" href="https://didongviet.vn/xiaomi-pad-5-128gb.html">
-                                            <div class="reactJS_qJTSM5">
-                                                <div class="reactJS_1UlW3k reactJS_1qoDIm reactJS_2Uy3h"></div>
-                                                <div class="reactJS_25r8I reactJS_30vIDo">
-                                                    <img width="invalid-value" height="invalid-value" class="reactJS_GqgJnR reactJS_2GchKS" style="object-fit: contain" src="https://didongviet.vn/pub/media/catalog/product//x/i/xiaomi-pad-5-128gb-didongviet.jpg">
-                                                </div>
-                                                <div class="reactJS_b5h6nF">
-                                                    8.990.000 ₫
-                                                </div>
-                                            </div>
-                                            <div class="reactJS_2wthtC">Xiaomi Pad 5 (6GB|128GB) Chính Hãng</div>
-                                        </a>
-                                        <a class="reactJS_2j61U1 reactJS_2xaiMR" href="https://didongviet.vn/ipad-mini-3-64gb-wifi-4g-may-cu.html">
-                                            <div class="reactJS_qJTSM5">
-                                                <div class="reactJS_1UlW3k reactJS_1qoDIm reactJS_2Uy3h"></div>
-                                                <div class="reactJS_25r8I reactJS_30vIDo">
-                                                    <img width="invalid-value" height="invalid-value" class="reactJS_GqgJnR reactJS_2GchKS" style="object-fit: contain" src="https://didongviet.vn/pub/media/catalog/product//i/p/ipad-mini-3-128gb-wifi-4g-cu_2.jpg">
-                                                </div>
-                                                <div class="reactJS_b5h6nF">
-                                                    4.990.000 ₫
-                                                </div>
-                                            </div>
-                                            <div class="reactJS_2wthtC">
-                                                iPad Mini 3 64GB Wifi &amp; 4G
-                                            </div>
-                                        </a>
-                                        <a class="reactJS_2j61U1 reactJS_2xaiMR" href="https://didongviet.vn/samsung-galaxy-tabs7.html">
-                                            <div class="reactJS_qJTSM5">
-                                                <div class="reactJS_1UlW3k reactJS_1qoDIm reactJS_2Uy3h"></div>
-                                                <div class="reactJS_25r8I reactJS_30vIDo">
-                                                    <img width="invalid-value" height="invalid-value" class="reactJS_GqgJnR reactJS_2GchKS" style="object-fit: contain" src="https://didongviet.vn/pub/media/catalog/product//s/a/samsung-galaxy-tab-s7_2.jpg">
-                                                </div>
-                                                <div class="reactJS_b5h6nF">
-                                                    16.990.000 ₫
-                                                </div>
-                                            </div>
-                                            <div class="reactJS_2wthtC">Samsung Galaxy Tab S7 11inch (6GB|128GB) chính hãng</div>
-                                        </a>
+                                        @if (Model.Product.Count != 0)
+                                        {
+                                            var TLCategory = Model.Category.Find(m => m.Name.Equals("Tablet"));
+                                            var list = Model.Product.FindAll(p => p.CategoryID == TLCategory.ID);
+                                            int count1 = 0;
+                                            foreach (var item in list)
+                                            {
+                                                count1++;
+                                                <a class="reactJS_2j61U1 reactJS_2xaiMR" href="@Url.Action("Product", "Product", new { id = item.ID })" >
+                                                    <div class="reactJS_qJTSM5">
+                                                        <div class="reactJS_1UlW3k reactJS_1qoDIm reactJS_2Uy3h"></div>
+                                                        <div class="reactJS_25r8I reactJS_30vIDo">
+                                                            <img width="invalid-value" height="invalid-value" class="reactJS_GqgJnR reactJS_2GchKS" style="object-fit: contain" src="~/assets/img/ProductsImage/@item.Image">
+                                                        </div>
+                                                        <div class="reactJS_b5h6nF">
+                                                            @string.Format(moneyFomat, item.Price) đ
+                                                        </div>
+                                                    </div>
+                                                    <div class="reactJS_2wthtC" style="font-size:16px;">@item.ProductName</div>
+                                                </a>
+                                                if(count1 == 7)
+                                                {
+                                                    break;
+                                                }
+                                            }
+                                        }
+
                                     </div>
                                 </div>
                             </li>
@@ -707,13 +468,13 @@
                     <div class="shopee-header-section__header__title">
                         <span>Đồng hồ thông minh</span>
                     </div>
-                    <div class="shopee-header-section__header-link">
-                        <button class="shopee-button-no-outline">
-                            <svg viewBox="0 0 12 15" class="shopee-svg-icon icon-refresh">
-                                <path d="M12 7.51268255c0-1.71021918-.7226562-3.30538371-1.9648437-4.43447938-.20507817-.18525749-.52148442-.16965686-.7070313.03315134-.18554687.20475828-.16992188.52067106.03320313.70592856C10.3984375 4.75722109 11 6.08717488 11 7.51268255c0 2.59360495-1.98242187 4.72699125-4.515625 4.96880095l.68164063-.7878318c.1796875-.2086585.15625-.5245713-.05273438-.7039785-.20898438-.1794073-.52539062-.1560063-.70507813.0526521l-1.49609375 1.7336201c-.18164062.2106086-.15625.5284714.05664063.7078787l1.65429688 1.3982065c.21093749.1774572.52539062.1521062.70507812-.0585023.17773438-.2106085.15234375-.5245712-.05859375-.7039785l-.75195313-.6357257C9.58789062 13.2205634 12 10.6484094 12 7.51268255zM2.80273438 11.3523879C1.66796875 10.4085497 1 9.0161934 1 7.51463263c0-2.75741154 2.23828125-4.99220194 5-4.99220194h.01367188l-.7734375.75078037c-.19726563.19305781-.203125.50897059-.00976563.70592855.19335938.19695797.50976563.20280821.70703125.0097504l1.64257813-1.59516453c.19921875-.19305781.20117187-.51287074.00585937-.70982871L6.06054688.14723461c-.1953125-.19500789-.51171875-.19695797-.70703125-.00195008C5.15820313.34029242 5.15625.6562052 5.3515625.85121309l.66992188.67472729H6c-3.31445312 0-6 2.68135846-6 5.99064232 0 1.8018729.80273438 3.4750406 2.16210938 4.6060863.21289062.1755071.52734375.148206.70507812-.0643526.17773438-.2164587.1484375-.5304214-.06445312-.7059285z" fill-rule="nonzero"></path>
-                            </svg>&nbsp;Xem thêm
-                        </button>
-                    </div>
+                    <a class="shopee-header-section__header-link" href="/top_products?catId=VN_BITL0_157">
+                        <div class="shopee-button-no-outline">
+                            Xem tất cả&nbsp;<svg enable-background="new 0 0 11 11" viewBox="0 0 11 11" x="0" y="0" class="shopee-svg-icon icon-arrow-right">
+                                <path d="m2.5 11c .1 0 .2 0 .3-.1l6-5c .1-.1.2-.3.2-.4s-.1-.3-.2-.4l-6-5c-.2-.2-.5-.1-.7.1s-.1.5.1.7l5.5 4.6-5.5 4.6c-.2.2-.2.5-.1.7.1.1.3.2.4.2z"></path>
+                            </svg>
+                        </div>
+                    </a>
                 </div>
                 <div class="shopee-header-section__content">
                     <a class="reactJS_pGTvY reactJS_3I4gP6" href="https://didongviet.vn/samsung-galaxy-watch-4-classic-42mm.html">
@@ -782,13 +543,13 @@
                     <div class="shopee-header-section__header__title">
                         <span>Phụ kiện xịn - Giao tận nơi</span>
                     </div>
-                    <div class="shopee-header-section__header-link">
-                        <button class="shopee-button-no-outline">
-                            <svg viewBox="0 0 12 15" class="shopee-svg-icon icon-refresh">
-                                <path d="M12 7.51268255c0-1.71021918-.7226562-3.30538371-1.9648437-4.43447938-.20507817-.18525749-.52148442-.16965686-.7070313.03315134-.18554687.20475828-.16992188.52067106.03320313.70592856C10.3984375 4.75722109 11 6.08717488 11 7.51268255c0 2.59360495-1.98242187 4.72699125-4.515625 4.96880095l.68164063-.7878318c.1796875-.2086585.15625-.5245713-.05273438-.7039785-.20898438-.1794073-.52539062-.1560063-.70507813.0526521l-1.49609375 1.7336201c-.18164062.2106086-.15625.5284714.05664063.7078787l1.65429688 1.3982065c.21093749.1774572.52539062.1521062.70507812-.0585023.17773438-.2106085.15234375-.5245712-.05859375-.7039785l-.75195313-.6357257C9.58789062 13.2205634 12 10.6484094 12 7.51268255zM2.80273438 11.3523879C1.66796875 10.4085497 1 9.0161934 1 7.51463263c0-2.75741154 2.23828125-4.99220194 5-4.99220194h.01367188l-.7734375.75078037c-.19726563.19305781-.203125.50897059-.00976563.70592855.19335938.19695797.50976563.20280821.70703125.0097504l1.64257813-1.59516453c.19921875-.19305781.20117187-.51287074.00585937-.70982871L6.06054688.14723461c-.1953125-.19500789-.51171875-.19695797-.70703125-.00195008C5.15820313.34029242 5.15625.6562052 5.3515625.85121309l.66992188.67472729H6c-3.31445312 0-6 2.68135846-6 5.99064232 0 1.8018729.80273438 3.4750406 2.16210938 4.6060863.21289062.1755071.52734375.148206.70507812-.0643526.17773438-.2164587.1484375-.5304214-.06445312-.7059285z" fill-rule="nonzero"></path>
-                            </svg>&nbsp;Xem thêm
-                        </button>
-                    </div>
+                    <a class="shopee-header-section__header-link" href="/top_products?catId=VN_BITL0_157">
+                        <div class="shopee-button-no-outline">
+                            Xem tất cả&nbsp;<svg enable-background="new 0 0 11 11" viewBox="0 0 11 11" x="0" y="0" class="shopee-svg-icon icon-arrow-right">
+                                <path d="m2.5 11c .1 0 .2 0 .3-.1l6-5c .1-.1.2-.3.2-.4s-.1-.3-.2-.4l-6-5c-.2-.2-.5-.1-.7.1s-.1.5.1.7l5.5 4.6-5.5 4.6c-.2.2-.2.5-.1.7.1.1.3.2.4.2z"></path>
+                            </svg>
+                        </div>
+                    </a>
                 </div>
                 <div class="shopee-header-section__content">
                     <a class="reactJS_pGTvY reactJS_3I4gP6" href="https://didongviet.vn/tai-nghe-beats-studio-buds.html">
@@ -1083,9 +844,6 @@
                                             </div>
                                         </div>
                                     </a>
-                                </div>
-                                <div class="reactJS_3BrES5">
-                                    <a class="btn btn-light btn--m btn--inline btn-light--link reactJS_3PNTgJ" href="/daily_discover?pageNumber=2">Xem thêm</a>
                                 </div>
                             </div>
                         </div>

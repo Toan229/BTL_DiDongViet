@@ -98,16 +98,8 @@ namespace BTL_DiDongViet.Controllers
         // GET: OrderDetail
         //Trang cart.html
 
-<<<<<<< HEAD
-        public ActionResult Index(int? userID)
-        {
-            //if(userID != null)
-            //{
-                userID = 2;//Test 
-=======
         public CartViewModel layGioHang(int userID)
         {
->>>>>>> order_detail
                 var order = db.Order.ToList().Find(o => o.UserID == userID);
            
                 List<OrderDetail> orderDetail = db.OrderDetail.ToList().FindAll(o => o.OrderID == order.ID);
@@ -116,11 +108,6 @@ namespace BTL_DiDongViet.Controllers
                 {
                     productList.Add(db.Products.Find(item.ProductID));
                 }
-<<<<<<< HEAD
-                return View(productList);
-            //}
-            //return View();
-=======
                 CartViewModel viewModel = new CartViewModel();
                 viewModel.order = orderDetail;
                 viewModel.product = productList;
@@ -176,7 +163,6 @@ namespace BTL_DiDongViet.Controllers
             }
 
             return RedirectToAction("LoginIndex", "Users");
->>>>>>> order_detail
         }
     }
 }

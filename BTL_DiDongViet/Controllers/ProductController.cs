@@ -14,7 +14,7 @@ namespace BTL_DiDongViet.Controllers
             return View();
         }
         //GET: Details
-        public ActionResult Products(int? id)
+        public ActionResult Details(int? id)
         {
             return View();
         }
