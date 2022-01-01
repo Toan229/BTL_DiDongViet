@@ -81,6 +81,32 @@ namespace BTL_DiDongViet.Controllers
             return View();
         }
 
+        public ActionResult Search(string keyword, int? page)
+        {
+            ProductsDao productsDao = new ProductsDao();
+            var products = db.Products.Where(p => p.ProductName.Contains(keyword));
+            products = products.OrderBy(p => p.ID);
+            int pageSize = 10;
+            int pageNumber = (page ?? 1);
+            ViewBag.Count = products.Count();
+            if (products.Count() < 10)
+            {
+                ViewBag.Start = pageNumber * 10 - 9;
+                ViewBag.End = products.Count();
+                return View(productsDao.GetSearchProducts(pageNumber, pageSize, keyword));
+            }
+            ViewBag.Start = pageNumber * 10 - 9;
+            if (pageNumber * 10 > products.Count())
+            {
+                ViewBag.End = products.Count();
+            }
+            else
+            {
+                ViewBag.End = pageNumber * 10;
+            }
+            return View(productsDao.GetSearchProducts(pageNumber, pageSize, keyword));
+        }
+
 
 
 

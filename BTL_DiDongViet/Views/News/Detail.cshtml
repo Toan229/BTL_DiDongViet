@@ -1,0 +1,125 @@
+﻿@model BTL_DiDongViet.Models.News
+
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<style>
+    a:hover {
+        color: #be1e2d !important;
+    }
+
+    .trang {
+        width: 75px;
+        height: 45px;
+        display: block;
+    }
+
+        .trang .pagination {
+            font-size: 16px;
+            background: white;
+            display: flex;
+            transform: translateX(1095px);
+            height: 30px;
+            padding: 8px;
+            width: max-content;
+        }
+
+        .trang .active {
+            display: block;
+            margin-right: 14px;
+            height: 15px;
+        }
+
+        .trang a {
+            text-decoration: none;
+            color: black;
+        }
+
+        .trang li {
+            margin: 0 10px;
+        }
+</style>
+<div class="main" style="padding-top: 0px;">
+    <!-- Welcome Package Begin -->
+    <div class="welcome-package-banner"
+         data-current-src="https://cf.shopee.vn/file/d3fa706887cf34ddd491c8fc60e37d9f_xxhdpi"
+         style="background-image: url(https://didongviet.vn/pub/media/mageplaza/bannerslider/banner/image/1/2/1280x80_3_.png); background-size: contain; background-repeat: no-repeat;">
+    </div>
+    <!-- Welcome Package End -->
+    <div>
+        <a href="Home" class="nav-link nav-arrow">Trang chủ</a>
+        <a href="/News/Display" class="nav-link nav-arrow">Tin tức</a>
+        <span class="nav-link">@Model.Title</span>
+    </div>
+    <!-- Section Below The Fold Begin -->
+    <div class="section-below-the-fold" style="padding-bottom: 0;">
+        <!-- Flash Sale Begin-->
+        <div class="shopee-flash-sale-overview-carousel">
+            <div class="shopee-header-section
+                        shopee-header-section--simple">
+                <div class="shopee-header-section__header">
+                    <div class="shopee-header-section__header__title"
+                         style=" padding: 16px 0;margin-right: 0">
+                       
+                    </div>
+                </div>
+                <div class="shopee-header-section__content">
+                    <div class="image-carousel">
+                        <div class="image-carousel__item-list-wrapper">
+                            <div class="container" style="flex-direction: column">
+                                <img style="object-fit: contain;" src="~/assets/img/NewsImage/@Model.Image" alt="">
+                                <div class="container-right">
+                                    <h2 style="margin-bottom: 4px;font-size: 24px">
+                                        <a href="" style="text-decoration: none; ">@Model.Title</a>
+                                    </h2>
+                                    <div class="new-time">@Model.CreatedDate</div>
+                                    <div class="new-desc">@Model.NewContent</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+               
+            </div>
+        </div>
+        <!-- Flash Sale End-->
+        <!-- Skinny Banner Beign-->
+        <div style="margin-top: 20px">
+            <div class="shopee-skinny-banner__container">
+                <a class="shopee-skinny-banner" href="" style="width: 610px;
+                           height: 119px;
+                           border-radius: 2px;">
+                    <div class="reactJS-25r8I
+                              shopee-skinny-banner__full-height">
+                        <div style="background: url(https://cdn.didongviet.vn/pub/media/mageplaza/bannerslider/banner/image/a/i/airpod-3.jpg);
+                                 background-size: cover;
+                                 background-repeat: no-repeat;" class="shopee-skinny-banner__full-height
+                                 reactJS_2GchKS"></div>
+                    </div>
+                </a>
+            </div>
+            <div class="shopee-skinny-banner__container">
+                <a class="shopee-skinny-banner" href="" style="width: 610px;
+                           height: 119px;
+                           border-radius: 2px;">
+                    <div class="reactJS-25r8I
+                              shopee-skinny-banner__full-height">
+                        <div class="shopee-skinny-banner__full-height
+                                 reactJS_2GchKS" style="background-image: url(https://cdn.didongviet.vn/pub/media/mageplaza/bannerslider/banner/image/a/i/airpods-didongviet-banner-1.jpg);
+                                 background-size: cover;
+                                 background-repeat: no-repeat;"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <!-- Skinny Banner End-->
+        <!-- Section Below The Fold End -->
+    </div>
+</div>
+
+
+
