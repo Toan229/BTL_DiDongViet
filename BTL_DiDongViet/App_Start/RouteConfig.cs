@@ -39,6 +39,13 @@ namespace BTL_DiDongViet
                 defaults: new { controller = "Users", action = "Create", id = UrlParameter.Optional },
                 namespaces: new[] { "BTL_DiDongViet.Controllers" }
             );
+
+            routes.MapRoute(
+                name: "Product Detail",
+                url: "chi-tiet/{MetaTitle}-{id}",
+                defaults: new { controller = "Product", action = "Detail", id = UrlParameter.Optional },
+                namespaces: new[] { "BTL_DiDongViet.Controllers" }
+            );
         }
     }
 }

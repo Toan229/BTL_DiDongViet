@@ -1,0 +1,52 @@
+﻿
+@{
+    ViewBag.Title = "Feedback";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="main pd-top-0">
+    <!-- Welcome Package Begin -->
+    <div class="welcome-package-banner" data-current-src="https://cf.shopee.vn/file/d3fa706887cf34ddd491c8fc60e37d9f_xxhdpi" style="background-image: url(https://didongviet.vn/pub/media/mageplaza/bannerslider/banner/image/1/2/1280x80_3_.png); background-size: contain; background-repeat: no-repeat;"></div>
+    <!-- Welcome Package End -->
+    <!-- Nav Tag Begin -->
+    <div>
+        <a href="#" class="nav-link nav-arrow">Trang chủ</a>
+        <a href="#" class="nav-link nav-arrow">Apple Iphone</a>
+        <a class="nav-link">Feedback</a>
+    </div>
+    <form style="padding-left:30vw;" method="get" id="valid-form">
+        <h1 style="padding-left:100px; height:4vh;">Customer's Feedback</h1>
+        <div>
+            Please use this form to suggest process improvements and give product feedback on the service on our website.
+        </div>
+        <div class="a">
+            <b>Name</b><br>
+            <div style="float: left;padding-right: 12px;"><label><input style="height: 3vh; width: 10vw;" name="firstname" type="text" placeholder="First"></label></div>
+            <div><input style="height: 3vh; width: 10vw;" name="lastname" type="text" placeholder="Last"></div>
+        </div>
+        <div class="a">
+            <b>Email</b><br>
+            <div><input style="height: 3vh; width: 21vw;" name="email" type="email"></div>
+        </div>
+        <div>Please enter your email, so we can follow up with you.</div>
+        <div class="a"><b>Which department do you have a suggestion for?</b></div>
+        <div>
+            <input type="radio" value="Sales" name="department">Sales<br>
+            <input type="radio" value="CustomerSupport" name="department">Customer Support <br>
+            <input type="radio" value="ProductDevelopment" name="department">Product Development <br>
+            <input type="radio" value="Other" name="department">Other <br>
+        </div>
+        <div style="padding-top: 20px;padding-left:50px;">
+            <a style="padding-right: 20px;text-decoration: none;" href="#">
+                <img style="width: 15px;height: 15px; border-top: 1px;" src="https://cdn-icons-png.flaticon.com/512/709/709624.png"><b>Return</b>
+            </a>
+            <input id="submit" type="submit" value="Submit" style="width: 100px;height: 30px;background-color: #d0011b;">
+        </div>
+    </form>
+    <link rel="stylesheet" href="~/assets/css/Feedback.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js"></script>
+    <script src="~/assets/js/Feedback.js"></script>
+</div>
+<!-- Product End-->
+
