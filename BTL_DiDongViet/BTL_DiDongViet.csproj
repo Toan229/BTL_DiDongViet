@@ -146,6 +146,7 @@
     <Compile Include="Models\Dao\UserDao.cs" />
     <Compile Include="Models\DBDiDongViet.cs" />
     <Compile Include="Models\Feedback.cs" />
+    <Compile Include="Models\HomeViewModel.cs" />
     <Compile Include="Models\News.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\OrderDetail.cs" />
@@ -161,9 +162,15 @@
     <Content Include="assets\css\sign_up.css" />
     <Content Include="assets\img\appgalery.png" />
     <Content Include="assets\img\appstore.png" />
+    <Content Include="assets\img\bannerDIong.png" />
     <Content Include="assets\img\footer.png" />
     <Content Include="assets\img\ggplay.png" />
     <Content Include="assets\img\logo.png" />
+    <Content Include="assets\img\NewsImages\n1.jpg" />
+    <Content Include="assets\img\NewsImages\n2.jpg" />
+    <Content Include="assets\img\NewsImages\n3.jpg" />
+    <Content Include="assets\img\NewsImages\n4.jpg" />
+    <Content Include="assets\img\NewsImages\n5.jpg" />
     <Content Include="assets\img\ProductImages\h1.jpg" />
     <Content Include="assets\img\ProductImages\h11.jpg" />
     <Content Include="assets\img\ProductImages\h12.jpg" />
@@ -1950,12 +1957,14 @@
     <Content Include="Views\Users\Details.cshtml" />
     <Content Include="Views\Users\Edit.cshtml" />
     <Content Include="Views\Users\Index.cshtml" />
-    <Content Include="Views\Category\Category.cshtml" />
+    <Content Include="Views\Category\Home.cshtml" />
     <Content Include="Views\Users\LoginIndex.cshtml" />
     <Content Include="Views\Users\RegisterIndex.cshtml" />
     <Content Include="Views\Users\RegisterSuccess.cshtml" />
     <Content Include="Views\Feedback\Feedback.cshtml" />
     <Content Include="Views\Product\Detail.cshtml" />
+    <Content Include="Views\Product\Products.cshtml" />
+    <Content Include="Views\Category\Category.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
