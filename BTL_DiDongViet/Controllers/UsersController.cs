@@ -161,8 +161,9 @@ namespace BTL_DiDongViet.Controllers
                         bool flag = true;
                         foreach (char c in model.Phone)
                         {
-                            if (!Char.IsDigit(c)) { throw new Exception("Số điện thoại nhập không đúng định dạng!");
+                            if (!Char.IsDigit(c)) {
                                 flag = false;
+                                throw new Exception("Số điện thoại nhập không đúng định dạng!");
                             }
                         }
                         if(flag)

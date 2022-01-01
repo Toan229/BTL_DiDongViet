@@ -50,20 +50,29 @@
                     </li>
                     <li class="navbar-list__item">
                         <i class="fas fa-user"></i>
-                        <a href="" class="navbar-list__link">Username</a>
-                    </li>
-                    <li class="navbar-list__item">
-                        <i class="fas fa-sign-out-alt"></i>
-                        <a href="/Users/Logout" class="navbar-list__link">Đăng xuất</a>
-                    </li>
-                    <!-- <li class="navbar-list__item"> <a href="/log_in.html" class="navbar-list__link">Đăng nhập</a> </li> -->
-                </ul>
+                        @if (ViewBag.User != null)
+                        {
+                            <a href="/sign_up.html" class="navbar-list__link">@ViewBag.User</a>
+                        }
+                        else
+                        {
+                            <a href="/sign_up.html" class="navbar-list__link">Đăng nhập</a>
+                        }
+
+                        <!--    <a href="" class="navbar-list__link">Username</a>
+    </li>
+    <li class="navbar-list__item">
+        <i class="fas fa-sign-out-alt"></i>
+        <a href="/Users/Logout" class="navbar-list__link">Đăng xuất</a>
+    </li>
+    <li class="navbar-list__item"> <a href="/log_in.html" class="navbar-list__link">Đăng nhập</a> </li> -->
+</ul>
             </nav>
         </div>
         <div class="grid">
             <div class="header-with-search">
                 <!-- Header Search Begin -->
-                <a class="header-with-search__logo-section" href="Home">
+                <a class="header-with-search__logo-section" href="@Url.Action("Home", "Category")">
                     <img src="https://didongviet.vn/pub/media/logo/stores/1/logo-ddv.png" style="margin-right: 10px;">
                 </a>
                 <!-- Search Bar Begin -->
@@ -106,41 +115,34 @@
                     <div class="left">
                         <ul>
                             <li>
-                                <i class="fas fa-mobile"></i>
-                                <span>Điện thoại</span>
+                                <a class="fas fa-mobile" href="@Url.Action("Category", "Category", new { @name = "Điện thoại" }) " style="text-decoration: none; font-size: 18px;"> Điện thoại</a>
                             </li>
                             <li>
-                                <i class="fab fa-apple"></i>
-                                <span>Apple Iphone</span>
+                                <a class="fab fa-apple" href="@Url.Action("Category", "Category", new { @name = "Apple Iphone" }) " style="text-decoration: none; font-size: 18px;font-weight:bold;"> Apple Iphone</a>
                             </li>
                             <li>
-                                <i class="fas fa-tablet-alt"></i>
-                                <span>Tablet</span>
+                                <a class="fas fa-tablet-alt" href="@Url.Action("Category", "Category", new { @name = "Tablet" }) " style="text-decoration: none; font-size: 18px;"> Tablet</a>
                             </li>
                             <li>
-                                <i class="far fa-clock"></i>
-                                <span>Đồng hồ</span>
+                                <a class="far fa-clock" href="@Url.Action("Category", "Category", new { @name = "Đồng hồ" }) " style="text-decoration: none; font-size: 18px;font-weight:bold;"> Đồng hồ</a>
+                                <span></span>
                             </li>
                             <li>
-                                <i class="fas fa-keyboard"></i>
-                                <span>Phụ kiện</span>
+                                <a class="fas fa-keyboard" href="@Url.Action("Category", "Category", new { @name = "Phụ kiện" }) " style="text-decoration: none; font-size: 18px;"> Phụ kiện</a>
                             </li>
                             <li>
-                                <i class="fas fa-sync-alt"></i>
-                                <span>Máy cũ giá rẻ</span>
+                                <a class="fas fa-sync-alt" href="@Url.Action("Category", "Category", new { @name = "Máy cũ giá rẻ" }) " style="text-decoration: none; font-size: 18px;"> Máy cũ giá rẻ</a>
                             </li>
                         </ul>
                     </div>
                     <div class="right">
                         <div class="wrapper">
-                            <i></i>
                             <span>
                                 <a href="/News/Display" style="text-decoration: none;">Tin tức
                                     </a>
                             </span>
                         </div>
                         <div class="wrapper">
-                            <i></i>
                             <span>
                                 <a href="/Information/Policy" style="text-decoration: none;">
                                     Chính sách
@@ -234,12 +236,11 @@
                 <img src="assets/img/footer.png" alt="">
             </div>
         </footer>
+<<<<<<< HEAD
+=======
         <script src="@Url.Content("~/assets/js/base.js")" defer="defer"></script>
         <script src="~/assets/js/jquery-ui/jquery-ui.min.js"></script>
+>>>>>>> origin/dang_nhap
     </div>
-
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
 </body>
 </html>
