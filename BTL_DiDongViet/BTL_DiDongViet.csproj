@@ -141,12 +141,16 @@
     <Compile Include="Controllers\InformationController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
+    <Compile Include="Controllers\OrderDetailController.cs" />
+    <Compile Include="Controllers\OrdersController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\Dao\FeedbackModel.cs" />
+    <Compile Include="Models\CartViewModel.cs" />
     <Compile Include="Models\Dao\LoginClientModel.cs" />
     <Compile Include="Models\Dao\NewsDao.cs" />
     <Compile Include="Models\Dao\ProductsDao.cs" />
@@ -154,6 +158,8 @@
     <Compile Include="Models\Dao\UserDao.cs" />
     <Compile Include="Models\DBDiDongViet.cs" />
     <Compile Include="Models\Feedback.cs" />
+    <Compile Include="Models\HomeViewModel.cs" />
+    <Compile Include="Models\Giohang.cs" />
     <Compile Include="Models\News.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\OrderDetail.cs" />
@@ -170,6 +176,7 @@
     <Content Include="assets\css\sign_up.css" />
     <Content Include="assets\img\appgalery.png" />
     <Content Include="assets\img\appstore.png" />
+    <Content Include="assets\img\bannerDIong.png" />
     <Content Include="assets\img\footer.png" />
     <Content Include="assets\img\ggplay.png" />
     <Content Include="assets\img\logo.png" />
@@ -2383,10 +2390,15 @@
     <Content Include="Views\Users\Delete.cshtml" />
     <Content Include="Views\Users\Details.cshtml" />
     <Content Include="Views\Users\Index.cshtml" />
+    <Content Include="Views\Category\Home.cshtml" />
     <Content Include="Views\Category\Category.cshtml" />
+    <Content Include="Views\Orders\Index.cshtml" />
+    <Content Include="Views\OrderDetail\Cart.cshtml" />
     <Content Include="Views\Users\LoginIndex.cshtml" />
     <Content Include="Views\Users\RegisterIndex.cshtml" />
     <Content Include="Views\Users\RegisterSuccess.cshtml" />
+    <Content Include="Views\Product\Products.cshtml" />
+    <Content Include="Views\Category\Category.cshtml" />
     <Content Include="Views\News\Display.cshtml" />
     <Content Include="Views\News\Detail.cshtml" />
     <Content Include="Views\Information\Gioithieu.cshtml" />

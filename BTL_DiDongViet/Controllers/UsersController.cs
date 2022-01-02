@@ -131,7 +131,7 @@ namespace BTL_DiDongViet.Controllers
 
 
         // POST: Users/Create
-        // Để bảo vệ khỏi overposting attacks, phải chỉ định các thuộc tính cụ thể 
+        // Để bảo vệ khỏi overposting attacks, phải chỉ định các thuộc tính cụ thể
         [HttpPost]
         [ValidateAntiForgeryToken]
         /*
@@ -180,10 +180,9 @@ namespace BTL_DiDongViet.Controllers
                         bool flag = true;
                         foreach (char c in model.Phone)
                         {
-                            if (!Char.IsDigit(c))
-                            {
-                                throw new Exception("Số điện thoại nhập không đúng định dạng!");
+                            if (!Char.IsDigit(c)) {
                                 flag = false;
+                                throw new Exception("Số điện thoại nhập không đúng định dạng!");
                             }
                         }
                         if (flag)
@@ -282,7 +281,7 @@ namespace BTL_DiDongViet.Controllers
                     return View(user);
                 }
 
-           
+
 
                 // GET: Users/Delete/5
                 public ActionResult Delete(long? id)

@@ -15,7 +15,7 @@ namespace BTL_DiDongViet.Models
         public virtual DbSet<Admin> Admin { get; set; }
         public virtual DbSet<Feedback> Feedback { get; set; }
         public virtual DbSet<News> News { get; set; }
-       
+
         public virtual DbSet<Order> Order { get; set; }
         public virtual DbSet<OrderDetail> OrderDetail { get; set; }
         public virtual DbSet<ProductCategory> ProductCategory { get; set; }
