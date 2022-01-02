@@ -1,0 +1,149 @@
+﻿@model IEnumerable<BTL_DiDongViet.Models.User>
+
+@{
+    ViewBag.Title = "EditIndex";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+<div class="main" style="padding-top: 0px;">
+    <!-- Welcome Package Begin -->
+    <div class="welcome-package-banner"
+         data-current-src="https://cf.shopee.vn/file/d3fa706887cf34ddd491c8fc60e37d9f_xxhdpi"
+         style="background-image: url(https://didongviet.vn/pub/media/mageplaza/bannerslider/banner/image/1/2/1280x80_3_.png); background-size: contain; background-repeat: no-repeat;">
+    </div>
+    <!-- Welcome Package End -->
+    <div style=" background: white; padding: 10px;">
+        <a href="/Home" class="nav-link nav-arrow">Trang chủ</a>
+        <span class="nav-link">Thông tin User</span>
+    </div>
+    <!-- Section Below The Fold Begin -->
+    <div class="section-below-the-fold" style="padding-bottom: 0;">
+        <!-- Flash Sale Begin-->
+        <div class="shopee-flash-sale-overview-carousel">
+            <div class="shopee-header-section
+                        shopee-header-section--simple">
+                <div class="shopee-header-section__content">
+                    <div class="image-carousel">
+                        <div class="image-carousel__item-list-wrapper">
+                            <div class="container"
+                                 style="flex-direction: column; padding-top: 0;">
+                                <!-- <img style="object-fit: contain;" src="https://didongviet.vn/pub/media/wysiwyg/09/sis.jpg" alt=""> -->
+                                <h2 style="margin-bottom: 4px;font-size: 24px"></h2>
+                                <div class="new-desc">
+                                    <h2 style="margin-top: 0">Thông tin User</h2>
+
+
+                                    <table class="table" style="text-align: center">
+                                        <tr>
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.Username)
+                                            </th>
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.Password)
+                                            </th>
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.Name)
+                                            </th>
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.Address)
+                                            </th>
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.Email)
+                                            </th>
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.Phone)
+                                            </th>
+
+                                            <th>
+
+                                            </th>
+                                        </tr>
+
+                                        @{
+                                            var session = (BTL_DiDongViet.Common.UserLogin)Session[BTL_DiDongViet.Common.CommonConstants.CLIENT_SESSION];
+
+                                        }
+
+                                        @foreach (var item in Model)
+                                        {
+                                            if (item.ID == session.UserID)
+                                            {
+                                                <tr>
+                                                    <td>
+
+                                                        @Html.DisplayFor(modelItem => item.Username)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.Password)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.Name)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.Address)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.Email)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.Phone)
+                                                    </td>
+
+                                                    <td>
+                                                        @Html.ActionLink("Sửa", "Edit", new { id = ((ulong)@session.UserID) })
+
+                                                    </td>
+                                                </tr>
+                                            }
+
+
+
+
+                                        }
+
+                                    </table>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Flash Sale End-->
+        <!-- Skinny Banner Beign-->
+        <div style="margin-top: 20px">
+            <div class="shopee-skinny-banner__container">
+                <a class="shopee-skinny-banner" href="" style="width: 610px;
+                           height: 119px;
+                           border-radius: 2px;">
+                    <div class="reactJS-25r8I
+                              shopee-skinny-banner__full-height">
+                        <div style="background: url(https://cdn.didongviet.vn/pub/media/mageplaza/bannerslider/banner/image/a/i/airpod-3.jpg);
+                                 background-size: cover;
+                                 background-repeat: no-repeat;" class="shopee-skinny-banner__full-height
+                                 reactJS_2GchKS"></div>
+                    </div>
+                </a>
+            </div>
+            <div class="shopee-skinny-banner__container">
+                <a class="shopee-skinny-banner" href="" style="width: 610px;
+                           height: 119px;
+                           border-radius: 2px;">
+                    <div class="reactJS-25r8I
+                              shopee-skinny-banner__full-height">
+                        <div class="shopee-skinny-banner__full-height
+                                 reactJS_2GchKS" style="background-image: url(https://cdn.didongviet.vn/pub/media/mageplaza/bannerslider/banner/image/a/i/airpods-didongviet-banner-1.jpg);
+                                 background-size: cover;
+                                 background-repeat: no-repeat;"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <!-- Skinny Banner End-->
+        <!-- Section Below The Fold End -->
+    </div>
+</div>

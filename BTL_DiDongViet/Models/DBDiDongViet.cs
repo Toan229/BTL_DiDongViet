@@ -105,5 +105,7 @@ namespace BTL_DiDongViet.Models
                 .WithOptional(e => e.User)
                 .WillCascadeOnDelete();
         }
+
+        public System.Data.Entity.DbSet<BTL_DiDongViet.Models.Dao.RegisterModel> RegisterModels { get; set; }
     }
 }

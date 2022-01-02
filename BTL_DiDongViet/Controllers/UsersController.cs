@@ -42,13 +42,14 @@ namespace BTL_DiDongViet.Controllers
                     var user = dao.GetByID(model.Username);
                     var userSession = new UserLogin();
                     userSession.Username = user.Username;
+                    userSession.Password = user.Password;
                     userSession.UserID = user.ID;
                     userSession.Name = user.Name;
                     userSession.Phone = user.Phone;
                     userSession.Address = user.Address;
                     userSession.Email = user.Email;
                     Session.Add(CommonConstants.CLIENT_SESSION, userSession);
-                    return RedirectToRoute("home");
+                    return RedirectToRoute("Home");
                 }
                 else
                 if (result == 0)
@@ -79,6 +80,24 @@ namespace BTL_DiDongViet.Controllers
         public ActionResult RegisterIndex()
         {
             return View();
+        }
+
+        public ActionResult EditIndex()
+        {
+            return View(db.User.ToList());
+        }
+        public ActionResult Edit(long id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            User sanPham = db.User.Find(id);
+            if (sanPham == null)
+            {
+                return HttpNotFound();
+            }
+            return View(sanPham);
         }
 
         public ActionResult Search(string keyword, int? page)
@@ -161,17 +180,19 @@ namespace BTL_DiDongViet.Controllers
                         bool flag = true;
                         foreach (char c in model.Phone)
                         {
-                            if (!Char.IsDigit(c)) { throw new Exception("Số điện thoại nhập không đúng định dạng!");
+                            if (!Char.IsDigit(c))
+                            {
+                                throw new Exception("Số điện thoại nhập không đúng định dạng!");
                                 flag = false;
                             }
                         }
-                        if(flag)
+                        if (flag)
                         {
                             user.Phone = model.Phone;
                         }
                         user.Name = model.Name;
                         user.Address = model.Address;
-                        user.Email = model.Email;       
+                        user.Email = model.Email;
                         user.CreatedDate = DateTime.Now;
                         user.CreateBy = model.Name;
                         user.ModifiedDate = DateTime.Now;
@@ -203,13 +224,32 @@ namespace BTL_DiDongViet.Controllers
             return RedirectToRoute("home");
         }
 
+        public ActionResult Edit2([Bind(Include = "ID,Username,Password,Name,Address,Email,Phone")] User user)
+        {
+            if (ModelState.IsValid)
+            {
+                user.Status = true;
+                user.CreatedDate = DateTime.Now;
+                user.CreateBy = user.Name;
+                user.ModifiedDate = DateTime.Now;
+                user.ModifiedBy = user.Name;
+                db.Entry(user).State = EntityState.Modified;
+                db.SaveChanges();
+                return View("EditSuccess");
+            }
+            return View(user);
+
+        }
+
+
+
 
 
         /*
                 // GET: Users
                 public ActionResult Index()
                 {
-                    return View(db.Users.ToList());
+                    return View(db.User.ToList());
                 }
 
                 // GET: Users/Details/5
@@ -242,21 +282,7 @@ namespace BTL_DiDongViet.Controllers
                     return View(user);
                 }
 
-                // POST: Users/Edit/5
-                // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-                // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-                [HttpPost]
-                [ValidateAntiForgeryToken]
-                public ActionResult Edit([Bind(Include = "ID,Username,Password,Name,Address,Email,Phone,Status,CreatedDate,CreateBy,ModifiedDate,ModifiedBy")] User user)
-                {
-                    if (ModelState.IsValid)
-                    {
-                        db.Entry(user).State = EntityState.Modified;
-                        db.SaveChanges();
-                        return RedirectToAction("Index");
-                    }
-                    return View(user);
-                }
+           
 
                 // GET: Users/Delete/5
                 public ActionResult Delete(long? id)
