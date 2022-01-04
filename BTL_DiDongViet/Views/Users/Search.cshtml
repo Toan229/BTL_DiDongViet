@@ -88,39 +88,39 @@
                                         <div class="container-right">
 
                                             <h2 style="margin-bottom: 4px;font-size: 24px">
-                                                <a href="@item.Url" style="text-decoration: none; ">@item.ProductName</a>
+                                                <a href="/Products/Detail/@item.ID" style="text-decoration: none; ">@item.ProductName</a>
                                             </h2>
                                             <div class="new-time">@item.CreateDate</div>
                                             <div class="new-desc">@item.Price đ</div>
-                                            <a href="/them-gio-hang?productID=@item.ID&quantity=1" class="input">Mua hàng</a>
+                                            <!--       <a href="/them-gio-hang?productID=@item.ID&quantity=1" class="input">Mua hàng</a> -->
                                             <div class="wrapper-bot">
                                                 <p style="font-weight:bold">Thông tin chi tiết</p>
                                                 <div class="description">
                                                     @decr
-                                                    ...<a href="@item.Url">Xem thêm</a>
+                                                    ...<a href="/Products/Detail/@item.ID">Xem thêm</a>
                                                 </div>
                                             </div>
                                         </div>
 
-                                    </div>
-                                </div>
-                            </div>
-
-
-                        }
-                        <div class="trang">
-                            <div class="danh-sach-bot">
-                                @Html.PagedListPager(Model, page => Url.Action("Search", "Users", new { page }))
                             </div>
                         </div>
-
                     </div>
 
+
+                }
+                <div class="trang">
+                    <div class="danh-sach-bot">
+                        @Html.PagedListPager(Model, page => Url.Action("Search", "Users", new { page }))
+                    </div>
                 </div>
+
             </div>
-            <!-- Flash Sale End-->
-            <!-- Section Below The Fold End -->
+
         </div>
+    </div>
+    <!-- Flash Sale End-->
+                                            <!-- Section Below The Fold End -->
+                                        </div>
     }
     else
     {

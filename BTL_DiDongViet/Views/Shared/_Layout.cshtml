@@ -53,85 +53,64 @@
                     }
                     @if (session == null)
                     {
-                <li class="navbar-list__item">
-                    <i class="fas fa-user"></i>
-                        <a href="/Users/LoginIndex" class="navbar-list__link">Đăng nhập</a>
-                    
-                </li>
-                <li class="navbar-list__item">
-                    <i class="fas fa-user"></i>
-                    <a href="/Users/RegisterIndex" class="navbar-list__link">Đăng ký</a>
+                        <li class="navbar-list__item">
 
-                </li>
-                    }
-                    else
-                    {
-                        <div class="user">
-                            <img class="img-profile rounded-circle"
-                                 src="~/Asset/img/undraw_profile.svg">
-                            <a>@session.Name</a>
-                            <div class="btn-logout">
-                                @Html.ActionLink("Đăng xuất", "Logout", "User", null, new { @class = "txt" })
-                            </div>
-                        </div>
-                    }
-                    <li class="navbar-list__item">
-                        <i class="fas fa-user"></i>
-                        @if (ViewBag.User != null)
-                        {
-                            <a href="/sign_up.html" class="navbar-list__link">@ViewBag.User</a>
-                        }
-                        else
-                        {
-                            <a href="/sign_up.html" class="navbar-list__link">Đăng nhập</a>
-                        }
+                            <a href="/Users/LoginIndex" class="navbar-list__link">Đăng nhập</a>
+                            <a href="/Users/RegisterIndex" class="navbar-list__link">Đăng ký</a>
+                        </li>
 
-                        <!--    <a href="" class="navbar-list__link">Username</a>
-        </li>
-        <li class="navbar-list__item">
-            <i class="fas fa-sign-out-alt"></i>
-            <a href="/Users/Logout" class="navbar-list__link">Đăng xuất</a>
-        </li>
-        <li class="navbar-list__item"> <a href="/log_in.html" class="navbar-list__link">Đăng nhập</a> </li> -->
+                        }
+                        @if (session != null)
+                        {
+                            <li class="navbar-list__item">
+                                <i class="fas fa-user"></i>
+                                <a id="userName" href="/Users/EditIndex" class="navbar-list__link">@session.Name</a>
+                               
+                            </li>
+                            <li class="navbar-list__item">
+                                <i class="fas fa-sign-out-alt"></i>
+                                <a href="/Users/Logout" class="navbar-list__link">Đăng xuất</a>
+                            </li>
+                        }
                 </ul>
             </nav>
         </div>
         <div class="grid">
             <div class="header-with-search">
                 <!-- Header Search Begin -->
-                <a class="header-with-search__logo-section" href="@Url.Action("Home", "Category")">
-                    <img src="https://didongviet.vn/pub/media/logo/stores/1/logo-ddv.png" style="margin-right: 10px;">
-                </a>
-                <!-- Search Bar Begin -->
-                <div class="search-bar">
-                    <!-- Search Input Begin -->
-                    <form action="/Users/Search" method="post" style="display: flex; width: 872px;">
-                        <div class="search-input-wrapper">
-                            <input class="clearable search-input" type="text" name="keyword" value="" placeholder="Nhấn để tìm kiếm sản phẩm">
-                        </div>
-                        <!-- Search Input End -->
-                        <!-- Search Btn Begin -->
-                        <button type="submit" name="button" class="search-btn">
-                            <div class="search-wrapper">
-                                <i class="fas fa-search"></i>
-                            </div>
-                        </button>
-                    </form>
-                  
-                        <!-- Search Btn End -->
-                    </div>
-                <!-- Search Bar End -->
-                <!-- Cart Begin -->
-                <div class="cart-wrapper">
-                    <div class="cart">
-                        <a href="cart.html" style="text-decoration: none">
-                            <i class="fas fa-shopping-cart" style="font-size: 24px; color: white;"></i>
-                            <div class="shopee-cart-number-badge">1</div>
+                        <a class="header-with-search__logo-section" href="@Url.Action("Home", "Category")">
+                            <img src="https://didongviet.vn/pub/media/logo/stores/1/logo-ddv.png" style="margin-right: 10px;">
                         </a>
-                    </div>
-                </div>
-                <!-- Cart End -->
-            </div>
+                        <!-- Search Bar Begin -->
+                        <div class="search-bar">
+                            <!-- Search Input Begin -->
+                            <form action="/Users/Search" method="post" style="display: flex; width: 872px;">
+                                <div class="search-input-wrapper">
+                                    <input class="clearable search-input" type="text" name="keyword" value="" placeholder="Nhấn để tìm kiếm sản phẩm">
+                                </div>
+                                <!-- Search Input End -->
+                                <!-- Search Btn Begin -->
+                                <button type="submit" name="button" class="search-btn">
+                                    <div class="search-wrapper">
+                                        <i class="fas fa-search"></i>
+                                    </div>
+                                </button>
+                            </form>
+
+                            <!-- Search Btn End -->
+                        </div>
+                        <!-- Search Bar End -->
+                        <!-- Cart Begin -->
+                        <div class="cart-wrapper">
+                            <div class="cart">
+                                <a href="cart.html" style="text-decoration: none">
+                                    <i class="fas fa-shopping-cart" style="font-size: 24px; color: white;"></i>
+                                    <!--    <div class="shopee-cart-number-badge"></div> -->
+                                </a>
+                            </div>
+                        </div>
+                        <!-- Cart End -->
+</div>
             <!-- Header Search End -->
         </div>
     </header>
@@ -263,11 +242,10 @@
                 <img src="assets/img/footer.png" alt="">
             </div>
         </footer>
-<<<<<<< HEAD
-=======
+
         <script src="@Url.Content("~/assets/js/base.js")" defer="defer"></script>
         <script src="~/assets/js/jquery-ui/jquery-ui.min.js"></script>
->>>>>>> origin/dang_nhap
+
     </div>
 </body>
 </html>

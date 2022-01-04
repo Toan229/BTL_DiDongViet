@@ -4,6 +4,32 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     var ListFB = (List<BTL_DiDongViet.ViewModel.Feedback>)ViewBag.ListFB;
 }
+
+<script type="text/javascript">
+    const handleComment = () => {
+        let name = document.querySelector('#userName').textContent;
+        console.log(name)
+        let commentNode = document.querySelector('#commentProduct');
+        let comment = document.querySelector('#commentProduct').value;
+        console.log(comment)
+        commentNode.value = ''
+        var dateObj = new Date();
+        var month = dateObj.getUTCMonth() + 1; //months from 1-12.
+        var day = dateObj.getUTCDate();
+        var year = dateObj.getUTCFullYear();
+        var hour = dateObj.getHours();
+        var minute = dateObj.getMinutes();
+        var second = dateObj.getSeconds();
+        var date = day + "/" + month + "/" + year + " " + hour + ":" + minute + ":" + second + " SA";
+        console.log(date)
+        let html = `<div class="product-wrapper-left feedback-container"style="display: flex; flex-direction: column; line-height: 26px;"><header><i class="fas fa-user" style="margin-right: 8px;"></i>${name}</header><div>${comment}</div><div style="color:#ccc;">${date}</div></div>`
+        let root = document.querySelector('#root')
+        root.innerHTML += html
+    }
+
+
+
+</script>
 <div class="main pd-top-0">
     <!-- Welcome Package Begin -->
     <div class="welcome-package-banner" data-current-src="https://cf.shopee.vn/file/d3fa706887cf34ddd491c8fc60e37d9f_xxhdpi" style="background-image: url(https://didongviet.vn/pub/media/mageplaza/bannerslider/banner/image/1/2/1280x80_3_.png); background-size: contain; background-repeat: no-repeat;"></div>
@@ -81,8 +107,8 @@
             Feedback về sản phẩm
         </header>
         <div style="width: 100%;">
-            <textarea onclick="" name="detail" class="field-required" placeholder="Hãy thêm đánh giá về sản phẩm..." id="review_field" cols="5" rows="3" data-validate="{required:true}"></textarea>
-            <button class="product-dathang fb-button">Gửi nhận xét</button>
+            <textarea id="commentProduct" name="detail" class="field-required" placeholder="Hãy thêm đánh giá về sản phẩm..." id="review_field" cols="5" rows="3" data-validate="{required:true}"></textarea>
+            <button class="product-dathang fb-button hover-shadow" onclick="handleComment()">Gửi nhận xét</button>
         </div>
         <!-- FeedBack End-->
     </div>
@@ -103,6 +129,7 @@
 </div>
 
     }
+<div id="root"></div>
     
     <!-- Product End-->
 </div>
