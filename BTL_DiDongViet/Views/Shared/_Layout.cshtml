@@ -48,6 +48,33 @@
                             Liên Hệ
                         </a>
                     </li>
+                    @{
+                        var session = (BTL_DiDongViet.Common.UserLogin)Session[BTL_DiDongViet.Common.CommonConstants.CLIENT_SESSION];
+                    }
+                    @if (session == null)
+                    {
+                <li class="navbar-list__item">
+                    <i class="fas fa-user"></i>
+                        <a href="/Users/LoginIndex" class="navbar-list__link">Đăng nhập</a>
+                    
+                </li>
+                <li class="navbar-list__item">
+                    <i class="fas fa-user"></i>
+                    <a href="/Users/RegisterIndex" class="navbar-list__link">Đăng ký</a>
+
+                </li>
+                    }
+                    else
+                    {
+                        <div class="user">
+                            <img class="img-profile rounded-circle"
+                                 src="~/Asset/img/undraw_profile.svg">
+                            <a>@session.Name</a>
+                            <div class="btn-logout">
+                                @Html.ActionLink("Đăng xuất", "Logout", "User", null, new { @class = "txt" })
+                            </div>
+                        </div>
+                    }
                     <li class="navbar-list__item">
                         <i class="fas fa-user"></i>
                         @if (ViewBag.User != null)
@@ -60,13 +87,13 @@
                         }
 
                         <!--    <a href="" class="navbar-list__link">Username</a>
-    </li>
-    <li class="navbar-list__item">
-        <i class="fas fa-sign-out-alt"></i>
-        <a href="/Users/Logout" class="navbar-list__link">Đăng xuất</a>
-    </li>
-    <li class="navbar-list__item"> <a href="/log_in.html" class="navbar-list__link">Đăng nhập</a> </li> -->
-</ul>
+        </li>
+        <li class="navbar-list__item">
+            <i class="fas fa-sign-out-alt"></i>
+            <a href="/Users/Logout" class="navbar-list__link">Đăng xuất</a>
+        </li>
+        <li class="navbar-list__item"> <a href="/log_in.html" class="navbar-list__link">Đăng nhập</a> </li> -->
+                </ul>
             </nav>
         </div>
         <div class="grid">
