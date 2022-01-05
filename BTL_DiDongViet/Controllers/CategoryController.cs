@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using BTL_DiDongViet.Models;
+using PagedList;
 
 namespace BTL_DiDongViet.Controllers
 {
@@ -13,25 +14,37 @@ namespace BTL_DiDongViet.Controllers
         // GET: Category
         public ActionResult Home(int? userID)
         {
-            userID = 1;
-            if(userID != null)
-            {
-                var user = db.User.Find(userID);
-                ViewBag.User = user.Name;
-            }
-            else
-            {
-                ViewBag.User = "Đăng nhập";
-            }
             HomeViewModel viewModel = new HomeViewModel();
             viewModel.Product = db.Products.ToList();
             viewModel.Category = db.ProductCategory.ToList();
             return View(viewModel);
         }
 
-        public ActionResult Category(int? categoryID, string name = "default")
+        public ActionResult Category(int? categoryID, int? page, string name = "default")
         {
-            return View();
+            HomeViewModel viewModel = new HomeViewModel();
+            if (categoryID != null)
+            {
+                var product = db.Products.ToList().FindAll(p => p.CategoryID == categoryID);
+                var categoty = db.ProductCategory.Find(categoryID);
+                viewModel.Product = product;
+                viewModel.Category.Add(categoty);
+            }
+            else
+            {
+                if(name.Equals("default"))
+                {
+                    return View("Home");
+                }
+                else
+                {            
+                    var categoty = db.ProductCategory.FirstOrDefault(c => c.Name == name);
+                    var product = db.Products.ToList().FindAll(p => p.CategoryID == categoty.ID);
+                    viewModel.Product = product;
+                    viewModel.Category.Add(categoty);
+                }
+            }
+            return View(viewModel);
         }
     }
 }

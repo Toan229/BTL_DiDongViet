@@ -1,5 +1,5 @@
-﻿
-@{
+﻿@model BTL_DiDongViet.Models.HomeViewModel
+@{ 
     ViewBag.Title = "Category";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -9,8 +9,8 @@
     <div class="welcome-package-banner" data-current-src="https://cf.shopee.vn/file/d3fa706887cf34ddd491c8fc60e37d9f_xxhdpi" style="background-image: url(https://didongviet.vn/pub/media/mageplaza/bannerslider/banner/image/1/2/1280x80_3_.png); background-size: contain; background-repeat: no-repeat;"></div>
     <!-- Welcome Package End -->
     <div>
-        <a href="index_user.html" class="nav-link nav-arrow">Trang chủ</a>
-        <span class="nav-link">Apple Iphone</span>
+        <a href="@Url.Action("Home", "Category")" class="nav-link nav-arrow">Trang chủ</a>
+        <span class="nav-link">@Model.Category.ElementAt(0).Name</span>
     </div>
     <!-- Section Below The Fold Begin -->
     <div class="section-below-the-fold" style="padding-bottom: 0;">
@@ -25,7 +25,7 @@
                             <div class="flash-sale-header-with-countdown-timer__wrapper
                                     flash-sale-header-with-countdown-timer__wrapper--undefined">
                                 <div class="flash-sale-header-with-countdown-timer__header
-                                       flash-sale-header-with-countdown-timer__header--vn">iPhone VN/A</div>
+                                       flash-sale-header-with-countdown-timer__header--vn">@Model.Category.ElementAt(0).Name</div>
                                 <div class="shopee-countdown-timer
                                        flash-sale-header-with-countdown-timer__countdown-timer">
                                     <div class="shopee-countdown-timer__number">
@@ -50,323 +50,182 @@
                         </div>
                     </div>
                     <!-- <a href="/flash_sale?promotionId=2026713624" class="shopee-header-section__header-link"> <button class="shopee-button-no-outline"> Xem thêm&ensp; <svg enable-background="new 0 0 11 11" viewbox="0 0 11 11" x="0" y="0" class="shopee-svg-icon icon-arrow-right"> <path d="m2.5 11c .1 0 .2 0
-                    .3-.1l6-5c .1-.1.2-.3.2-.4s-.1-.3-.2-.4l-6-5c-.2-.2-.5-.1-.7.1s-.1.5.1.7l5.5 4.6-5.5 4.6c-.2.2-.2.5-.1.7.1.1.3.2.4.2z"></path> </svg> </button> </a> -->
+                .3-.1l6-5c .1-.1.2-.3.2-.4s-.1-.3-.2-.4l-6-5c-.2-.2-.5-.1-.7.1s-.1.5.1.7l5.5 4.6-5.5 4.6c-.2.2-.2.5-.1.7.1.1.3.2.4.2z"></path> </svg> </button> </a> -->
                 </div>
                 <div class="shopee-header-section__content">
                     <div class="image-carousel">
                         <div class="image-carousel__item-list-wrapper">
-                            <ul class="image-carousel__item-list">
-                                <li class="image-carousel__item">
-                                    <div class="shopee-product-recommend-items__item-wrapper">
-                                        <div class="flash-sale-item-card
+                            @{ 
+                                var moneyFomat = "{0:#,00}";
+                            }
+                            @if (Model.Product.Count < 5)
+                            {
+                                <ul class="image-carousel__item-list">
+                                    @foreach (var item in Model.Product)
+                                        {
+                                            var b = item;
+                                        <li class="image-carousel__item">
+                                            <div class="shopee-product-recommend-items__item-wrapper">
+                                                <div class="flash-sale-item-card
                                              flash-sale-item-card--home-page
                                              flash-sale-item-card--VN">
-                                            <a href="https://didongviet.vn/iphone-13-256gb" class="flash-sale-item-card-link">
-                                                <div class="flash-sale-item-card__image
+                                                    <a href="@Url.Action("Detail", "Products", new { @id = item.ID })" class="flash-sale-item-card-link">
+                                                        <div class="flash-sale-item-card__image
                                                    flash-sale-item-card__image--home-page">
-                                                    <div class="reactJS-25r8I">
-                                                        <div class="flash-sale-item-card__image-overlay
+                                                            <div class="reactJS-25r8I">
+                                                                <div class="flash-sale-item-card__image-overlay
                                                          flash-sale-item-card__image-overlay--home-page
-                                                         reactJS-2GchKS" style="background-image: url(https://didongviet.vn/pub/media/catalog/product//i/p/iphone-13-256gb-didongviet_1.jpg)"></div>
-                                                    </div>
-                                                    <div class="reactJS-25r8I">
-                                                        <div class="flash-sale-item-card__animated-image
+                                                         reactJS-2GchKS" style="background-image: url(../assets/img/ProductsImage/@item.Image)"></div>
+                                                            </div>
+                                                            <div class="reactJS-25r8I">
+                                                                <div class="flash-sale-item-card__animated-image
                                                          reactJS-2GchKS"></div>
-                                                    </div>
-                                                </div>
-                                                <div class="flash-sale-item-card__lower-wrapper
+                                                            </div>
+                                                        </div>
+                                                        <div class="flash-sale-item-card__lower-wrapper
                                                    flash-sale-item-card__lower-wrapper--VN
                                                    flash-sale-item-card__lower-wrapper--home-page">
-                                                    <div class="flash-sale-item-card__lower-left">
-                                                        <div class="flash-sale-item-card__current-price
+                                                            <div class="flash-sale-item-card__lower-left">
+                                                                <div class="flash-sale-item-card__current-price
                                                          flash-sale-item-card__current-price--home-page">
-                                                            <!-- <span class="item-price-dollar-sign">₫ -->
-                                                            <span class="item-price-number">iPhone 13 256GB Chính Hãng (VN/A)</span>
-                                                        </div>
-                                                        <div class="flash-sale-progress-bar__wrapper
-                                                         flash-sale-progress-bar__wrapper--home-page">
-                                                            <div class="flash-sale-progress-bar
-                                                            flash-sale-progress-bar--home-page">
-                                                                <div class="flash-sale-progress-bar__text">
-                                                                    25.290.000 ₫
+                                                                    <!-- <span class="item-price-dollar-sign">₫ -->
+                                                                    <span class="item-price-number" style="font-size: 14px;">@item.ProductName</span>
                                                                 </div>
-                                                                <div class="flash-sale-progress-bar__complement-wrapper
+                                                                <div class="flash-sale-progress-bar__wrapper
+                                                         flash-sale-progress-bar__wrapper--home-page">
+                                                                    <div class="flash-sale-progress-bar
+                                                            flash-sale-progress-bar--home-page">
+                                                                        <div class="flash-sale-progress-bar__text">
+                                                                            @String.Format(moneyFomat, item.Price) đ
+                                                                        </div>
+                                                                        <div class="flash-sale-progress-bar__complement-wrapper
                                                                flash-sale-progress-bar__complement-wrapper--home-page">
-                                                                    <div class="flash-sale-progress-bar__complement-sizer
+                                                                            <div class="flash-sale-progress-bar__complement-sizer
                                                                   flash-sale-progress-bar__complement-sizer--home-page" style="width: 0%;">
-                                                                        <div class="flash-sale-progress-bar__complement-color"></div>
+                                                                                <div class="flash-sale-progress-bar__complement-color"></div>
+                                                                            </div>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="shopee-item-card__badge-wrapper
+                                                            @if (item.Sale > 0)
+                                                            {
+                                                                <div class="shopee-item-card__badge-wrapper
                                                       shopee-fs-item-card__badge-wrapper
                                                       shopee-fs-item-card__badge-wrapper--home-page">
-                                                        <div class="reactJS_3iRehQ
+                                                                    <div class="reactJS_3iRehQ
                                                          reactJS_36vTKx
                                                          reactJS_2xY8te
                                                          shopee-badge">
-                                                            <div class="reactJS_2TDZGE">
-                                                                <span class="percent">Số %</span><span class="reactJS_17XqBU">giảm</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="image-carousel__item">
-                                    <div class="shopee-product-recommend-items__item-wrapper">
-                                        <div class="flash-sale-item-card
-                                       flash-sale-item-card--home-page
-                                       flash-sale-item-card--VN">
-                                            <a href="https://didongviet.vn/iphone-13-256gb" class="flash-sale-item-card-link">
-                                                <div class="flash-sale-item-card__image
-                                             flash-sale-item-card__image--home-page">
-                                                    <div class="reactJS-25r8I">
-                                                        <div class="flash-sale-item-card__image-overlay
-                                                   flash-sale-item-card__image-overlay--home-page
-                                                   reactJS-2GchKS" style="background-image: url(https://didongviet.vn/pub/media/catalog/product//i/p/iphone-13-256gb-didongviet_1.jpg)"></div>
-                                                    </div>
-                                                    <div class="reactJS-25r8I">
-                                                        <div class="flash-sale-item-card__animated-image
-                                                   reactJS-2GchKS"></div>
-                                                    </div>
-                                                </div>
-                                                <div class="flash-sale-item-card__lower-wrapper
-                                             flash-sale-item-card__lower-wrapper--VN
-                                             flash-sale-item-card__lower-wrapper--home-page">
-                                                    <div class="flash-sale-item-card__lower-left">
-                                                        <div class="flash-sale-item-card__current-price
-                                                   flash-sale-item-card__current-price--home-page">
-                                                            <!-- <span class="item-price-dollar-sign">₫ -->
-                                                            <span class="item-price-number">iPhone 13 256GB Chính Hãng (VN/A)</span>
-                                                        </div>
-                                                        <div class="flash-sale-progress-bar__wrapper
-                                                   flash-sale-progress-bar__wrapper--home-page">
-                                                            <div class="flash-sale-progress-bar
-                                                      flash-sale-progress-bar--home-page">
-                                                                <div class="flash-sale-progress-bar__text">
-                                                                    25.290.000 ₫
-                                                                </div>
-                                                                <div class="flash-sale-progress-bar__complement-wrapper
-                                                         flash-sale-progress-bar__complement-wrapper--home-page">
-                                                                    <div class="flash-sale-progress-bar__complement-sizer
-                                                            flash-sale-progress-bar__complement-sizer--home-page" style="width: 0%;">
-                                                                        <div class="flash-sale-progress-bar__complement-color"></div>
+                                                                        <div class="reactJS_2TDZGE">
+                                                                            <span class="percent">Giảm<br /> @item.Sale %</span>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
-                                                            </div>
+                                                            }
+
                                                         </div>
-                                                    </div>
-                                                    <div class="shopee-item-card__badge-wrapper
-                                                shopee-fs-item-card__badge-wrapper
-                                                shopee-fs-item-card__badge-wrapper--home-page">
-                                                        <div class="reactJS_3iRehQ
-                                                   reactJS_36vTKx
-                                                   reactJS_2xY8te
-                                                   shopee-badge">
-                                                            <div class="reactJS_2TDZGE">
-                                                                <span class="percent">Số %</span><span class="reactJS_17XqBU">giảm</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                                    </a>
                                                 </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="image-carousel__item">
-                                    <div class="shopee-product-recommend-items__item-wrapper">
-                                        <div class="flash-sale-item-card
-                                 flash-sale-item-card--home-page
-                                 flash-sale-item-card--VN">
-                                            <a href="https://didongviet.vn/iphone-13-256gb" class="flash-sale-item-card-link">
-                                                <div class="flash-sale-item-card__image
-                                       flash-sale-item-card__image--home-page">
-                                                    <div class="reactJS-25r8I">
-                                                        <div class="flash-sale-item-card__image-overlay
-                                             flash-sale-item-card__image-overlay--home-page
-                                             reactJS-2GchKS" style="background-image: url(https://didongviet.vn/pub/media/catalog/product//i/p/iphone-13-256gb-didongviet_1.jpg)"></div>
-                                                    </div>
-                                                    <div class="reactJS-25r8I">
-                                                        <div class="flash-sale-item-card__animated-image
-                                             reactJS-2GchKS"></div>
-                                                    </div>
-                                                </div>
-                                                <div class="flash-sale-item-card__lower-wrapper
-                                       flash-sale-item-card__lower-wrapper--VN
-                                       flash-sale-item-card__lower-wrapper--home-page">
-                                                    <div class="flash-sale-item-card__lower-left">
-                                                        <div class="flash-sale-item-card__current-price
-                                             flash-sale-item-card__current-price--home-page">
-                                                            <!-- <span class="item-price-dollar-sign">₫ -->
-                                                            <span class="item-price-number">iPhone 13 256GB Chính Hãng (VN/A)</span>
-                                                        </div>
-                                                        <div class="flash-sale-progress-bar__wrapper
-                                             flash-sale-progress-bar__wrapper--home-page">
-                                                            <div class="flash-sale-progress-bar
-                                                flash-sale-progress-bar--home-page">
-                                                                <div class="flash-sale-progress-bar__text">
-                                                                    25.290.000 ₫
+                                            </div>
+                                        </li>
+                                    }
+
+
+
+
+                                </ul>
+                            }
+                            else
+                            {
+                                int i = 0;
+                                while (i < Model.Product.Count)
+                                {
+                                    i += 5;
+                                    if (i > Model.Product.Count)
+                                    {
+                                        i = Model.Product.Count;
+                                    }
+                                    <ul class="image-carousel__item-list">
+                                        @for (int j = i - 5; j < i; j++)
+                                        {
+                                            <li class="image-carousel__item">
+                                                <div class="shopee-product-recommend-items__item-wrapper">
+                                                    <div class="flash-sale-item-card
+                                                 flash-sale-item-card--home-page
+                                                 flash-sale-item-card--VN">
+                                                        <a href="@Url.Action("Detail", "Products", new { id = Model.Product[j].ID })" class="flash-sale-item-card-link">
+                                                            <div class="flash-sale-item-card__image
+                                                       flash-sale-item-card__image--home-page">
+                                                                <div class="reactJS-25r8I">
+                                                                    <div class="flash-sale-item-card__image-overlay
+                                                             flash-sale-item-card__image-overlay--home-page
+                                                             reactJS-2GchKS" style="background-image: url(../assets/img/ProductsImage/@Model.Product[j].Image)"></div>
                                                                 </div>
-                                                                <div class="flash-sale-progress-bar__complement-wrapper
-                                                   flash-sale-progress-bar__complement-wrapper--home-page">
-                                                                    <div class="flash-sale-progress-bar__complement-sizer
-                                                      flash-sale-progress-bar__complement-sizer--home-page" style="width: 0%;">
-                                                                        <div class="flash-sale-progress-bar__complement-color"></div>
+                                                                <div class="reactJS-25r8I">
+                                                                    <div class="flash-sale-item-card__animated-image
+                                                             reactJS-2GchKS"></div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="flash-sale-item-card__lower-wrapper
+                                                       flash-sale-item-card__lower-wrapper--VN
+                                                       flash-sale-item-card__lower-wrapper--home-page">
+                                                                <div class="flash-sale-item-card__lower-left">
+                                                                    <div class="flash-sale-item-card__current-price
+                                                             flash-sale-item-card__current-price--home-page">
+                                                                        <!-- <span class="item-price-dollar-sign">₫ -->
+                                                                        <span class="item-price-number" style="font-size: 14px;">@Model.Product[j].ProductName</span>
+                                                                    </div>
+                                                                    <div class="flash-sale-progress-bar__wrapper
+                                                             flash-sale-progress-bar__wrapper--home-page">
+                                                                        <div class="flash-sale-progress-bar
+                                                                flash-sale-progress-bar--home-page">
+                                                                            <div class="flash-sale-progress-bar__text">
+                                                                                @String.Format(moneyFomat, @Model.Product[j].Price) ₫
+                                                                            </div>
+                                                                            <div class="flash-sale-progress-bar__complement-wrapper
+                                                                   flash-sale-progress-bar__complement-wrapper--home-page">
+                                                                                <div class="flash-sale-progress-bar__complement-sizer
+                                                                      flash-sale-progress-bar__complement-sizer--home-page" style="width: 0%;">
+                                                                                    <div class="flash-sale-progress-bar__complement-color"></div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="shopee-item-card__badge-wrapper
-                                          shopee-fs-item-card__badge-wrapper
-                                          shopee-fs-item-card__badge-wrapper--home-page">
-                                                        <div class="reactJS_3iRehQ
-                                             reactJS_36vTKx
-                                             reactJS_2xY8te
-                                             shopee-badge">
-                                                            <div class="reactJS_2TDZGE">
-                                                                <span class="percent">Số %</span><span class="reactJS_17XqBU">giảm</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="image-carousel__item">
-                                    <div class="shopee-product-recommend-items__item-wrapper">
-                                        <div class="flash-sale-item-card
-                           flash-sale-item-card--home-page
-                           flash-sale-item-card--VN">
-                                            <a href="https://didongviet.vn/iphone-13-256gb" class="flash-sale-item-card-link">
-                                                <div class="flash-sale-item-card__image
-                                 flash-sale-item-card__image--home-page">
-                                                    <div class="reactJS-25r8I">
-                                                        <div class="flash-sale-item-card__image-overlay
-                                       flash-sale-item-card__image-overlay--home-page
-                                       reactJS-2GchKS" style="background-image: url(https://didongviet.vn/pub/media/catalog/product//i/p/iphone-13-256gb-didongviet_1.jpg)"></div>
-                                                    </div>
-                                                    <div class="reactJS-25r8I">
-                                                        <div class="flash-sale-item-card__animated-image
-                                       reactJS-2GchKS"></div>
-                                                    </div>
-                                                </div>
-                                                <div class="flash-sale-item-card__lower-wrapper
-                                 flash-sale-item-card__lower-wrapper--VN
-                                 flash-sale-item-card__lower-wrapper--home-page">
-                                                    <div class="flash-sale-item-card__lower-left">
-                                                        <div class="flash-sale-item-card__current-price
-                                       flash-sale-item-card__current-price--home-page">
-                                                            <!-- <span class="item-price-dollar-sign">₫ -->
-                                                            <span class="item-price-number">iPhone 13 256GB Chính Hãng (VN/A)</span>
-                                                        </div>
-                                                        <div class="flash-sale-progress-bar__wrapper
-                                       flash-sale-progress-bar__wrapper--home-page">
-                                                            <div class="flash-sale-progress-bar
-                                          flash-sale-progress-bar--home-page">
-                                                                <div class="flash-sale-progress-bar__text">
-                                                                    25.290.000 ₫
-                                                                </div>
-                                                                <div class="flash-sale-progress-bar__complement-wrapper
-                                             flash-sale-progress-bar__complement-wrapper--home-page">
-                                                                    <div class="flash-sale-progress-bar__complement-sizer
-                                                flash-sale-progress-bar__complement-sizer--home-page" style="width: 0%;">
-                                                                        <div class="flash-sale-progress-bar__complement-color"></div>
+                                                                @if (Model.Product[j].Sale > 0)
+                                                                {
+                                                                    <div class="shopee-item-card__badge-wrapper
+                                                          shopee-fs-item-card__badge-wrapper
+                                                          shopee-fs-item-card__badge-wrapper--home-page">
+                                                                        <div class="reactJS_3iRehQ
+                                                             reactJS_36vTKx
+                                                             reactJS_2xY8te
+                                                             shopee-badge">
+                                                                            <div class="reactJS_2TDZGE">
+                                                                                <span class="percent">Giảm <br />@Model.Product[j].Sale %</span>
+                                                                            </div>
+                                                                        </div>
                                                                     </div>
-                                                                </div>
+                                                                }
+
                                                             </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="shopee-item-card__badge-wrapper
-                                    shopee-fs-item-card__badge-wrapper
-                                    shopee-fs-item-card__badge-wrapper--home-page">
-                                                        <div class="reactJS_3iRehQ
-                                       reactJS_36vTKx
-                                       reactJS_2xY8te
-                                       shopee-badge">
-                                                            <div class="reactJS_2TDZGE">
-                                                                <span class="percent">Số %</span><span class="reactJS_17XqBU">giảm</span>
-                                                            </div>
-                                                        </div>
+                                                        </a>
                                                     </div>
                                                 </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="image-carousel__item">
-                                    <div class="shopee-product-recommend-items__item-wrapper">
-                                        <div class="flash-sale-item-card
-                     flash-sale-item-card--home-page
-                     flash-sale-item-card--VN">
-                                            <a href="https://didongviet.vn/iphone-13-256gb" class="flash-sale-item-card-link">
-                                                <div class="flash-sale-item-card__image
-                           flash-sale-item-card__image--home-page">
-                                                    <div class="reactJS-25r8I">
-                                                        <div class="flash-sale-item-card__image-overlay
-                                 flash-sale-item-card__image-overlay--home-page
-                                 reactJS-2GchKS" style="background-image: url(https://didongviet.vn/pub/media/catalog/product//i/p/iphone-13-256gb-didongviet_1.jpg)"></div>
-                                                    </div>
-                                                    <div class="reactJS-25r8I">
-                                                        <div class="flash-sale-item-card__animated-image
-                                 reactJS-2GchKS"></div>
-                                                    </div>
-                                                </div>
-                                                <div class="flash-sale-item-card__lower-wrapper
-                           flash-sale-item-card__lower-wrapper--VN
-                           flash-sale-item-card__lower-wrapper--home-page">
-                                                    <div class="flash-sale-item-card__lower-left">
-                                                        <div class="flash-sale-item-card__current-price
-                                 flash-sale-item-card__current-price--home-page">
-                                                            <!-- <span class="item-price-dollar-sign">₫ -->
-                                                            <span class="item-price-number">iPhone 13 256GB Chính Hãng (VN/A)</span>
-                                                        </div>
-                                                        <div class="flash-sale-progress-bar__wrapper
-                                 flash-sale-progress-bar__wrapper--home-page">
-                                                            <div class="flash-sale-progress-bar
-                                    flash-sale-progress-bar--home-page">
-                                                                <div class="flash-sale-progress-bar__text">
-                                                                    25.290.000 ₫
-                                                                </div>
-                                                                <div class="flash-sale-progress-bar__complement-wrapper
-                                       flash-sale-progress-bar__complement-wrapper--home-page">
-                                                                    <div class="flash-sale-progress-bar__complement-sizer
-                                          flash-sale-progress-bar__complement-sizer--home-page" style="width: 0%;">
-                                                                        <div class="flash-sale-progress-bar__complement-color"></div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="shopee-item-card__badge-wrapper
-                              shopee-fs-item-card__badge-wrapper
-                              shopee-fs-item-card__badge-wrapper--home-page">
-                                                        <div class="reactJS_3iRehQ
-                                 reactJS_36vTKx
-                                 reactJS_2xY8te
-                                 shopee-badge">
-                                                            <div class="reactJS_2TDZGE">
-                                                                <span class="percent">Số %</span><span class="reactJS_17XqBU">giảm</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
+                                            </li>
+                                        }
+                                    </ul>
+                                    <br />
+                                }
+                            }
+
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
         <!-- Flash Sale End-->
         <!-- Skinny Banner Beign-->
         <div style="margin-top: 20px">
@@ -392,7 +251,7 @@
                         <div class="shopee-skinny-banner__full-height
                                  reactJS_2GchKS" style="background-image: url(https://cdn.didongviet.vn/pub/media/mageplaza/bannerslider/banner/image/a/i/airpods-didongviet-banner-1.jpg);
                                  background-size: cover;
-                                 background-repeat: no-repeat;"></div>
+                            background-repeat: no-repeat;"></div>
                     </div>
                 </a>
             </div>

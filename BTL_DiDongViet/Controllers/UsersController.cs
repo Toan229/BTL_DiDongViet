@@ -48,7 +48,7 @@ namespace BTL_DiDongViet.Controllers
                     userSession.Address = user.Address;
                     userSession.Email = user.Email;
                     Session.Add(CommonConstants.CLIENT_SESSION, userSession);
-                    return RedirectToRoute("home");
+                    return RedirectToAction("Home", "Category");
                 }
                 else
                 if (result == 0)
@@ -201,7 +201,7 @@ namespace BTL_DiDongViet.Controllers
         public ActionResult Logout()
         {
             Session[CommonConstants.CLIENT_SESSION] = null;
-            return RedirectToRoute("home");
+            return RedirectToAction("LoginIndex");
         }
 
 

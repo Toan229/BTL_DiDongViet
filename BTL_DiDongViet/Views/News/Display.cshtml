@@ -35,13 +35,15 @@
             margin-right: 14px;
             height: 15px;
         }
-            .trang a {
-                text-decoration: none;
-                color: black;
-            }
-    .trang li {
-        margin: 0 10px;
-    }
+
+        .trang a {
+            text-decoration: none;
+            color: black;
+        }
+
+        .trang li {
+            margin: 0 10px;
+        }
 </style>
 <div class="main" style="padding-top: 0px;">
     <!-- Welcome Package Begin -->
@@ -51,7 +53,7 @@
     </div>
     <!-- Welcome Package End -->
     <div>
-        <a href="Home" class="nav-link nav-arrow">Trang chủ</a>
+        <a href="@Url.Action("Home", "Category")" class="nav-link nav-arrow">Trang chủ</a>
         <span class="nav-link">Tin tức</span>
     </div>
     <!-- Section Below The Fold Begin -->
@@ -63,7 +65,7 @@
                 <div class="shopee-header-section__header">
                     <div class="shopee-header-section__header__title"
                          style=" padding: 16px 0;margin-right: 0">
-                        
+
                     </div>
                 </div>
                 <div class="shopee-header-section__content">
@@ -83,15 +85,17 @@
                                                style="text-decoration: none; color: black ">@item.Title</a>
                                         </h2>
                                         <div class="new-time">@item.CreatedDate</div>
-                                        <div class="new-desc">@item.Description <span>
-    <a href="@url">Xem thêm</a>
-</span></div>
-                                        
+                                        <div class="new-desc">
+                                            @item.Description <span>
+                                            <a href="@url">Xem thêm</a>
+                                        </span>
                                     </div>
+
                                 </div>
                             </div>
                         </div>
-                    }
+                    </div>
+                }
 
                 </div>
                 <div class="trang">
@@ -135,7 +139,3 @@
         <!-- Section Below The Fold End -->
     </div>
 </div>
-
-
-
-

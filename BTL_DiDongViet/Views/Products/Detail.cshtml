@@ -10,11 +10,7 @@
     <!-- Welcome Package End -->
     <!-- Nav Tag Begin -->
     <div>
-        <a href="index_user.html" class="nav-link nav-arrow">Trang chủ</a>
-        @if (Model.CategoryID == 2)
-        {<a href="apple_category.html" class="nav-link nav-arrow">Apple Iphone</a>}
-        else
-        { <a href="apple_category.html" class="nav-link nav-arrow">Điện thoại</a>}
+        <a href="@Url.Action("Home", "Category")" class="nav-link nav-arrow">Trang chủ</a>
         <a class="nav-link">@Model.ProductName</a>
     </div>
     <!-- Nav Tag End-->
@@ -52,7 +48,7 @@
                 <div class="product-giaohang" style="padding: 12px; font-size: 16px; "> <i class="fas fa-tag" style="margin-right: 8px;"></i>@Model.Sale % GIẢM</div>
                 @if (@Model.Quantity > 0)
                 {
-                    <button class="product-dathang" type="submit">THÊM VÀO GIỎ HÀNG</button>
+                    <div class="product-dathang" type="submit"><a href="@Url.Action("AddProductToCart", "OrderDetail", new { productID = Model.ID })" style="text-decoration:none; color: white;">THÊM VÀO GIỎ HÀNG</a></div>
 
                 }
                 else

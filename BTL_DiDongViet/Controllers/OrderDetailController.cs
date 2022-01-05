@@ -4,99 +4,13 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using BTL_DiDongViet.Models;
+using BTL_DiDongViet.Common;
 
 namespace BTL_DiDongViet.Controllers
 {
     public class OrderDetailController : Controller
     {
         DBDiDongViet db = new DBDiDongViet();
-        //Lấy giỏ hàng
-        /*public List<OrderDetail> Laygiohang()
-        {
-            List<OrderDetail> lstGiohang = Session["Giohang"] as List<OrderDetail>;
-            if (lstGiohang == null)
-            {
-                lstGiohang = new List<OrderDetail>();
-                Session["Giohang"] = lstGiohang;
-            }
-            return lstGiohang ;
-        }
-        //Thêm hàng vào giỏ
-        public ActionResult ThemGiohang( int ID, string strURL)
-        {
-            List<OrderDetail> lstGiohang = Laygiohang();
-            OrderDetail sanpham = lstGiohang.Find(n => n.iProductID == ID);
-            if (sanpham == null)
-            {
-                sanpham = new OrderDetail(ID);
-                lstGiohang.Add(sanpham);
-                return Redirect(strURL);
-            }
-            else
-            {
-                sanpham.iSoluong++;
-                return Redirect(strURL);
-            }
-        }
-        private int TongSoLuong()
-        {
-            int iTongSoLuong = 0;
-            List<OrderDetail> lstGiohang = Session["Giohang"] as List<OrderDetail>;
-            if (lstGiohang != null)
-            {
-                iTongSoLuong = lstGiohang.Sum(n => n.iSoluong);
-            }
-            return iTongSoLuong;
-        }
-        private decimal Tongtien()
-        {
-            decimal iTongtien = 0;
-            List<OrderDetail> lstGiohang = Session["Giohang"] as List<OrderDetail>;
-            if (lstGiohang != null)
-            {
-                iTongtien = lstGiohang.Sum(n => n.dThanhtien);
-            }
-            return iTongtien;
-        }
-        public ActionResult Giohang()
-        {
-            List<OrderDetail> lstGiohang = Laygiohang();
-            if(lstGiohang.Count == 0)
-            {
-                return RedirectToAction("Index", "Products");
-            }
-            ViewBag.Tongsoluong = TongSoLuong();
-            ViewBag.Tongtien = Tongtien();
-            return View(lstGiohang);
-        }
-        public ActionResult XoaGiohang(int ProductID)
-        {
-            List<OrderDetail> lstGiohang = Laygiohang();
-            OrderDetail sanpham = lstGiohang.SingleOrDefault(n => n.iProductID == ProductID);
-            if (sanpham != null)
-            {
-                lstGiohang.RemoveAll(n => n.iProductID == ProductID);
-                return RedirectToAction("OrderDetail");
-            }
-            if (lstGiohang.Count == 0)
-            {
-                return RedirectToAction("Index", "Product");
-            }
-            return RedirectToAction("OrderDetail");
-        }
-        public ActionResult CapnhatGioang(int ProductID, FormCollection f)
-        {
-            List<OrderDetail> lstGiohang = Laygiohang();
-            OrderDetail sanpham = lstGiohang.SingleOrDefault(n => n.iProductID == ProductID);
-            if (sanpham != null)
-            {
-                sanpham.Quantity = int.Parse(f["txtSoluong"].ToString());
-
-            }
-            return RedirectToAction("OrderDetail");
-        }*/
-        // GET: OrderDetail
-        //Trang cart.html
 
         public CartViewModel layGioHang(int userID)
         {
@@ -106,7 +20,8 @@ namespace BTL_DiDongViet.Controllers
                 List<Products> productList = new List<Products>();
                 foreach (var item in orderDetail)
                 {
-                    productList.Add(db.Products.Find(item.ProductID));
+                    var prod = db.Products.Find(item.ProductID);
+                    productList.Add(prod);
                 }
                 CartViewModel viewModel = new CartViewModel();
                 viewModel.order = orderDetail;
@@ -114,13 +29,12 @@ namespace BTL_DiDongViet.Controllers
             return viewModel;
         }
 
-        public ActionResult Cart(int? userID)
+        public ActionResult Cart()
         {
-            userID = 1;
-            if(userID != null)
+            if(Session[CommonConstants.CLIENT_SESSION] != null)
             {
-                Session["userID"] =  userID;
-                CartViewModel viewModel =  layGioHang((int)Session["userID"]);
+                var user = (UserLogin)Session[CommonConstants.CLIENT_SESSION];
+                CartViewModel viewModel =  layGioHang((int)user.UserID);
                 return View(viewModel);
             }
             return RedirectToAction("LoginIndex", "Users");
@@ -143,13 +57,14 @@ namespace BTL_DiDongViet.Controllers
 
         public ActionResult ChinhSuaSoLuong(int? productID, string act = "default")
         {
-            if(Session["userID"] != null)
+            if(Session[CommonConstants.CLIENT_SESSION] != null)
             {
                 if(productID == null || act.Equals("default"))
                 {
                     return RedirectToAction("Cart");
                 }
-                var order = db.Order.ToList().Find(o => o.UserID == (int)Session["userID"]);
+                var user = (UserLogin)Session[CommonConstants.CLIENT_SESSION];
+                var order = db.Order.ToList().Find(o => o.UserID == user.UserID);
                 if (act.Equals("add"))
                 {
                     db.OrderDetail.ToList().Find(o => o.OrderID == order.ID && o.ProductID == productID).Quantity++;
@@ -163,6 +78,27 @@ namespace BTL_DiDongViet.Controllers
             }
 
             return RedirectToAction("LoginIndex", "Users");
+        }
+
+        public ActionResult AddProductToCart(int? productID)
+        {
+            if (Session[CommonConstants.CLIENT_SESSION] != null && productID != null)
+            {
+                var user = (UserLogin)Session[CommonConstants.CLIENT_SESSION];
+                var product = db.Products.ToList().Find(p => p.ID == productID);
+                var order = db.Order.ToList().Find(o => o.UserID == user.UserID);
+                OrderDetail orderDetail = new OrderDetail();
+                orderDetail.ProductID = product.ID;
+                orderDetail.OrderID = order.ID;
+                orderDetail.Quantity = 1;
+                db.OrderDetail.Add(orderDetail);
+                db.SaveChanges();
+                return RedirectToAction("Detail", "Products", new { id = productID });
+            }
+            else
+            {
+                return RedirectToAction("LoginIndex", "Users");
+            }
         }
     }
 }

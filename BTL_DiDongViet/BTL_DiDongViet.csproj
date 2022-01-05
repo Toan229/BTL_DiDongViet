@@ -143,7 +143,6 @@
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\OrderDetailController.cs" />
     <Compile Include="Controllers\OrdersController.cs" />
-    <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -2392,19 +2391,17 @@
     <Content Include="Views\Users\Edit.cshtml" />
     <Content Include="Views\Users\Index.cshtml" />
     <Content Include="Views\Category\Home.cshtml" />
-    <Content Include="Views\Category\Category.cshtml" />
-    <Content Include="Views\Orders\Index.cshtml" />
+    <Content Include="Views\Orders\CartCommit.cshtml" />
     <Content Include="Views\OrderDetail\Cart.cshtml" />
     <Content Include="Views\Users\LoginIndex.cshtml" />
     <Content Include="Views\Users\RegisterIndex.cshtml" />
     <Content Include="Views\Users\RegisterSuccess.cshtml" />
-    <Content Include="Views\Product\Products.cshtml" />
-    <Content Include="Views\Category\Category.cshtml" />
     <Content Include="Views\News\Display.cshtml" />
     <Content Include="Views\News\Detail.cshtml" />
     <Content Include="Views\Information\Gioithieu.cshtml" />
     <Content Include="Views\Users\Search.cshtml" />
     <Content Include="Views\Products\Detail.cshtml" />
+    <Content Include="Views\Category\Category.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -11,50 +11,9 @@
     <div class="section-banner-hotword">
         <div class="banner-wrapper">
             <div class="banner">
-                <div>
-                    <div class="trend-body">
-                        <div class="trend-item">
-                            <span class="text-trend">#1</span>
-                            <span class="text-trend">Ten San Pham</span>
-                            <div class="trend-desc">Có hàng ngay, không cần đợi</div>
-                        </div>
-                        <div class="trend-item">
-                            <span class="text-trend">#2</span>
-                            <span class="text-trend">Ten San Pham</span>
-                            <div class="trend-desc">Nhỏ gọn. Nhiều ưu đãi</div>
-                        </div>
-                        <div class="trend-item">
-                            <span class="text-trend">#3</span>
-                            <span class="text-trend">Ten San Pham</span>
-                            <div class="trend-desc">Mẫu mã đẹp. Giá tốt</div>
-                        </div>
-                        <div class="trend-item">
-                            <span class="text-trend">#4</span>
-                            <span class="text-trend">Ten San Pham</span>
-                            <div class="trend-desc">Nhiều mẫu. Giá hấp dẫn</div>
-                        </div>
-                        <div class="trend-item">
-                            <span class="text-trend">#5</span>
-                            <span class="text-trend">Ten San Pham</span>
-                            <div class="trend-desc">Nhỏ gọn. Định vị thông minh</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="banner__main">
-                    <div class="stardust-carouse__arrow">
-                        <div class="stardust-carouse__arrow--prev">
-                            <svg>
-                                <path stroke="none" d="m4.2 10l7.9-7.9-2.1-2.2-9 9-1.1 1.1 1.1 1 9 9
-                                       2.1-2.1z"></path>
-                            </svg>
-                        </div>
-                        <div class="stardust-carouse__arrow--next">
-                            <svg>
-                                <path stroke="none" d="m11.1 9.9l-9-9-2.2 2.2 8 7.9-8 7.9 2.2 2.1
-                                       9-9 1-1z"></path>
-                            </svg>
-                        </div>
-                    </div>
+                <div class="banner__main" style="width: 910px;
+    background-position: center;">
+                    <div class="stardust-carouse__arrow"></div>
                 </div>
                 <div class="banner__right-wrapper">
                     <div class="banner__right-banner1"></div>
@@ -64,7 +23,7 @@
             <div class="category-list">
                 @for (int i = 0; i < 10; i++)
                 {
-                    <a href="@Url.Action("Products", "Product", new { @id = Model.Product.ElementAt(i).ID })" >
+                    <a href="@Url.Action("Detail", "Products", new { Model.Product.ElementAt(i).ID })" >
                         <div style="width: 100px" class="icon-hover">
                             <div class="icon-wrapper">
                                 <div>
@@ -137,7 +96,7 @@
                         foreach (var item in IPProduct)
                         {
                             count++;
-                            <a href="#" class="product-list_item">
+                            <a href="@Url.Action("Detail", "Products", new { id = item.ID })" class="product-list_item">
                                 @{
                                     var price = item.Price;
                                     int sale = (int)(price - price * item.Sale / 100);
@@ -178,7 +137,7 @@
                         foreach(var item in sets)
                         {
                             count++;
-                            <a href="#" class="product-list_item">
+                            <a href="@Url.Action("Detail", "Products", new { id = item.ID })" class="product-list_item">
                                 <div class="item__img" style="background-image: url(../../assets/img/ProductImages/@item.Image)"></div>
                                 <div class="item__text" style="font-size:12px;color:black;">
                                     @item.ProductName
@@ -242,7 +201,7 @@
                             </div>
                         </div>
                     </div>
-                    <a href="/flash_sale?promotionId=2026713624" class="shopee-header-section__header-link">
+                    <a href="@Url.Action("Category", "Category", new { @name = "Điện thoại" })" class="shopee-header-section__header-link">
                         <div class="shopee-button-no-outline">
                             Xem thêm 
                             <svg enable-background="new 0 0 11 11" viewBox="0 0 11 11" x="0" y="0" class="shopee-svg-icon
@@ -271,7 +230,7 @@
                                                 <div class="flash-sale-item-card
                                              flash-sale-item-card--home-page
                                              flash-sale-item-card--VN">
-                                                    <a href="#" class="flash-sale-item-card-link">
+                                                    <a href="@Url.Action("Detail", "Products", new { id = item.ID })" class="flash-sale-item-card-link">
                                                         <div class="flash-sale-item-card__image
                                                    flash-sale-item-card__image--home-page">
                                                             <div class="reactJS-25r8I">
@@ -382,7 +341,7 @@
                 <div class="shopee-header-section__header__title">
                     <span class="reactJS_1LyPB">Tablet</span>
                 </div>
-                <a class="shopee-header-section__header-link" href="/top_products?catId=VN_BITL0_157">
+                <a class="shopee-header-section__header-link" href="@Url.Action("Category", "Category", new { @name = "Tablet" })">
                     <div class="shopee-button-no-outline">
                         Xem tất cả&nbsp;<svg enable-background="new 0 0 11 11" viewBox="0 0 11 11" x="0" y="0" class="shopee-svg-icon icon-arrow-right">
                             <path d="m2.5 11c .1 0 .2 0 .3-.1l6-5c .1-.1.2-.3.2-.4s-.1-.3-.2-.4l-6-5c-.2-.2-.5-.1-.7.1s-.1.5.1.7l5.5 4.6-5.5 4.6c-.2.2-.2.5-.1.7.1.1.3.2.4.2z"></path>
@@ -405,7 +364,7 @@
                                             foreach (var item in list)
                                             {
                                                 count1++;
-                                                <a class="reactJS_2j61U1 reactJS_2xaiMR" href="@Url.Action("Product", "Product", new { id = item.ID })" >
+                                                <a class="reactJS_2j61U1 reactJS_2xaiMR" href="@Url.Action("Detail", "Products", new { id = item.ID })" >
                                                     <div class="reactJS_qJTSM5">
                                                         <div class="reactJS_1UlW3k reactJS_1qoDIm reactJS_2Uy3h"></div>
                                                         <div class="reactJS_25r8I reactJS_30vIDo">
@@ -468,7 +427,7 @@
                     <div class="shopee-header-section__header__title">
                         <span>Đồng hồ thông minh</span>
                     </div>
-                    <a class="shopee-header-section__header-link" href="/top_products?catId=VN_BITL0_157">
+                    <a class="shopee-header-section__header-link" href="@Url.Action("Category", "Category", new { name = "Đồng hồ" })">
                         <div class="shopee-button-no-outline">
                             Xem tất cả&nbsp;<svg enable-background="new 0 0 11 11" viewBox="0 0 11 11" x="0" y="0" class="shopee-svg-icon icon-arrow-right">
                                 <path d="m2.5 11c .1 0 .2 0 .3-.1l6-5c .1-.1.2-.3.2-.4s-.1-.3-.2-.4l-6-5c-.2-.2-.5-.1-.7.1s-.1.5.1.7l5.5 4.6-5.5 4.6c-.2.2-.2.5-.1.7.1.1.3.2.4.2z"></path>
@@ -477,61 +436,33 @@
                     </a>
                 </div>
                 <div class="shopee-header-section__content">
-                    <a class="reactJS_pGTvY reactJS_3I4gP6" href="https://didongviet.vn/samsung-galaxy-watch-4-classic-42mm.html">
-                        <div class="reactJS_2qZOjQ">
-                            <div class="reactJS_29Ffc">
-                                <div class="reactJS_3KoGe">Samsung Galaxy Watch 4 Classic R880 42mm Chính Hãng</div>
-                                <div class="reactJS_2OKBb0">7.290.000 ₫</div>
-                            </div>
-                        </div>
-                        <div class="reactJS_25r8I reactJS_V53Muj">
-                            <div class="reactJS_3FmA9R reactJS_2GchKS" style="background-image: url(https://didongviet.vn/pub/media/catalog/product//g/a/galaxy-watch-4-classic-42mm-didongviet_1.jpg); background-size: contain; background-repeat: no-repeat;"></div>
-                        </div>
-                    </a>
-                    <a class="reactJS_pGTvY reactJS_3I4gP6" href="https://didongviet.vn/dong-ho-thong-minh-garmin-venu-sq-music">
-                        <div class="reactJS_2qZOjQ">
-                            <div class="reactJS_29Ffc">
-                                <div class="reactJS_3KoGe">Đồng hồ thông minh Garmin Venu SQ Music</div>
-                                <div class="reactJS_2OKBb0">4.990.000 ₫</div>
-                            </div>
-                        </div>
-                        <div class="reactJS_25r8I reactJS_V53Muj">
-                            <div class="reactJS_3FmA9R reactJS_2GchKS" style="background-image: url(https://didongviet.vn/pub/media/catalog/product//d/o/dong-ho-thong-minh-garmin-venu-sq-music-didongviet_1.jpg); background-size: contain; background-repeat: no-repeat;"></div>
-                        </div>
-                    </a>
-                    <a class="reactJS_pGTvY reactJS_3I4gP6" href="https://didongviet.vn/apple-watch-series-3-38mm-silver.html">
-                        <div class="reactJS_2qZOjQ">
-                            <div class="reactJS_29Ffc">
-                                <div class="reactJS_3KoGe">Apple Watch Series 3 38mm (GPS) viền nhôm xám - Dây cao su | Chính Hãng VN/A</div>
-                                <div class="reactJS_2OKBb0">4.490.000 ₫</div>
-                            </div>
-                        </div>
-                        <div class="reactJS_25r8I reactJS_V53Muj">
-                            <div class="reactJS_3FmA9R reactJS_2GchKS" style="background-image: url(https://didongviet.vn/pub/media/catalog/product//a/p/apple-watch-series-3-gps-38-mm-vien-nhom-xam-day-cao-su-didongviet.jpg); background-size: contain; background-repeat: no-repeat;"></div>
-                        </div>
-                    </a>
-                    <a class="reactJS_pGTvY reactJS_3I4gP6" href="https://didongviet.vn/apple-watch-series-7-41mm-gps-vien-nhom-day-cao-su.html">
-                        <div class="reactJS_2qZOjQ">
-                            <div class="reactJS_29Ffc">
-                                <div class="reactJS_3KoGe">Apple Watch Series 7 41mm (GPS) Viền nhôm - Dây cao su | Chính Hãng VN/A</div>
-                                <div class="reactJS_2OKBb0">11.990.000 ₫</div>
-                            </div>
-                        </div>
-                        <div class="reactJS_25r8I reactJS_V53Muj">
-                            <div class="reactJS_3FmA9R reactJS_2GchKS" style="background-image: url(https://didongviet.vn/pub/media/catalog/product//a/p/apple-watch-series-7-41mm-gps-vien-nhom-mau-bac-didongviet.jpg); background-size: contain; background-repeat: no-repeat;"></div>
-                        </div>
-                    </a>
-                    <a class="reactJS_pGTvY reactJS_3I4gP6" href="https://didongviet.vn/apple-watch-series-6-40mm-gps-vien-nhom-vang-day-cao-su-full-vat">
-                        <div class="reactJS_2qZOjQ">
-                            <div class="reactJS_29Ffc">
-                                <div class="reactJS_3KoGe">Apple Watch Series 6 40mm (GPS) viền nhôm vàng - Dây cao su Chính Hãng</div>
-                                <div class="reactJS_2OKBb0">9.790.000 ₫</div>
-                            </div>
-                        </div>
-                        <div class="reactJS_25r8I reactJS_V53Muj">
-                            <div class="reactJS_3FmA9R reactJS_2GchKS" style="background-image: url(https://didongviet.vn/pub/media/catalog/product//a/p/apple-watch-series-6-40mm-gps-vien-nhom-vang-day-cao-su-full-vat-didongviet.jpg); background-size: contain; background-repeat: no-repeat;"></div>
-                        </div>
-                    </a>
+                    @if (Model.Product.Count != 0)
+                    {
+                        var count2 = 0;
+                        var DHCategory = Model.Category.Find(m => m.Name.Equals("Đồng hồ"));
+                        var list = Model.Product.FindAll(p => p.CategoryID == DHCategory.ID);
+                        foreach (var item in list)
+                        {
+                            count2++;
+                            <a class="reactJS_pGTvY reactJS_3I4gP6" href="https://didongviet.vn/samsung-galaxy-watch-4-classic-42mm.html">
+                                <div class="reactJS_2qZOjQ">
+                                    <div class="reactJS_29Ffc">
+                                        <div class="reactJS_3KoGe">@item.ProductName</div>
+                                        <div class="reactJS_2OKBb0">@string.Format(moneyFomat, item.Price) ₫</div>
+                                    </div>
+                                </div>
+                                <div class="reactJS_25r8I reactJS_V53Muj">
+                                    <div class="reactJS_3FmA9R reactJS_2GchKS" style="background-image: url(../assets/img/ProductsImage/@item.Image); background-size: contain; background-repeat: no-repeat;"></div>
+                                </div>
+                            </a>
+                            if(count2 == 6)
+                            {
+                                break;
+                            }
+                        }
+
+                    }
+
                 </div>
             </div>
         </div>
@@ -543,7 +474,7 @@
                     <div class="shopee-header-section__header__title">
                         <span>Phụ kiện xịn - Giao tận nơi</span>
                     </div>
-                    <a class="shopee-header-section__header-link" href="/top_products?catId=VN_BITL0_157">
+                    <a class="shopee-header-section__header-link" href="@Url.Action("Category", "Category", new { name = "Phụ kiện"})">
                         <div class="shopee-button-no-outline">
                             Xem tất cả&nbsp;<svg enable-background="new 0 0 11 11" viewBox="0 0 11 11" x="0" y="0" class="shopee-svg-icon icon-arrow-right">
                                 <path d="m2.5 11c .1 0 .2 0 .3-.1l6-5c .1-.1.2-.3.2-.4s-.1-.3-.2-.4l-6-5c-.2-.2-.5-.1-.7.1s-.1.5.1.7l5.5 4.6-5.5 4.6c-.2.2-.2.5-.1.7.1.1.3.2.4.2z"></path>
@@ -552,61 +483,32 @@
                     </a>
                 </div>
                 <div class="shopee-header-section__content">
-                    <a class="reactJS_pGTvY reactJS_3I4gP6" href="https://didongviet.vn/tai-nghe-beats-studio-buds.html">
-                        <div class="reactJS_2qZOjQ">
-                            <div class="reactJS_29Ffc">
-                                <div class="reactJS_3KoGe">Tai nghe Apple Beats Studio Buds Chính Hãng</div>
-                                <div class="reactJS_2OKBb0">490.000 ₫</div>
-                            </div>
-                        </div>
-                        <div class="reactJS_25r8I reactJS_V53Muj">
-                            <div class="reactJS_3FmA9R reactJS_2GchKS" style="background-image: url(https://didongviet.vn/pub/media/catalog/product//t/a/tai-nghe-beats-studio-buds.png); background-size: contain; background-repeat: no-repeat;"></div>
-                        </div>
-                    </a>
-                    <a class="reactJS_pGTvY reactJS_3I4gP6" href="https://didongviet.vn/tai-nghe-bluetooth-soundpeats-air-3.html">
-                        <div class="reactJS_2qZOjQ">
-                            <div class="reactJS_29Ffc">
-                                <div class="reactJS_3KoGe">Tai nghe Bluetooth Soundpeats Air 3</div>
-                                <div class="reactJS_2OKBb0">1.190.000 ₫</div>
-                            </div>
-                        </div>
-                        <div class="reactJS_25r8I reactJS_V53Muj">
-                            <div class="reactJS_3FmA9R reactJS_2GchKS" style="background-image: url(https://didongviet.vn/pub/media/catalog/product//t/a/tai-nghe-soudpeats-bluetooth-air3-didongviet.jpg); background-size: contain; background-repeat: no-repeat;"></div>
-                        </div>
-                    </a>
-                    <a class="reactJS_pGTvY reactJS_3I4gP6" href="https://didongviet.vn/loa-bluetooth-sony-srs-xb23">
-                        <div class="reactJS_2qZOjQ">
-                            <div class="reactJS_29Ffc">
-                                <div class="reactJS_3KoGe">Loa Bluetooth Sony SRS-XB23</div>
-                                <div class="reactJS_2OKBb0">2.190.000 ₫</div>
-                            </div>
-                        </div>
-                        <div class="reactJS_25r8I reactJS_V53Muj">
-                            <div class="reactJS_3FmA9R reactJS_2GchKS" style="background-image: url(https://didongviet.vn/pub/media/catalog/product//l/o/loa-bluetooth-sony-srs-xb23-didongviet_2_1.jpg); background-size: contain; background-repeat: no-repeat;"></div>
-                        </div>
-                    </a>
-                    <a class="reactJS_pGTvY reactJS_3I4gP6" href="https://didongviet.vn/tai-nghe-bluetooth-samsung-galaxy-bud-2.html">
-                        <div class="reactJS_2qZOjQ">
-                            <div class="reactJS_29Ffc">
-                                <div class="reactJS_3KoGe">Tai nghe Bluetooth Samsung Galaxy Buds 2</div>
-                                <div class="reactJS_2OKBb0">2.390.000 ₫</div>
-                            </div>
-                        </div>
-                        <div class="reactJS_25r8I reactJS_V53Muj">
-                            <div class="reactJS_3FmA9R reactJS_2GchKS" style="background-image: url(https://didongviet.vn/pub/media/catalog/product//t/a/tai-nghe-bluetooth-samsung-galaxy-buds-2-tim-didongviet_1_1_1.jpg); background-size: contain; background-repeat: no-repeat;"></div>
-                        </div>
-                    </a>
-                    <a class="reactJS_pGTvY reactJS_3I4gP6" href="https://didongviet.vn/pin-du-phong-anker-powercore-slim-10000-pd-a1244.html">
-                        <div class="reactJS_2qZOjQ">
-                            <div class="reactJS_29Ffc">
-                                <div class="reactJS_3KoGe">Pin Dự Phòng Anker PowerCore Slim 10000 PD - A1244</div>
-                                <div class="reactJS_2OKBb0">800.000 ₫</div>
-                            </div>
-                        </div>
-                        <div class="reactJS_25r8I reactJS_V53Muj">
-                            <div class="reactJS_3FmA9R reactJS_2GchKS" style="background-image: url(https://didongviet.vn/pub/media/catalog/product//p/i/pin-d_-ph_ng-anker-powercore-slim-10000-pd---a1244.jpg); background-size: contain; background-repeat: no-repeat;"></div>
-                        </div>
-                    </a>
+                    @if (Model.Product.Count != 0)
+                    {
+                        var count3 = 0;
+                        var MCCategory = Model.Category.Find(m => m.Name.Equals("Phụ kiện"));
+                        var list = Model.Product.FindAll(p => p.CategoryID == MCCategory.ID);
+                        foreach (var item in list)
+                        {
+                            count3++;
+                            <a class="reactJS_pGTvY reactJS_3I4gP6" href="@Url.Action("Detail", "Products", new { id = item.ID })">
+                                <div class="reactJS_2qZOjQ">
+                                    <div class="reactJS_29Ffc">
+                                        <div class="reactJS_3KoGe">@item.ProductName</div>
+                                        <div class="reactJS_2OKBb0">@string.Format(moneyFomat, item.Price) ₫</div>
+                                    </div>
+                                </div>
+                                <div class="reactJS_25r8I reactJS_V53Muj">
+                                    <div class="reactJS_3FmA9R reactJS_2GchKS" style="background-image: url(../assets/img/ProductsImage/@item.Image); background-size: contain; background-repeat: no-repeat;"></div>
+                                </div>
+                            </a>
+                            if(count3 == 6)
+                            {
+                                break;
+                            }
+                        }
+                    }
+
                 </div>
             </div>
         </div>
@@ -614,243 +516,80 @@
         <div class="section-recommend-products-wrapper">
             <div>
                 <div class="shopee-header-section reactJS_3b6QpT shopee-header-section--simple">
-                    <div class="shopee-header-section__header" style="padding-left: 0 ">
-                        <div class="reactJS_8eDJwS">
-                            <nav class="stardust-tabs-header-wrapper">
-                                <ul class="stardust-tabs-header">
-                                    <li class="stardust-tabs-header__tab stardust-tabs-header__tab--active">
-                                        <div class="reactJS_lpQk8i reactJS_KYaVhX" style="background: #BE1E2D;"></div>
-                                        <div class="reactJS_85W0IA">
-                                            <span style="color: #BE1E2D;">Máy cũ giá rẻ</span>
-                                        </div>
-                                    </li>
-                                    <!-- <li class="stardust-tabs-header__tab "> <div class="reactJS_lpQk8i reactJS_KYaVhX" style="background: #BE1E2D;"></div> <div class="reactJS_85W0IA"> <img src="https://cf.shopee.vn/file/48ac8a4088da6befc7c024d68a8e8528" style="width: auto; height: 2rem;"> </div> </li> -->
-                                </ul>
-                                <i class="stardust-tabs-header__tab-indicator" style="display: none; width: 216px; transform: translateX(0px);"></i>
-                            </nav>
+                    <div class="shopee-header-section__header">
+                        <div class="shopee-header-section__header__title">
+                            <span>Máy cũ giá rẻ</span>
                         </div>
+                        <a class="shopee-header-section__header-link" href="@Url.Action("Category", "Category", new { name = "Máy cũ giá rẻ" })">
+                            <div class="shopee-button-no-outline">
+                                Xem tất cả&nbsp;<svg enable-background="new 0 0 11 11" viewBox="0 0 11 11" x="0" y="0" class="shopee-svg-icon icon-arrow-right">
+                                    <path d="m2.5 11c .1 0 .2 0 .3-.1l6-5c .1-.1.2-.3.2-.4s-.1-.3-.2-.4l-6-5c-.2-.2-.5-.1-.7.1s-.1.5.1.7l5.5 4.6-5.5 4.6c-.2.2-.2.5-.1.7.1.1.3.2.4.2z"></path>
+                                </svg>
+                            </div>
+                        </a>
                     </div>
                     <div class="stardust-tabs-panels">
                         <div class="stardust-tabs-panels__panel" style="display: block;">
                             <div class="reactJS_1syN0y">
-                                <div class="reactJS_1YAByT">
-                                    <a data-sqe="link" href="https://didongviet.vn/sony-xperia-1-64gb-likenew.html">
-                                        <div class="reactJS_3QUP7l reactJS_2R2waF">
-                                            <div class="reactJS_9qe9lA reactJS_2q9Gjc">
-                                                <div class="reactJS_25r8I reactJS_ggJllv">
-                                                    <img width="invalid-value" height="invalid-value" alt="Áo sweater form rộng Unisex cô gái khói siêu xinh PT5, Áo hoodie nỉ không mũ phong cách oversize streetwear" class="reactJS_3N5L6 reactJS_2GchKS" style="object-fit: contain" src="https://didongviet.vn/pub/media/catalog/product//s/o/sony-xperia-1-64gb-likenew-didongviet.jpg">
-                                                    <div class="reactJS_3NVVi">
-                                                        <div class="reactJS_3yCxz reactJS_3aFlEb reactJS_3Kq1f">
-                                                            <span class="percent">65%</span>
-                                                            <span class="reactJS_WL8HRl">giảm</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="reactJS_3zWriB">
-                                                    <div class="reactJS_2pfw2D">
-                                                        <div class="reactJS_1N6I4W">
-                                                            <div class="reactJS_10Wbs reactJS_UjjMrh">
-                                                                Sony Xperia 1 (6GB|64GB)
+                                <div class="shopee-header-section__content">
+                                    @if (Model.Product.Count != 0)
+                                    {
+                                        var count4 = 0;
+                                        var MCCategory = Model.Category.Find(m => m.Name.Equals("Máy cũ giá rẻ"));
+                                        var list = Model.Product.FindAll(p => p.CategoryID == MCCategory.ID);
+                                        foreach (var item in list)
+                                        {
+                                            count4++;
+                                            <div class="reactJS_1YAByT">
+                                                <a data-sqe="link" href="@Url.Action("Detail", "Products", new { id = item.ID })">
+                                                    <div class="reactJS_3QUP7l reactJS_2R2waF">
+                                                        <div class="reactJS_9qe9lA reactJS_2q9Gjc">
+                                                            <div class="reactJS_25r8I reactJS_ggJllv">
+                                                                <img width="invalid-value" height="invalid-value" alt="@item.ProductName" class="reactJS_3N5L6 reactJS_2GchKS" style="object-fit: contain" src="~/assets/img/ProductsImage/@item.Image">
+                                                                @if (item.Sale > 0)
+                                                                {
+                                                                    <div class="reactJS_3NVVi">
+                                                                        <div class="reactJS_3yCxz reactJS_3aFlEb reactJS_3Kq1f">
+                                                                            <span class="percent">65%</span>
+                                                                            <span class="reactJS_WL8HRl">giảm</span>
+                                                                        </div>
+                                                                    </div>
+                                                                }
+                                                            </div>
+                                                            <div class="reactJS_3zWriB">
+                                                                <div class="reactJS_2pfw2D">
+                                                                    <div class="reactJS_1N6I4W">
+                                                                        <div class="reactJS_10Wbs reactJS_UjjMrh">
+                                                                            @item.ProductName
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="reactJS_2Jvcf reactJS_1zR5G3">
+                                                                    <div class="reactJS_zp9xm9 reactJS_3Oai0w">
+                                                                        <span class="reactJS_18rPUd">
+                                                                            @string.Format(moneyFomat, item.Price) đ
+                                                                        </span>
+                                                                    </div>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="reactJS_2Jvcf reactJS_1zR5G3">
-                                                        <div class="reactJS_zp9xm9 reactJS_3Oai0w">
-                                                            <span class="reactJS_1qp1Qy">₫</span>
-                                                            <span class="reactJS_18rPUd">
-                                                                5.690.000
-                                                            </span>
-                                                        </div>
-                                                        <div class="reactJS_2VIlt8 reactJS_2lMdJA">
-                                                            (Likenew)
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                                </a>
                                             </div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="reactJS_1YAByT">
-                                    <a data-sqe="link" href="https://didongviet.vn/galaxy-note-20-ultra-cu.html">
-                                        <div class="reactJS_3QUP7l reactJS_2R2waF">
-                                            <div class="reactJS_9qe9lA reactJS_2q9Gjc">
-                                                <div class="reactJS_25r8I reactJS_ggJllv">
-                                                    <img width="invalid-value" height="invalid-value" alt="Áo sweater form rộng Unisex cô gái khói siêu xinh PT5, Áo hoodie nỉ không mũ phong cách oversize streetwear" class="reactJS_3N5L6 reactJS_2GchKS" style="object-fit: contain" src="https://didongviet.vn/pub/media/catalog/product//g/a/galaxy-note-20-ultra-cu-didongviet_1.jpg">
-                                                    <div class="reactJS_3NVVi">
-                                                        <div class="reactJS_3yCxz reactJS_3aFlEb reactJS_3Kq1f">
-                                                            <span class="percent">6%</span>
-                                                            <span class="reactJS_WL8HRl">giảm</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="reactJS_3zWriB">
-                                                    <div class="reactJS_2pfw2D">
-                                                        <div class="reactJS_1N6I4W">
-                                                            <div class="reactJS_10Wbs reactJS_UjjMrh">
-                                                                Samsung Galaxy Note 20 Ultra (8GB|256GB)
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="reactJS_2Jvcf reactJS_1zR5G3">
-                                                        <div class="reactJS_zp9xm9 reactJS_3Oai0w">
-                                                            <span class="reactJS_1qp1Qy">₫</span>
-                                                            <span class="reactJS_18rPUd">16.890.000</span>
-                                                        </div>
-                                                        <div class="reactJS_2VIlt8 reactJS_2lMdJA">
-                                                            (Likenew) Fullbox
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="reactJS_1YAByT">
-                                    <a data-sqe="link" href="https://didongviet.vn/oppo-reno-4-likenew-fullbox.html">
-                                        <div class="reactJS_3QUP7l reactJS_2R2waF">
-                                            <div class="reactJS_9qe9lA reactJS_2q9Gjc">
-                                                <div class="reactJS_25r8I reactJS_ggJllv">
-                                                    <img width="invalid-value" height="invalid-value" alt="Áo sweater form rộng Unisex cô gái khói siêu xinh PT5, Áo hoodie nỉ không mũ phong cách oversize streetwear" class="reactJS_3N5L6 reactJS_2GchKS" style="object-fit: contain" src="https://didongviet.vn/pub/media/catalog/product//o/p/oppo-reno-4-didongviet_2.jpg">
-                                                    <div class="reactJS_3NVVi">
-                                                        <div class="reactJS_3yCxz reactJS_3aFlEb reactJS_3Kq1f">
-                                                            <span class="percent">17%</span>
-                                                            <span class="reactJS_WL8HRl">giảm</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="reactJS_3zWriB">
-                                                    <div class="reactJS_2pfw2D">
-                                                        <div class="reactJS_1N6I4W">
-                                                            <div class="reactJS_10Wbs reactJS_UjjMrh">
-                                                                OPPO Reno 4 (8GB|128GB) Chính hãng
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="reactJS_2Jvcf reactJS_1zR5G3">
-                                                        <div class="reactJS_zp9xm9 reactJS_3Oai0w">
-                                                            <span class="reactJS_1qp1Qy">₫</span>
-                                                            <span class="reactJS_18rPUd">5.790.000</span>
-                                                        </div>
-                                                        <div class="reactJS_2VIlt8 reactJS_2lMdJA">
-                                                            (Fullbox, Likenew)
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="reactJS_1YAByT">
-                                    <a data-sqe="link" href="https://didongviet.vn/samsung-galaxy-s20-plus-128gb-cty-cu.html">
-                                        <div class="reactJS_3QUP7l reactJS_2R2waF">
-                                            <div class="reactJS_9qe9lA reactJS_2q9Gjc">
-                                                <div class="reactJS_25r8I reactJS_ggJllv">
-                                                    <img width="invalid-value" height="invalid-value" alt="Áo sweater form rộng Unisex cô gái khói siêu xinh PT5, Áo hoodie nỉ không mũ phong cách oversize streetwear" class="reactJS_3N5L6 reactJS_2GchKS" style="object-fit: contain" src="https://didongviet.vn/pub/media/catalog/product//s/a/samsung-galaxy-s20-plus-128gb-cu-didongviet_2.jpg">
-                                                    <div class="reactJS_3NVVi">
-                                                        <div class="reactJS_3yCxz reactJS_3aFlEb reactJS_3Kq1f">
-                                                            <span class="percent">10%</span>
-                                                            <span class="reactJS_WL8HRl">giảm</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="reactJS_3zWriB">
-                                                    <div class="reactJS_2pfw2D">
-                                                        <div class="reactJS_1N6I4W">
-                                                            <div class="reactJS_10Wbs reactJS_UjjMrh">
-                                                                Samsung Galaxy S20 Plus (8GB|128GB)
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="reactJS_2Jvcf reactJS_1zR5G3">
-                                                        <div class="reactJS_zp9xm9 reactJS_3Oai0w">
-                                                            <span class="reactJS_1qp1Qy">₫</span>
-                                                            <span class="reactJS_18rPUd">11.590.000</span>
-                                                        </div>
-                                                        <div class="reactJS_2VIlt8 reactJS_2lMdJA">
-                                                            Chính hãng (Likenew)
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="reactJS_1YAByT">
-                                    <a data-sqe="link" href="https://didongviet.vn/samsung-galaxy-s20-ultra-128gb-cty-cu.html">
-                                        <div class="reactJS_3QUP7l reactJS_2R2waF">
-                                            <div class="reactJS_9qe9lA reactJS_2q9Gjc">
-                                                <div class="reactJS_25r8I reactJS_ggJllv">
-                                                    <img width="invalid-value" height="invalid-value" alt="Áo sweater form rộng Unisex cô gái khói siêu xinh PT5, Áo hoodie nỉ không mũ phong cách oversize streetwear" class="reactJS_3N5L6 reactJS_2GchKS" style="object-fit: contain" src="https://didongviet.vn/pub/media/catalog/product//s/a/samsung-galaxy-s20-ultra-128gb-cu-didongviet_1.jpg">
-                                                    <div class="reactJS_3NVVi">
-                                                        <div class="reactJS_3yCxz reactJS_3aFlEb reactJS_3Kq1f">
-                                                            <span class="percent">10%</span>
-                                                            <span class="reactJS_WL8HRl">giảm</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="reactJS_3zWriB">
-                                                    <div class="reactJS_2pfw2D">
-                                                        <div class="reactJS_1N6I4W">
-                                                            <div class="reactJS_10Wbs reactJS_UjjMrh">
-                                                                Samsung Galaxy S20 Ultra (12GB|128GB)
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="reactJS_2Jvcf reactJS_1zR5G3">
-                                                        <div class="reactJS_zp9xm9 reactJS_3Oai0w">
-                                                            <span class="reactJS_1qp1Qy">₫</span>
-                                                            <span class="reactJS_18rPUd">13.390.000</span>
-                                                        </div>
-                                                        <div class="reactJS_2VIlt8 reactJS_2lMdJA">
-                                                            (Likenew)
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="reactJS_1YAByT">
-                                    <a data-sqe="link" href="https://didongviet.vn/samsung-galaxy-note-20-ultra-sm-n985f-ds-256gb-cty.html">
-                                        <div class="reactJS_3QUP7l reactJS_2R2waF">
-                                            <div class="reactJS_9qe9lA reactJS_2q9Gjc">
-                                                <div class="reactJS_25r8I reactJS_ggJllv">
-                                                    <img width="invalid-value" height="invalid-value" alt="Áo sweater form rộng Unisex cô gái khói siêu xinh PT5, Áo hoodie nỉ không mũ phong cách oversize streetwear" class="reactJS_3N5L6 reactJS_2GchKS" style="object-fit: contain" src="https://didongviet.vn/pub/media/catalog/product//s/a/samsung-galaxy-note-20-ultra-sm-n985f-ds-256gb-cty-didongviet.jpg">
-                                                    <div class="reactJS_3NVVi">
-                                                        <div class="reactJS_3yCxz reactJS_3aFlEb reactJS_3Kq1f">
-                                                            <span class="percent">11%</span>
-                                                            <span class="reactJS_WL8HRl">giảm</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="reactJS_3zWriB">
-                                                    <div class="reactJS_2pfw2D">
-                                                        <div class="reactJS_1N6I4W">
-                                                            <div class="reactJS_10Wbs reactJS_UjjMrh">
-                                                                Samsung Galaxy Note 20 Ultra (12GB|256GB) Chính hãng
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="reactJS_2Jvcf reactJS_1zR5G3">
-                                                        <div class="reactJS_zp9xm9 reactJS_3Oai0w">
-                                                            <span class="reactJS_1qp1Qy">₫</span>
-                                                            <span class="reactJS_18rPUd">15.990.000</span>
-                                                        </div>
-                                                        <div class="reactJS_2VIlt8 reactJS_2lMdJA">
-                                                            (Likenew)
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </a>
+                                            if (count4 == 7)
+                                            {
+                                                break;
+                                            }
+                                        }
+                                    }
+
                                 </div>
                             </div>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <!-- Section Below The Fold End -->
+    </div>
 </div>

@@ -1,0 +1,56 @@
+﻿@model BTL_DiDongViet.Models.Order
+@{
+    ViewBag.Title = "CartCommit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using (Html.BeginForm("Commit", "Orders"))
+{
+    <div class="main">
+        <div class="cart-container">
+            <div class="cart-left" style="width: 450px;">
+                <div class="card__header">Thông tin nhận hàng</div>
+                <div class="cart-items">
+                    <div class="card__body info-commit">
+
+                        <label for="ship-name">Họ và Tên</label>
+                        <input id="ship-name" class="clearable" type="text" name="name" value="@Model.ShipName" placeholder="">
+                        <label for="ship-address">Địa chỉ</label>
+                        <input id="ship-address" class="clearable" type="text" name="address" value="@Model.ShipAddress" placeholder="">
+                        <label for="ship-email">Email</label>
+                        <input id="ship-email" class="clearable" type="email" name="email" value="@Model.ShipEmail" placeholder="">
+                        <label for="ship-phone">Số điện thoại</label>
+                        <input id="ship-phone" class="clearable" type="number" name="phone" value="@Model.ShipPhone" placeholder="" step="1">
+                        <label for="ship-note">Ghi chú</label>
+                        <input id="ship-note" class="clearable" type="text" name="note" value="@Model.Notes" placeholder="">
+                    </div>
+                </div>
+            </div>
+            <div class="cart-right">
+                <div class="card">
+                    <div class="card__header">Thông tin thanh toán</div>
+                    <div class="card__body">
+                        <div style="font-size: 16px;">
+                            <span>Tiền hàng</span>
+                            <span style="float: right; font-weight: 400;">@ViewBag.Total đ</span>
+                        </div>
+                        <div style="font-size: 16px; margin-top: 8px;">
+                            <span>Giảm giá</span>
+                            <span style="float: right; font-weight: 400;">@ViewBag.Sale đ</span>
+                        </div>
+                    </div>
+                    <div class="card__footer">
+                        <div style="font-size: 16px;">
+                            <span>Tổng tiền</span>
+                            <span style="float: right; font-weight: 400;">@ViewBag.Final đ</span>
+                        </div>
+                        <div class="dathang" style="text-align:center;">
+                            <input type="submit" value="Đặt hàng"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+

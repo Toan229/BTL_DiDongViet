@@ -20,42 +20,43 @@
         text-align: right;
     }
 </style>
-<div class="cart-container">
-    <div class="cart-left">
-        <div class="card__header">Giỏ hàng</div>
-        @{ double total = 0; double sale = 0;}
-        @if (Model != null)
-        {
-            foreach (var item in Model.product)
+<div class="main">
+    <div class="cart-container">
+        <div class="cart-left">
+            <div class="card__header">Giỏ hàng</div>
+            @{ double total = 0; double sale = 0;}
+            @if (Model != null)
             {
-                var pQuantity = Model.order.Find(o => o.ProductID == item.ID);
-                total += double.Parse(item.Price.ToString())*pQuantity.Quantity;
-                sale += double.Parse((item.Price - item.Sale * item.Price / 100).ToString())*pQuantity.Quantity;
-                <div class="cart-items">
-                    <div class="card__body">
-                        <img style="width: 128px; height: 128px;" src="~/assets/img/ProductImages/@item.Image" alt="">
-                        <div class="products-info">
-                            <div>@item.ProductName</div>
-                            <span class="products-color">@item.Color</span>
-                        </div>
-                        <div style="position: absolute; right: 0">
-                            <div class="products-price">@String.Format("{0:0,0}", item.Price) đ</div>
-                            <div class="control-qty">
-                                <input type="hidden" name="cart[1140945][qty]" value="1" wfd-invisible="true">
-                                <a onclick="clickAlert(this, '-'); return false;" href="@Html.Raw(@Url.Action("ChinhSuaSoLuong", "OrderDetail", new { @productID = item.ID, @act = "minus" }))" class="desc">-</a>
-                                <div class="number">@pQuantity.Quantity</div>
-                                <a onclick="clickAlert(this, '+'); return false;" href="@Url.Action("ChinhSuaSoLuong", "OrderDetail", new { @productID = item.ID, @act = "add" })" class="inc">+</a>
+                foreach (var item in Model.product)
+                {
+                    var pQuantity = Model.order.Find(o => o.ProductID == item.ID);
+                    total += double.Parse(item.Price.ToString()) * pQuantity.Quantity;
+                    sale += double.Parse((item.Price - item.Sale * item.Price / 100).ToString()) * pQuantity.Quantity;
+                    <div class="cart-items">
+                        <div class="card__body">
+                            <img style="width: 128px; height: 128px;" src="~/assets/img/ProductImages/@item.Image" alt="">
+                            <div class="products-info">
+                                <div>@item.ProductName</div>
+                                <span class="products-color">@item.Color</span>
                             </div>
-                            <div class="products-delete">@Html.ActionLink("Xóa", "XoaGiohang", new { @iProductID = item.ID }, new { @style = "text-decoration:none; color: red;" })</div>
-                              
+                            <div style="position: absolute; right: 0">
+                                <div class="products-price">@String.Format("{0:0,0}", item.Price) đ</div>
+                                <div class="control-qty">
+                                    <input type="hidden" name="cart[1140945][qty]" value="1" wfd-invisible="true">
+                                    <a onclick="clickAlert(this, '-'); return false;" href="@Html.Raw(@Url.Action("ChinhSuaSoLuong", "OrderDetail", new { @productID = item.ID, @act = "minus" }))" class="desc">-</a>
+                                    <div class="number">@pQuantity.Quantity</div>
+                                    <a onclick="clickAlert(this, '+'); return false;" href="@Url.Action("ChinhSuaSoLuong", "OrderDetail", new { @productID = item.ID, @act = "add" })" class="inc">+</a>
+                                </div>
+                                <div class="products-delete">@Html.ActionLink("Xóa", "XoaGiohang", new { @ProductID = item.ID }, new { @style = "text-decoration:none; color: red;" })</div>
+
+                            </div>
                         </div>
                     </div>
-                </div>
 
+                }
             }
-        }
-    </div>
-       
+        </div>
+
 
         <div class="cart-right">
             <div class="card">
@@ -63,11 +64,11 @@
                 <div class="card__body">
                     <div style="font-size: 16px;">
                         <span>Tiền hàng</span>
-                        <span style="float: right; font-weight: 400;">@String.Format("{0:0,0}",total)đ</span>
+                        <span style="float: right; font-weight: 400;">@String.Format("{0:0,0}", total)đ</span>
                     </div>
                     <div style="font-size: 16px; margin-top: 8px;">
                         <span>Giảm giá</span>
-                        @{ 
+                        @{
                             var discount = total - sale;
                         }
                         <span style="float: right; font-weight: 400;">@String.Format("{0:0,0}", discount)đ</span>
@@ -78,9 +79,9 @@
                         <span>Tạm tính</span>
                         <span style="float: right; font-weight: 400;">@String.Format("{0:0,0}", sale)đ</span>
                     </div>
-                    <input type="button" class="dathang" value="Xác nhận đặt hàng" />
+                    <div class="dathang" style="text-align:center;"><a href="@Url.Action("CartCommit", "Orders")" style="text-decoration:none; color:white;">Xác nhận đặt hàng</a></div>
                 </div>
             </div>
         </div>
     </div>
-
+</div>

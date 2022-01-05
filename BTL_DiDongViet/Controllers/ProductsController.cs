@@ -21,17 +21,26 @@ namespace BTL_DiDongViet.Controllers
         {
             return View();
         }
-        public ActionResult Detail(long id)
+        public ActionResult Detail(long? id)
         {
-            var model = db.Products.SingleOrDefault(x => x.ID == id);
-            if (model == null)
+            if(id == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("Home", "Category");
             }
-            FeedbackModel Feedback = new FeedbackModel();
-            ViewBag.ListFB = Feedback.ListFeedback(11,id);
-            ViewBag.Lst = db.Products.Where(x => x.ID != id).ToList();
-            return View(model);
+            else
+            {
+                long id2 = (long)id;
+                var model = db.Products.SingleOrDefault(x => x.ID == id);
+                if (model == null)
+                {
+                    return HttpNotFound();
+                }
+                FeedbackModel Feedback = new FeedbackModel();
+                ViewBag.ListFB = Feedback.ListFeedback(11,id2);
+                ViewBag.Lst = db.Products.Where(x => x.ID != id).ToList();
+                return View(model);
+            }
+
         }
 
     }
