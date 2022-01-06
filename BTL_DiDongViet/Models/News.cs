@@ -8,6 +8,8 @@
 
     public partial class News
     {
+        [Key]
+        [Required(ErrorMessage = "Trường ID trống")]
         public long ID { get; set; }
 
         [StringLength(50)]

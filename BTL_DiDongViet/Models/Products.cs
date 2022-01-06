@@ -16,12 +16,13 @@
         }
 
         [Display(Name = "Mã sản phẩm")]
+        [Key]
+        [Required(ErrorMessage = "Trường ID không thể bỏ trống")]
         public long ID { get; set; }
 
-        [Required]
         [StringLength(250)]
         [Display(Name = "Tên sản phấm")]
-
+        [Required(ErrorMessage = "Trường tên sản phẩm không thể bỏ trống")]
         public string ProductName { get; set; }
 
         public long? CategoryID { get; set; }
@@ -34,7 +35,7 @@
 
         [Column(TypeName = "money")]
         [Display(Name = "Giá sản phẩm")]
-
+        [Required(ErrorMessage = "Giá sản phẩm phải là số và không thể bỏ trống")]
         public decimal Price { get; set; }
 
         [Required]
@@ -42,6 +43,7 @@
         public string Color { get; set; }
         [Display(Name = "Giảm giá")]
 
+        [Required(ErrorMessage = "Số lượng sản phẩm phải là số và không thể bỏ trống")]
         public decimal? Sale { get; set; }
         [Display(Name = "Số lượng")]
 

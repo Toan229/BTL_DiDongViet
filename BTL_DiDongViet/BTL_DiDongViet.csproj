@@ -143,7 +143,6 @@
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\OrderDetailController.cs" />
     <Compile Include="Controllers\OrdersController.cs" />
-    <Compile Include="Controllers\Users1Controller.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -186,6 +185,7 @@
     <Content Include="assets\img\NewsImage\n3.jpg" />
     <Content Include="assets\img\NewsImage\n4.jpg" />
     <Content Include="assets\img\NewsImage\n5.jpg" />
+    <Content Include="assets\img\ProductsImage\h0.png" />
     <Content Include="assets\img\ProductsImage\h1.jpg" />
     <Content Include="assets\img\ProductsImage\h11.jpg" />
     <Content Include="assets\img\ProductsImage\h12.jpg" />
@@ -2404,12 +2404,16 @@
     <Content Include="Views\Users\List.cshtml" />
     <Content Include="Views\Users\Edit.cshtml" />
     <Content Include="Views\Users\Create.cshtml" />
-    <Content Include="Views\Users1\Create.cshtml" />
-    <Content Include="Views\Users1\Delete.cshtml" />
-    <Content Include="Views\Users1\Details.cshtml" />
-    <Content Include="Views\Users1\Edit.cshtml" />
-    <Content Include="Views\Users1\Index.cshtml" />
     <Content Include="Views\Users\Delete.cshtml" />
+    <Content Include="Views\Admin\Create.cshtml" />
+    <Content Include="Views\Admin\Delete.cshtml" />
+    <Content Include="Views\Admin\Details.cshtml" />
+    <Content Include="Views\Admin\Edit.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Products\Create.cshtml" />
+    <Content Include="Views\Products\Delete.cshtml" />
+    <Content Include="Views\Products\Edit.cshtml" />
+    <Content Include="Views\Products\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

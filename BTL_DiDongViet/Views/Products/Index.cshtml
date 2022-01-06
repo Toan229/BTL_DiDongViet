@@ -1,9 +1,7 @@
 ﻿
-@model PagedList.IPagedList<BTL_DiDongViet.Models.User>
+@model PagedList.IPagedList<BTL_DiDongViet.Models.Products>
 @using PagedList.Mvc;
 
-@using BTL_DiDongViet.Common;
-@using BTL_DiDongViet.Models;
 @{
     Layout = "~/Views/Shared/_Layout_Admin.cshtml";
 }
@@ -13,15 +11,11 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>List</title>
+    <title>Index</title>
 </head>
 <body>
-    @{
-        var admin = (Admin)Session[CommonConstants.ADMIN_SESSION];
-
-    }
-    <p style="margin: 10px;">
-        @Html.ActionLink("Tạo mới tài khoản người dùng", "Create")
+    <p>
+        @Html.ActionLink("Tạo mới sản phẩm", "Create")
     </p>
     @using (Html.BeginForm())
     {
@@ -31,41 +25,43 @@
             <input type="submit" value="Tìm" />
         </div>
     }
-
     <table class="table">
         <tr>
             <th>
-                Tên đăng nhập
+                Category
             </th>
             <th>
-                Mật khẩu
+                @Html.ActionLink("Tên sản phẩm", "Index", new { sortOrder = ViewBag.XepTheoTen })
             </th>
             <th>
-                Họ tên
+                Lưu trữ
             </th>
             <th>
-                Địa chỉ
+                @Html.ActionLink("Giá", "Index", new { sortOrder = ViewBag.XepTheoGia })
             </th>
             <th>
-                Email
+                Màu sắc
             </th>
             <th>
-                Số điện thoại
+                Giảm giá
             </th>
             <th>
-                Trạng thái
+                Số lượng có
             </th>
             <th>
-                @Html.ActionLink("Ngày tạo", "List", new { sortOrder = ViewBag.XepTheoNgayTao })
+                Ảnh
             </th>
             <th>
-                Người tạo
+                Mô tả
             </th>
             <th>
-                @Html.ActionLink("Ngày sửa", "List", new { sortOrder = ViewBag.XepTheoNgay })
+                Phụ kiện
             </th>
             <th>
-                Người chỉnh sửa
+                Bảo hành
+            </th>
+            <th>
+                Số lượng mua
             </th>
             <th></th>
         </tr>
@@ -74,42 +70,44 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Username)
+                    @Html.DisplayFor(modelItem => item.ProductCategory.Name)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Password)
+                    @Html.DisplayFor(modelItem => item.ProductName)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Name)
+                    @Html.DisplayFor(modelItem => item.Storage)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Address)
+                    @Html.DisplayFor(modelItem => item.Price)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Email)
+                    @Html.DisplayFor(modelItem => item.Color)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Phone)
+                    @Html.DisplayFor(modelItem => item.Sale)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Status) 
+                    @Html.DisplayFor(modelItem => item.Quantity)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.CreatedDate)
+                    <img src="~/assets/img/ProductsImage/@item.Image" style="width:100px;" />
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.CreateBy)
+                    @Html.DisplayFor(modelItem => item.Description)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.ModifiedDate)
+                    @Html.DisplayFor(modelItem => item.Sets)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.ModifiedBy)
+                    @Html.DisplayFor(modelItem => item.Insurance)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NumberOfPurchases)
                 </td>
                 <td>
                     @Html.ActionLink("Sửa", "Edit", new { id = item.ID.ToString().Trim() })
                     @Html.ActionLink("Xóa", "Delete", new { id = item.ID.ToString().Trim() })
-
                 </td>
             </tr>
         }
@@ -117,7 +115,6 @@
     </table>
     <br />
     Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
-    @Html.PagedListPager(Model, page => Url.Action("List", new { page }))
-
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
 </body>
 </html>

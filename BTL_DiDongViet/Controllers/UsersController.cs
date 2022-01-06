@@ -9,7 +9,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using PagedList.Mvc;
+using PagedList;
 
 namespace BTL_DiDongViet.Controllers
 {
@@ -119,7 +119,7 @@ namespace BTL_DiDongViet.Controllers
             }
             ViewBag.CurrentFilter = searchString;
             var users = db.User.Select(user => user);
-            if (string.IsNullOrEmpty(searchString))
+            if (!string.IsNullOrEmpty(searchString))
             {
                 users = users.Where(u => u.Username.Contains(searchString));
             }
@@ -140,7 +140,7 @@ namespace BTL_DiDongViet.Controllers
             }
             int pageSize = 5;
             int pageNumber = (page ?? 1);
-            return View();
+            return View(users.ToPagedList(pageNumber, pageSize));
         }
 
         public ActionResult LoginIndex()

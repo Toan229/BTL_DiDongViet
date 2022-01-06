@@ -20,6 +20,7 @@
         [Required(ErrorMessage = "Tài khoản trống")]
         [StringLength(50)]
         [Display(Name = "Tài khoản")]
+        [Key]
         public string Username { get; set; }
         [Required(ErrorMessage = "Mật khẩu trống")]
         [StringLength(32)]

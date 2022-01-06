@@ -49,6 +49,9 @@ namespace BTL_DiDongViet.Controllers
             if(Session[CommonConstants.CLIENT_SESSION] != null)
             {
                 var user = (UserLogin)Session[CommonConstants.CLIENT_SESSION];
+                var order = db.Order.ToList().Find(o => o.UserID == user.UserID);
+                db.OrderDetail.ToList().RemoveAll(o => o.OrderID == order.ID);
+                db.SaveChanges();
             }
             return RedirectToAction("Home", "Category");
         }
