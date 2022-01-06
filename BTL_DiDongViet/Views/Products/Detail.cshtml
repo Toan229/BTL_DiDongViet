@@ -114,23 +114,23 @@
         <!-- FeedBack End-->
     </div>
 
-    @foreach(var item in ListFB)
+    @foreach (var item in ListFB)
     {
-        
-<div class="product-wrapper-left feedback-container"
-     style="display: flex; flex-direction: column; line-height: 26px;">
-    <!-- FeedBack Begin-->
-    <header>
-        <i class="fas fa-user" style="margin-right: 8px;"></i>@item.UserName
-    </header>
 
-    <div>@item.FBContent</div>
-    <div style="color:#ccc;">@item.CreatedDate</div>
-    <!-- FeedBack End-->
-</div>
+        <div class="product-wrapper-left feedback-container"
+             style="display: flex; flex-direction: column; line-height: 26px;">
+            <!-- FeedBack Begin-->
+            <header>
+                <i class="fas fa-user" style="margin-right: 8px;"></i>@item.UserName
+            </header>
+
+            <div>@item.FBContent</div>
+            <div style="color:#ccc;">@item.CreatedDate</div>
+            <!-- FeedBack End-->
+        </div>
 
     }
-<div id="root"></div>
-    
+    <div id="root"></div>
+
     <!-- Product End-->
 </div>
