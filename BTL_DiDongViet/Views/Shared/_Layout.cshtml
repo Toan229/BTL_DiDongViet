@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Di Động Việt</title>
-    <link rel="stylesheet" href="@Url.Content("~/assets/css/base.css")"  />
+    <link rel="stylesheet" href="@Url.Content("~/assets/css/base.css")" />
     <link rel="stylesheet" href="@Url.Content("~/assets/css/main.css")" />
     <link href="~/assets/js/jquery-ui/themes/smoothness/jquery-ui.min.css" rel="stylesheet" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
@@ -48,25 +48,31 @@
                             Liên Hệ
                         </a>
                     </li>
-                    <li class="navbar-list__item">
-                        <i class="fas fa-user"></i>
-                        @if (ViewBag.User != null)
-                        {
-                            <a href="/sign_up.html" class="navbar-list__link">@ViewBag.User</a>
-                        }
-                        else
-                        {
-                            <a href="/sign_up.html" class="navbar-list__link">Đăng nhập</a>
-                        }
+                    @{
+                        var session = (BTL_DiDongViet.Common.UserLogin)Session[BTL_DiDongViet.Common.CommonConstants.CLIENT_SESSION];
+                    }
+                    @if (session == null)
+                    {
+                        <li class="navbar-list__item">
 
-                        <!--    <a href="" class="navbar-list__link">Username</a>
-    </li>
-    <li class="navbar-list__item">
-        <i class="fas fa-sign-out-alt"></i>
-        <a href="/Users/Logout" class="navbar-list__link">Đăng xuất</a>
-    </li>
-    <li class="navbar-list__item"> <a href="/log_in.html" class="navbar-list__link">Đăng nhập</a> </li> -->
-</ul>
+                            <a href="/Users/LoginIndex" class="navbar-list__link">Đăng nhập</a>
+                            <a href="/Users/RegisterIndex" class="navbar-list__link">Đăng ký</a>
+                        </li>
+
+                    }
+                    @if (session != null)
+                    {
+                        <li class="navbar-list__item">
+                            <i class="fas fa-user"></i>
+                            <a id="userName" href="/Users/EditIndex" class="navbar-list__link">@session.Name</a>
+
+                        </li>
+                        <li class="navbar-list__item">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <a href="/Users/Logout" class="navbar-list__link">Đăng xuất</a>
+                        </li>
+                    }
+                </ul>
             </nav>
         </div>
         <div class="grid">
@@ -90,16 +96,16 @@
                             </div>
                         </button>
                     </form>
-                  
-                        <!-- Search Btn End -->
-                    </div>
+
+                    <!-- Search Btn End -->
+                </div>
                 <!-- Search Bar End -->
                 <!-- Cart Begin -->
                 <div class="cart-wrapper">
                     <div class="cart">
                         <a href="cart.html" style="text-decoration: none">
                             <i class="fas fa-shopping-cart" style="font-size: 24px; color: white;"></i>
-                            <div class="shopee-cart-number-badge">1</div>
+                            <!--    <div class="shopee-cart-number-badge"></div> -->
                         </a>
                     </div>
                 </div>
@@ -138,8 +144,9 @@
                     <div class="right">
                         <div class="wrapper">
                             <span>
-                                <a href="/News/Display" style="text-decoration: none;">Tin tức
-                                    </a>
+                                <a href="/News/Display" style="text-decoration: none;">
+                                    Tin tức
+                                </a>
                             </span>
                         </div>
                         <div class="wrapper">
@@ -236,11 +243,10 @@
                 <img src="assets/img/footer.png" alt="">
             </div>
         </footer>
-<<<<<<< HEAD
-=======
+
         <script src="@Url.Content("~/assets/js/base.js")" defer="defer"></script>
         <script src="~/assets/js/jquery-ui/jquery-ui.min.js"></script>
->>>>>>> origin/dang_nhap
+
     </div>
 </body>
 </html>
