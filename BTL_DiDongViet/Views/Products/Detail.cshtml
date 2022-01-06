@@ -36,9 +36,10 @@
     <!-- Welcome Package End -->
     <!-- Nav Tag Begin -->
     <div>
-        <a href="index_user.html" class="nav-link nav-arrow">Trang chủ</a>
+        <a href="/Category/Home" class="nav-link nav-arrow">Trang chủ</a>
+
         @if (Model.CategoryID == 2)
-        {<a href="apple_category.html" class="nav-link nav-arrow">Apple Iphone</a>}
+        {<a href="/Category/Category?name=Apple%20Iphone" class="nav-link nav-arrow">Apple Iphone</a>}
         else
         { <a href="apple_category.html" class="nav-link nav-arrow">Điện thoại</a>}
         <a class="nav-link">@Model.ProductName</a>
