@@ -47,7 +47,7 @@
                                     <div class="number">@pQuantity.Quantity</div>
                                     <a onclick="clickAlert(this, '+'); return false;" href="@Url.Action("ChinhSuaSoLuong", "OrderDetail", new { @productID = item.ID, @act = "add" })" class="inc">+</a>
                                 </div>
-                                <div class="products-delete">@Html.ActionLink("Xóa", "XoaGiohang", new { @ProductID = item.ID }, new { @style = "text-decoration:none; color: red;" })</div>
+                                <div class="products-delete"><a href="@Url.Action("XoaGioHang", "OrderDetail", new { productID = item.ID })">Xóa</a></div>
 
                             </div>
                         </div>

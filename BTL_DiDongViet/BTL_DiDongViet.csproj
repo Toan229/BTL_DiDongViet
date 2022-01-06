@@ -136,13 +136,14 @@
     <Compile Include="Common\CommonConstants.cs" />
     <Compile Include="Common\Encryptor.cs" />
     <Compile Include="Common\UserLogin.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
-    <Compile Include="Controllers\FeedbackController.cs" />
     <Compile Include="Controllers\InformationController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\OrderDetailController.cs" />
     <Compile Include="Controllers\OrdersController.cs" />
+    <Compile Include="Controllers\Users1Controller.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -173,6 +174,7 @@
     <Content Include="assets\css\base.css" />
     <Content Include="assets\css\main.css" />
     <Content Include="assets\css\sign_up.css" />
+    <Content Include="assets\css\Style.css" />
     <Content Include="assets\img\appgalery.png" />
     <Content Include="assets\img\appstore.png" />
     <Content Include="assets\img\bannerDIong.png" />
@@ -2385,11 +2387,6 @@
     <Content Include="Views\Information\Contact.cshtml" />
     <Content Include="Views\Information\Policy.cshtml" />
     <Content Include="Views\News\News.cshtml" />
-    <Content Include="Views\Users\Create.cshtml" />
-    <Content Include="Views\Users\Delete.cshtml" />
-    <Content Include="Views\Users\Details.cshtml" />
-    <Content Include="Views\Users\Edit.cshtml" />
-    <Content Include="Views\Users\Index.cshtml" />
     <Content Include="Views\Category\Home.cshtml" />
     <Content Include="Views\Orders\CartCommit.cshtml" />
     <Content Include="Views\OrderDetail\Cart.cshtml" />
@@ -2402,10 +2399,20 @@
     <Content Include="Views\Users\Search.cshtml" />
     <Content Include="Views\Products\Detail.cshtml" />
     <Content Include="Views\Category\Category.cshtml" />
+    <Content Include="Views\Admin\Login.cshtml" />
+    <Content Include="Views\Shared\_Layout_Admin.cshtml" />
+    <Content Include="Views\Users\List.cshtml" />
+    <Content Include="Views\Users\Edit.cshtml" />
+    <Content Include="Views\Users\Create.cshtml" />
+    <Content Include="Views\Users1\Create.cshtml" />
+    <Content Include="Views\Users1\Delete.cshtml" />
+    <Content Include="Views\Users1\Details.cshtml" />
+    <Content Include="Views\Users1\Edit.cshtml" />
+    <Content Include="Views\Users1\Index.cshtml" />
+    <Content Include="Views\Users\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Feedback\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

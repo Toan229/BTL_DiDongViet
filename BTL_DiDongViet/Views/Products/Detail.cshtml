@@ -76,10 +76,14 @@
         <header>
             Feedback về sản phẩm
         </header>
-        <div style="width: 100%;">
-            <textarea onclick="" name="detail" class="field-required" placeholder="Hãy thêm đánh giá về sản phẩm..." id="review_field" cols="5" rows="3" data-validate="{required:true}"></textarea>
-            <button class="product-dathang fb-button">Gửi nhận xét</button>
-        </div>
+        @using (Html.BeginForm("AddFeedback", "Products", new { id = Model.ID }))
+        {
+            <div style="width: 400px;">
+                <textarea onclick="" name="feedback" class="field-required" placeholder="Hãy thêm đánh giá về sản phẩm..." id="review_field" cols="5" rows="3" data-validate="{required:true}"></textarea>
+                <input class="product-dathang fb-button"  style="width:120px;" type="submit" value="Gửi nhận xét"/>
+            </div>
+        }
+
         <!-- FeedBack End-->
     </div>
 

@@ -12,5 +12,7 @@ namespace BTL_DiDongViet.Common
         public static string CLIENT_SESSION = "CLIENT_SESSION";
 
         public static string CartSession = "CartSession";
+
+        public static string ADMIN_SESSION = "ADMIN_SESSION";
     }
 }

@@ -54,7 +54,7 @@
                         var user = (UserLogin)(Session[CommonConstants.CLIENT_SESSION]);
                         <li class="navbar-list__item">
                             <i class="fas fa-user"></i>
-                            <a href="/sign_up.html" class="navbar-list__link">@user.Name</a>
+                            <a href="" class="navbar-list__link">@user.Name</a>
                         </li>
                         <li class="navbar-list__item">
                             <i class="fas fa-sign-out-alt"></i>
@@ -103,7 +103,6 @@
                     <div class="cart">
                         <a href="@Url.Action("Cart", "OrderDetail")" style="text-decoration: none">
                             <i class="fas fa-shopping-cart" style="font-size: 24px; color: white;"></i>
-                            <div class="shopee-cart-number-badge">1</div>
                         </a>
                     </div>
                 </div>

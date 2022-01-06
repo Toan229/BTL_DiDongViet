@@ -39,20 +39,34 @@ namespace BTL_DiDongViet.Controllers
             }
             return RedirectToAction("LoginIndex", "Users");
         }
-        public ActionResult XoaGiohang(int ProductID)
+        public ActionResult XoaGioHang(int? productID)
         {
-            var order = db.Order.ToList().Find(o => o.UserID == 1);
-            List<OrderDetail> orderDetail = db.OrderDetail.ToList().FindAll(o => o.OrderID == order.ID);
-            if (orderDetail != null)
+            var user = (UserLogin)Session[CommonConstants.CLIENT_SESSION];
+            if(user != null)
             {
-                orderDetail.RemoveAll(n => n.ProductID == ProductID);
-                return RedirectToAction("OrderDetail");
+                if (productID != null)
+                {
+                    var order = db.Order.ToList().Find(o => o.UserID == user.UserID);
+                    List<OrderDetail> orderDetail = db.OrderDetail.ToList().FindAll(o => o.OrderID == order.ID);
+                    if (orderDetail != null)
+                    {
+                        orderDetail.RemoveAll(n => n.ProductID != productID);
+                        foreach(var item in orderDetail)
+                        {
+                            db.OrderDetail.Remove(item);
+                        }
+                        db.SaveChanges();
+                        return RedirectToAction("Cart");
+                    }
+                    if (orderDetail.Count == 0)
+                    {
+                        return RedirectToAction("Index", "Product");
+                    }
+                }
+
+                return RedirectToAction("Cart");
             }
-            if (orderDetail.Count == 0)
-            {
-                return RedirectToAction("Index", "Product");
-            }
-            return RedirectToAction("Cart");
+            return RedirectToAction("LoginIndex", "Users");
         }
 
         public ActionResult ChinhSuaSoLuong(int? productID, string act = "default")
@@ -72,6 +86,10 @@ namespace BTL_DiDongViet.Controllers
                 else
                 {
                     db.OrderDetail.ToList().Find(o => o.OrderID == order.ID && o.ProductID == productID).Quantity--;
+                    if (db.OrderDetail.ToList().Find(o => o.OrderID == order.ID && o.ProductID == productID).Quantity == 0)
+                    {
+                        XoaGioHang((int)productID);
+                    }
                 }
                 db.SaveChanges();
                 return RedirectToAction("Cart");

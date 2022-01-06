@@ -9,8 +9,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using System.Diagnostics;
-using System.Numerics;
+using PagedList.Mvc;
 
 namespace BTL_DiDongViet.Controllers
 {
@@ -19,8 +18,128 @@ namespace BTL_DiDongViet.Controllers
         public DBDiDongViet db = new DBDiDongViet();
 
         // GET: Users/Create
+        // GET: Users1/Create
         public ActionResult Create()
         {
+            return View();
+        }
+
+        // POST: Users1/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create([Bind(Include = "ID,Username,Password,Name,Address,Email,Phone,Status,CreatedDate,CreateBy,ModifiedDate,ModifiedBy")] User user)
+        {
+            if (ModelState.IsValid)
+            {
+                db.User.Add(user);
+                db.SaveChanges();
+                return RedirectToAction("List");
+            }
+
+            return View(user);
+        }
+        public ActionResult Edit(long? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            User user = db.User.Find(id);
+            if (user == null)
+            {
+                return HttpNotFound();
+            }
+            return View(user);
+        }
+
+        // POST: Users1/Edit/5
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit([Bind(Include = "ID,Username,Password,Name,Address,Email,Phone,Status,CreatedDate,CreateBy,ModifiedDate,ModifiedBy")] User user)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(user).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("List");
+            }
+            return View(user);
+        }
+
+        // GET: Users1/Delete/5
+        public ActionResult Delete(long? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            User user = db.User.Find(id);
+            if (user == null)
+            {
+                return HttpNotFound();
+            }
+            return View(user);
+        }
+
+        // POST: Users1/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(long id)
+        {
+            User user = db.User.Find(id);
+            db.User.Remove(user);
+            db.SaveChanges();
+            return RedirectToAction("List");
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                db.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+        public ActionResult List(string sortOrder, string searchString, string currentFilter,int? page)
+        {
+            ViewBag.CurentSort = sortOrder;
+            ViewBag.XepTheoNgayTao = string.IsNullOrEmpty(sortOrder) ? "ngay_tao_desc" : "";
+            ViewBag.XepTheoNgay = sortOrder == "ngay" ? "ngay_desc" : "ngay";
+            if (searchString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+            ViewBag.CurrentFilter = searchString;
+            var users = db.User.Select(user => user);
+            if (string.IsNullOrEmpty(searchString))
+            {
+                users = users.Where(u => u.Username.Contains(searchString));
+            }
+            switch (sortOrder)
+            {
+                case "ngay_tao_desc":
+                    users = users.OrderByDescending(s => s.CreatedDate);
+                    break;
+                case "ngay":
+                    users = users.OrderBy(s => s.ModifiedDate);
+                    break;
+                case "ngay_desc":
+                    users = users.OrderByDescending(s => s.ModifiedDate);
+                    break;
+                default:
+                    users = users.OrderBy(s => s.CreatedDate);
+                    break;
+            }
+            int pageSize = 5;
+            int pageNumber = (page ?? 1);
             return View();
         }
 
@@ -108,29 +227,6 @@ namespace BTL_DiDongViet.Controllers
         }
 
 
-
-
-
-        // POST: Users/Create
-        // Để bảo vệ khỏi overposting attacks, phải chỉ định các thuộc tính cụ thể 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        /*
-        public ActionResult Create2([Bind(Include = "Username,Password,Name,Address,Email,Phone")] User user)
-        {
-            if (ModelState.IsValid)
-            {
-                user.Status = false;
-                user.ModifiedDate = DateTime.Now;
-                user.ModifiedBy = user.ID.ToString();
-                db.Users.Add(user);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-
-            return View(user);
-        }
-        */
         public ActionResult Register([Bind(Include = "ID,Username,Password,Name,Address,Email,Phone,Status,CreatedDate,CreateBy,ModifliedDate,ModifliedBy")] RegisterModel model)
         {
             if (ModelState.IsValid)
@@ -204,94 +300,5 @@ namespace BTL_DiDongViet.Controllers
             return RedirectToAction("LoginIndex");
         }
 
-
-
-        /*
-                // GET: Users
-                public ActionResult Index()
-                {
-                    return View(db.Users.ToList());
-                }
-
-                // GET: Users/Details/5
-                public ActionResult Details(long? id)
-                {
-                    if (id == null)
-                    {
-                        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-                    }
-                    User user = db.Users.Find(id);
-                    if (user == null)
-                    {
-                        return HttpNotFound();
-                    }
-                    return View(user);
-                }
-
-                // GET: Users/Edit/5
-                public ActionResult Edit(long? id)
-                {
-                    if (id == null)
-                    {
-                        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-                    }
-                    User user = db.Users.Find(id);
-                    if (user == null)
-                    {
-                        return HttpNotFound();
-                    }
-                    return View(user);
-                }
-
-                // POST: Users/Edit/5
-                // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-                // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-                [HttpPost]
-                [ValidateAntiForgeryToken]
-                public ActionResult Edit([Bind(Include = "ID,Username,Password,Name,Address,Email,Phone,Status,CreatedDate,CreateBy,ModifiedDate,ModifiedBy")] User user)
-                {
-                    if (ModelState.IsValid)
-                    {
-                        db.Entry(user).State = EntityState.Modified;
-                        db.SaveChanges();
-                        return RedirectToAction("Index");
-                    }
-                    return View(user);
-                }
-
-                // GET: Users/Delete/5
-                public ActionResult Delete(long? id)
-                {
-                    if (id == null)
-                    {
-                        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-                    }
-                    User user = db.Users.Find(id);
-                    if (user == null)
-                    {
-                        return HttpNotFound();
-                    }
-                    return View(user);
-                }
-
-                // POST: Users/Delete/5
-                [HttpPost, ActionName("Delete")]
-                [ValidateAntiForgeryToken]
-                public ActionResult DeleteConfirmed(long id)
-                {
-                    User user = db.Users.Find(id);
-                    db.Users.Remove(user);
-                    db.SaveChanges();
-                    return RedirectToAction("Index");
-                }
-
-                protected override void Dispose(bool disposing)
-                {
-                    if (disposing)
-                    {
-                        db.Dispose();
-                    }
-                    base.Dispose(disposing);
-                }*/
     }
 }
